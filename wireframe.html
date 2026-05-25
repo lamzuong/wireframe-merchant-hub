@@ -6103,7 +6103,7 @@
         --ov-leaf: #245842;
         --ov-sage: #dce7d6;
         --ov-sage-deep: #b8cdb2;
-        --ov-cream: #fdf9ef;
+        --ov-cream: #ffffff;
         --ov-paper: #f7f1e3;
         --ov-clay: #245842;
         --ov-clay-soft: #f4e1d6;
@@ -6335,12 +6335,12 @@
 
       /* --- Calendar --- */
       section[data-frame="tables"] .cal {
-        background: var(--ov-cream);
+        background: #ffffff;
         border: 1px solid var(--ov-rule);
         border-radius: 18px;
       }
       section[data-frame="tables"] .cal-hd {
-        background: var(--ov-paper);
+        background: #ffffff;
         border-bottom-color: var(--ov-rule);
         font-family: "Outfit", sans-serif;
         font-weight: 700;
@@ -6643,7 +6643,7 @@
         --ov-leaf: #245842;
         --ov-sage: #dce7d6;
         --ov-sage-deep: #b8cdb2;
-        --ov-cream: #fdf9ef;
+        --ov-cream: #ffffff;
         --ov-paper: #f7f1e3;
         --ov-clay: #245842;
         --ov-clay-soft: #f4e1d6;
@@ -7114,7 +7114,7 @@
         --ov-leaf: #245842;
         --ov-sage: #dce7d6;
         --ov-sage-deep: #b8cdb2;
-        --ov-cream: #fdf9ef;
+        --ov-cream: #ffffff;
         --ov-paper: #f7f1e3;
         --ov-clay: #245842;
         --ov-clay-soft: #f4e1d6;
@@ -15441,6 +15441,397 @@
         font-family: "Outfit";
         font-weight: 700;
       }
+
+      /* ============================================================
+         STAFF · Editorial "The Crew Sheet" redesign
+         White canvas, forest/leaf/honey/clay accents.
+         Table styling mirrors the Customers Ledger.
+         ============================================================ */
+      section[data-frame="staff"] {
+        --ov-forest: #1b4332;
+        --ov-leaf: #245842;
+        --ov-leaf-soft: #cfe0d3;
+        --ov-sage: #dce7d6;
+        --ov-sage-deep: #b8cdb2;
+        --ov-paper: #f4ecd6;
+        --ov-clay: #9a4530;
+        --ov-clay-soft: #f4e1d6;
+        --ov-honey: #c8901a;
+        --ov-honey-soft: #f9e8c2;
+        --ov-rule: #e8dfca;
+        --ov-ink: #1f2a24;
+        --ov-ink-soft: #6b6357;
+        background:
+          radial-gradient(1200px 500px at 100% -10%, rgba(200,144,26,.05), transparent 60%),
+          radial-gradient(900px 500px at -5% 100%, rgba(27,67,50,.05), transparent 55%),
+          #ffffff;
+      }
+      section[data-frame="staff"] .svc-header {
+        position: relative;
+        padding: 26px 28px 22px;
+        background: #ffffff;
+        border: 1px solid var(--ov-rule);
+        border-radius: 20px;
+        box-shadow: 0 18px 40px -28px rgba(31,42,36,.18);
+        margin-bottom: 18px;
+        overflow: hidden;
+      }
+      section[data-frame="staff"] .svc-header::before {
+        content: "";
+        position: absolute; top: 0; left: 0; right: 0; height: 5px;
+        background: linear-gradient(90deg, var(--ov-forest), var(--ov-leaf) 35%, var(--ov-honey) 70%, var(--ov-clay));
+      }
+      section[data-frame="staff"] .svc-header::after {
+        content: "THE CREW SHEET · NO. 04";
+        position: absolute; top: 18px; right: 24px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px; letter-spacing: 0.22em;
+        color: var(--ov-honey);
+      }
+      section[data-frame="staff"] .svc-title { display: flex; align-items: flex-start; gap: 18px; }
+      section[data-frame="staff"] .svc-title .ic {
+        width: 56px; height: 56px; border-radius: 14px;
+        background: var(--ov-sage) !important; color: var(--ov-forest) !important;
+        font-size: 26px; display: grid; place-items: center; position: relative;
+      }
+      section[data-frame="staff"] .svc-title .ic::after {
+        content: ""; position: absolute; inset: -5px;
+        border: 1px dashed var(--ov-sage-deep); border-radius: 18px;
+      }
+      section[data-frame="staff"] .svc-title h1 {
+        font-family: "Outfit", sans-serif; font-size: 42px; font-weight: 800;
+        letter-spacing: -0.02em; color: var(--ov-forest); line-height: 1;
+        margin-bottom: 6px;
+      }
+      section[data-frame="staff"] .svc-title h1::before {
+        content: "Backstage Ledger · Vol. I — "; display: block;
+        font-family: "JetBrains Mono", monospace; font-size: 10px;
+        letter-spacing: 0.2em; color: var(--ov-clay);
+        text-transform: uppercase; font-weight: 500; margin-bottom: 8px;
+      }
+      section[data-frame="staff"] .svc-meta {
+        font-family: "Quicksand", sans-serif; font-size: 13px;
+        color: var(--ov-ink-soft); line-height: 1.6;
+      }
+
+      section[data-frame="staff"] .tabs {
+        margin-top: 18px; padding: 10px 0;
+        border-top: 1px solid var(--ov-rule);
+        border-bottom: 1px solid var(--ov-rule);
+        background: transparent; gap: 4px;
+        display: flex; flex-wrap: wrap;
+      }
+      section[data-frame="staff"] .tab {
+        font-family: "Outfit", sans-serif; font-size: 12px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        padding: 8px 14px; border-radius: 8px;
+        color: var(--ov-ink-soft); background: transparent;
+        border: 1px solid transparent; cursor: pointer;
+      }
+      section[data-frame="staff"] .tab:hover:not(.active) {
+        color: var(--ov-leaf); background: var(--ov-sage);
+      }
+      section[data-frame="staff"] .tab.active {
+        background: var(--ov-forest); color: #fff; border-color: var(--ov-forest);
+      }
+
+      section[data-frame="staff"] .tn-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;
+      }
+      section[data-frame="staff"] .tn-card {
+        background: #fff; border: 1px solid var(--ov-rule);
+        border-radius: 14px; padding: 16px 18px;
+        position: relative; overflow: hidden;
+      }
+      section[data-frame="staff"] .tn-card::before {
+        content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+        width: 4px; background: var(--ov-leaf);
+      }
+      section[data-frame="staff"] .tn-card:nth-child(2)::before { background: var(--ov-honey); }
+      section[data-frame="staff"] .tn-card:nth-child(3)::before { background: var(--ov-clay); }
+      section[data-frame="staff"] .tn-card .lbl {
+        font-family: "JetBrains Mono", monospace; font-size: 9.5px;
+        letter-spacing: 0.18em; text-transform: uppercase;
+        color: var(--ov-ink-soft); margin-bottom: 6px;
+      }
+      section[data-frame="staff"] .tn-card .val {
+        font-family: "Outfit", sans-serif; font-weight: 800;
+        font-size: 28px; line-height: 1; color: var(--ov-forest) !important;
+      }
+      section[data-frame="staff"] .tn-card .val[style*="#2e8466"] { color: var(--ov-leaf) !important; }
+      section[data-frame="staff"] .tn-card .val[style*="#a07517"] { color: var(--ov-honey) !important; }
+
+      section[data-frame="staff"] .menu-toolbar {
+        margin: 18px 0 14px; padding: 12px 14px;
+        background: #fff; border: 1px solid var(--ov-rule); border-radius: 14px; gap: 8px;
+      }
+      section[data-frame="staff"] .bk-search {
+        background: var(--ov-sage); border: 1px solid var(--ov-sage-deep);
+        border-radius: 10px; padding: 6px 12px;
+      }
+      section[data-frame="staff"] .filter-chip {
+        font-family: "JetBrains Mono", monospace; font-size: 10.5px;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        padding: 6px 12px; border-radius: 8px;
+        background: #fff; border: 1px solid var(--ov-rule); color: var(--ov-ink-soft);
+      }
+      section[data-frame="staff"] .filter-chip.active {
+        background: var(--ov-forest); color: #fff; border-color: var(--ov-forest);
+      }
+      section[data-frame="staff"] .btn.primary {
+        background: var(--ov-clay); color: #fff; border-color: var(--ov-clay);
+        font-family: "Outfit"; font-weight: 700; letter-spacing: 0.04em;
+      }
+      section[data-frame="staff"] .btn.primary:hover { background: #7e3621; }
+
+      /* --- Roster table — adapted from the Customers ledger ---- */
+      section[data-frame="staff"] .bk-table {
+        background: #ffffff;
+        border: 1px solid var(--ov-rule);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      section[data-frame="staff"] .bk-row {
+        padding: 14px 18px;
+        border-bottom: 1px dashed var(--ov-rule);
+        transition: background 0.15s ease;
+      }
+      section[data-frame="staff"] .bk-row:last-child { border-bottom: 0; }
+      section[data-frame="staff"] .bk-row.hd {
+        background: #fffdf6;
+        font-family: "Outfit", sans-serif;
+        font-weight: 800;
+        color: var(--ov-leaf);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 10px;
+        padding: 12px 18px;
+        border-bottom: 1px solid var(--ov-rule);
+      }
+      section[data-frame="staff"] .bk-row.hd:hover { background: #fffdf6; }
+      section[data-frame="staff"] .bk-row:hover:not(.hd) { background: #fffdf6; }
+      section[data-frame="staff"] .bk-av {
+        width: 38px; height: 38px;
+        border-radius: 50%;
+        font-family: "Outfit", sans-serif;
+        font-weight: 800; font-size: 13px;
+        color: #fff;
+        display: grid; place-items: center;
+        background: var(--ov-forest) !important;
+      }
+      section[data-frame="staff"] .bk-av[style*="--accent"] { background: var(--ov-forest) !important; }
+      section[data-frame="staff"] .bk-av[style*="--mint"]   { background: var(--ov-forest) !important; }
+      section[data-frame="staff"] .bk-av[style*="--plum"]   { background: var(--ov-leaf) !important; }
+      section[data-frame="staff"] .bk-av[style*="--sun"]    { background: var(--ov-honey) !important; }
+      section[data-frame="staff"] .bk-av[style*="--sky"]    { background: var(--ov-clay) !important; }
+      section[data-frame="staff"] .bk-av[style*="1f8466"]   { background: var(--ov-leaf) !important; }
+      section[data-frame="staff"] .bk-av[style*="--muted"],
+      section[data-frame="staff"] .bk-av[style*="--surface-2"] {
+        background: var(--ov-sage-deep) !important;
+        color: #fffdf6 !important;
+      }
+      section[data-frame="staff"] .bk-customer {
+        font-family: "Outfit", sans-serif; font-weight: 700;
+        font-size: 14px; color: var(--ov-forest);
+        letter-spacing: -0.005em;
+      }
+      section[data-frame="staff"] .bk-phone {
+        font-size: 11.5px; color: var(--ov-ink-soft);
+        font-family: "Quicksand", sans-serif; margin-top: 1px;
+      }
+      section[data-frame="staff"] .bk-phone[style*="#2e8466"] {
+        color: var(--ov-leaf) !important;
+      }
+      section[data-frame="staff"] .bk-row strong {
+        font-family: "Outfit", sans-serif; font-weight: 800;
+        color: var(--ov-forest); font-size: 15px; letter-spacing: -0.01em;
+      }
+
+      /* Role chips inside the roster */
+      section[data-frame="staff"] .bk-source-chip {
+        font-family: "Outfit", sans-serif;
+        font-size: 10.5px; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        padding: 4px 10px; border-radius: 6px;
+        border: 1px solid transparent;
+      }
+      section[data-frame="staff"] .bk-source-chip[style*="--accent-soft"] {
+        background: var(--ov-forest) !important; color: #fff !important;
+      }
+      section[data-frame="staff"] .bk-source-chip[style*="--sky-soft"] {
+        background: var(--ov-leaf-soft) !important; color: var(--ov-forest) !important;
+        border-color: var(--ov-leaf);
+      }
+      section[data-frame="staff"] .bk-source-chip[style*="--mint-soft"] {
+        background: var(--ov-sage) !important; color: var(--ov-leaf) !important;
+        border-color: var(--ov-sage-deep);
+      }
+      section[data-frame="staff"] .bk-source-chip[style*="--sun-soft"] {
+        background: var(--ov-honey-soft) !important; color: #8a5f10 !important;
+        border-color: var(--ov-honey);
+      }
+      section[data-frame="staff"] .bk-source-chip[style*="--surface-2"] {
+        background: #fff !important; color: var(--ov-ink-soft) !important;
+        border: 1px dashed var(--ov-rule) !important;
+      }
+
+      section[data-frame="staff"] .bk-status {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+      }
+      section[data-frame="staff"] .bk-status.bk-confirmed { color: var(--ov-leaf); }
+      section[data-frame="staff"] .bk-status.bk-pending   { color: var(--ov-honey); }
+      section[data-frame="staff"] .bk-status.bk-cancelled { color: var(--ov-clay); }
+
+      /* Schedules */
+      section[data-frame="staff"] .sched {
+        background: #fff; border: 1px solid var(--ov-rule);
+        border-radius: 18px; overflow: hidden;
+      }
+      section[data-frame="staff"] .sched-row {
+        padding: 12px 14px; border-bottom: 1px dashed var(--ov-rule);
+      }
+      section[data-frame="staff"] .sched-row:last-child { border-bottom: 0; }
+      section[data-frame="staff"] .sched-row.hd {
+        background: #fffdf6;
+        font-family: "Outfit", sans-serif; font-weight: 800;
+        font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ov-leaf); border-bottom: 1px solid var(--ov-rule);
+      }
+      section[data-frame="staff"] .sched-row .name {
+        font-family: "Outfit", sans-serif; font-weight: 700;
+        font-size: 14px; color: var(--ov-forest);
+      }
+      section[data-frame="staff"] .sched-row .role {
+        font-family: "Quicksand", sans-serif; font-size: 11px; color: var(--ov-ink-soft);
+      }
+      section[data-frame="staff"] .sched-shift {
+        font-family: "JetBrains Mono", monospace; font-size: 11px;
+        font-weight: 500; letter-spacing: 0.04em;
+        padding: 6px 8px; border-radius: 6px; text-align: center;
+        background: var(--ov-leaf-soft); color: var(--ov-forest);
+        border: 1px solid transparent;
+      }
+      section[data-frame="staff"] .sched-shift.off {
+        background: #fff; color: var(--ov-ink-soft);
+        border: 1px dashed var(--ov-rule);
+      }
+      section[data-frame="staff"] .sched-shift.eve {
+        background: var(--ov-honey-soft); color: #8a5f10;
+      }
+      section[data-frame="staff"] .sched-shift.am {
+        background: var(--ov-sage); color: var(--ov-forest);
+      }
+      section[data-frame="staff"] .sched-shift.pm {
+        background: var(--ov-clay-soft); color: var(--ov-clay);
+      }
+      section[data-frame="staff"] .sched-shift.dbl {
+        background: var(--ov-forest); color: #fff;
+      }
+
+      /* RBAC */
+      section[data-frame="staff"] .rbac {
+        background: #fff; border: 1px solid var(--ov-rule);
+        border-radius: 18px; overflow: hidden;
+      }
+      section[data-frame="staff"] .rbac-row {
+        padding: 12px 14px; border-bottom: 1px dashed var(--ov-rule);
+      }
+      section[data-frame="staff"] .rbac-row:last-child { border-bottom: 0; }
+      section[data-frame="staff"] .rbac-row.hd {
+        background: #fffdf6;
+        font-family: "Outfit", sans-serif; font-weight: 800;
+        font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ov-leaf); border-bottom: 1px solid var(--ov-rule);
+      }
+      section[data-frame="staff"] .rbac-row .rl {
+        font-family: "Outfit", sans-serif; font-weight: 700;
+        font-size: 13.5px; color: var(--ov-forest); letter-spacing: 0.02em;
+      }
+      section[data-frame="staff"] .rbac-cell {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px; font-weight: 600;
+        letter-spacing: 0.1em; padding: 5px 8px;
+        border-radius: 5px; text-align: center; text-transform: uppercase;
+      }
+      section[data-frame="staff"] .rbac-cell.rbac-full {
+        background: var(--ov-forest); color: #fff;
+      }
+      section[data-frame="staff"] .rbac-cell.rbac-edit {
+        background: var(--ov-leaf-soft); color: var(--ov-forest);
+        border: 1px solid var(--ov-leaf);
+      }
+      section[data-frame="staff"] .rbac-cell.rbac-read {
+        background: var(--ov-honey-soft); color: #8a5f10;
+        border: 1px solid var(--ov-honey);
+      }
+      section[data-frame="staff"] .rbac-cell.rbac-none {
+        background: #fff; color: var(--ov-ink-soft);
+        border: 1px dashed var(--ov-rule);
+      }
+
+      /* Form cards (settings) */
+      section[data-frame="staff"] .form-card {
+        background: #fff; border: 1px solid var(--ov-rule);
+        border-radius: 16px; padding: 22px;
+        position: relative; overflow: hidden;
+      }
+      section[data-frame="staff"] .form-card::before {
+        content: ""; position: absolute; top: 0; left: 22px; right: 22px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--ov-sage-deep), transparent);
+      }
+      section[data-frame="staff"] .form-card h3 {
+        font-family: "Outfit", sans-serif; font-weight: 700;
+        font-size: 16px; color: var(--ov-forest); margin-bottom: 14px;
+        padding-bottom: 10px; border-bottom: 1px dashed var(--ov-rule);
+        letter-spacing: 0.01em;
+      }
+      section[data-frame="staff"] .toggle-row {
+        padding: 10px 0; border-bottom: 1px dashed var(--ov-rule);
+      }
+      section[data-frame="staff"] .toggle-row:last-child { border-bottom: 0; }
+      section[data-frame="staff"] .toggle-row .nm {
+        font-family: "Outfit", sans-serif; font-weight: 600;
+        font-size: 13.5px; color: var(--ov-forest);
+      }
+      section[data-frame="staff"] .toggle-row .h {
+        font-size: 12px; color: var(--ov-ink-soft); margin-top: 2px;
+      }
+      section[data-frame="staff"] .switch.on { background: var(--ov-leaf) !important; }
+      section[data-frame="staff"] .field label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--ov-clay);
+      }
+      section[data-frame="staff"] .field select,
+      section[data-frame="staff"] .field input {
+        border: 1px solid var(--ov-rule);
+        border-radius: 8px; background: #fff;
+        font-family: "Quicksand", sans-serif;
+      }
+      section[data-frame="staff"] .field select:focus,
+      section[data-frame="staff"] .field input:focus {
+        border-color: var(--ov-leaf); outline: 2px solid var(--ov-sage);
+      }
+      section[data-frame="staff"] .wf-note {
+        margin-top: 16px; padding: 10px 14px;
+        background: var(--ov-paper); border-left: 3px solid var(--ov-honey);
+        border-radius: 0 8px 8px 0;
+        font-family: "Quicksand", sans-serif; font-style: italic;
+        font-size: 12px; color: var(--ov-ink-soft);
+      }
+      section[data-frame="staff"] .wf-note::before {
+        content: "✎ Editor's mark — "; font-style: normal;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ov-clay); margin-right: 6px;
+      }
+      section[data-frame="staff"] .tab-pane > div h2,
+      section[data-frame="staff"] .tab-pane > div > div h2 {
+        font-family: "Outfit", sans-serif; font-weight: 800;
+        font-size: 26px; letter-spacing: -0.01em; color: var(--ov-forest);
+      }
     </style>
   </head>
   <body>
@@ -15703,7 +16094,7 @@
                     >
                   </div>
                   <div class="h">
-                    Held deposit ₫500k · via AI Concierge (Zalo) · 3 min ago
+                    Held deposit S$28 · via AI Concierge (Zalo) · 3 min ago
                   </div>
                 </div>
                 <div class="na-acts">
@@ -15722,7 +16113,7 @@
                   <div class="nm">
                     Confirm large order
                     <span class="meta"
-                      >· Tran Van Hung · ₫1.24M · pickup 18:00</span
+                      >· Tran Van Hung · S$69 · pickup 18:00</span
                     >
                   </div>
                   <div class="h">
@@ -15887,7 +16278,7 @@
                     <span class="ov-pill"
                       ><i class="fa-solid fa-bolt"></i> 4m 12s fire→ready</span
                     >
-                    <span class="ov-pill">Ticket avg ₫186k</span>
+                    <span class="ov-pill">Ticket avg S$10</span>
                   </div>
                 </div>
 
@@ -15999,7 +16390,7 @@
                 <h3>You don't have Delivery CMS yet.</h3>
                 <p>
                   Restaurants like yours unlock
-                  <strong>+₫4–7M / month</strong> when off-premise orders go
+                  <strong>+S$0.00–7M / month</strong> when off-premise orders go
                   live. Diners around District 3 already search your menu
                   daily — they just can't order yet.
                 </p>
@@ -16118,7 +16509,7 @@
                     </div>
                     <div>
                       <p class="tiny muted">Deposit held</p>
-                      <h2 style="font-family: 'Outfit'; font-weight: 800; font-size: 28px; letter-spacing: -0.02em; color: var(--ov-forest);">₫1.2M</h2>
+                      <h2 style="font-family: 'Outfit'; font-weight: 800; font-size: 28px; letter-spacing: -0.02em; color: var(--ov-forest);">S$67</h2>
                     </div>
                   </div>
                 </div>
@@ -16616,7 +17007,7 @@
                     seating could capture ~22 covers / week.
                   </p>
                   <span class="imp"
-                    ><i class="fa-solid fa-arrow-trend-up"></i> Est. +₫9.4M /
+                    ><i class="fa-solid fa-arrow-trend-up"></i> Est. +S$522 /
                     month</span
                   >
                   <div class="acts">
@@ -16649,14 +17040,14 @@
                     data-bk-view="timeline"
                     onclick="(function(){document.querySelectorAll('[data-bk-view]').forEach(t=>t.classList.toggle('active', t.dataset.bkView==='timeline'));document.querySelector('.tab-pane[data-pane=\'calendar\']').classList.add('active');document.querySelector('.tab-pane[data-pane=\'bookings\']').classList.remove('active');})()"
                   >
-                    📅 Timeline
+                    <i class="fa-regular fa-calendar-days"></i> Timeline
                   </div>
                   <div
                     class="tab"
                     data-bk-view="list"
                     onclick="(function(){document.querySelectorAll('[data-bk-view]').forEach(t=>t.classList.toggle('active', t.dataset.bkView==='list'));document.querySelector('.tab-pane[data-pane=\'calendar\']').classList.remove('active');document.querySelector('.tab-pane[data-pane=\'bookings\']').classList.add('active');})()"
                   >
-                    📋 List
+                    <i class="fa-solid fa-list"></i> List
                   </div>
                 </div>
                 <span
@@ -17553,7 +17944,7 @@
                   <div>
                     <span class="bk-status bk-confirmed">● Confirmed</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      VIP · deposit ₫500k held
+                      VIP · deposit S$28 held
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -17578,7 +17969,7 @@
                   <div>
                     <span class="bk-status bk-noshow">● No-show</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Fee applied · ₫200k
+                      Fee applied · S$11
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -18451,15 +18842,15 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div class="field">
                     <label>Deposit amount</label>
                     <select>
-                      <option>₫100k per person</option>
-                      <option>₫200k flat</option>
+                      <option>S$5.56 per person</option>
+                      <option>S$11 flat</option>
                       <option>50% of estimated bill</option>
                     </select>
                   </div>
                   <div class="field">
                     <label>No-show fee</label>
                     <select>
-                      <option>₫200k charged after 15 min grace</option>
+                      <option>S$11 charged after 15 min grace</option>
                       <option>Forfeit deposit only</option>
                       <option>No fee (track only)</option>
                     </select>
@@ -18497,11 +18888,11 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                       </div>
                       <div class="kv">
                         <span class="k">PAYG rate</span
-                        ><span class="v">₫800 per extra reservation</span>
+                        ><span class="v">S$0.04 per extra reservation</span>
                       </div>
                       <div class="kv">
                         <span class="k">Projected overage</span
-                        ><span class="v" style="color: #a07517">~₫74k</span>
+                        ><span class="v" style="color: #a07517">~S$4.11</span>
                       </div>
                     </div>
                     <div>
@@ -18921,7 +19312,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         style="background: var(--sun-soft); color: #a07517"
                         >Cash</span
                       ><span class="price" style="margin-left: auto"
-                        >₫286k</span
+                        >S$16</span
                       >
                     </div>
                   </div>
@@ -18937,7 +19328,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         style="background: var(--mint-soft); color: #2e8466"
                         >Paid</span
                       ><span class="price" style="margin-left: auto"
-                        >₫424k</span
+                        >S$24</span
                       >
                     </div>
                   </div>
@@ -18953,7 +19344,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         style="background: var(--accent-soft); color: #1b4332"
                         >Pickup</span
                       ><span class="price" style="margin-left: auto"
-                        >₫168k</span
+                        >S$9.33</span
                       >
                     </div>
                   </div>
@@ -18976,7 +19367,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         style="background: var(--mint-soft); color: #2e8466"
                         >Paid</span
                       ><span class="price" style="margin-left: auto"
-                        >₫352k</span
+                        >S$20</span
                       >
                     </div>
                   </div>
@@ -18987,7 +19378,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                     </div>
                     <div class="sub">6 items · Hoang Long · D2</div>
                     <div class="ft">
-                      <span class="price" style="margin-left: auto">₫512k</span>
+                      <span class="price" style="margin-left: auto">S$28</span>
                     </div>
                   </div>
                   <div class="kb-card">
@@ -18997,7 +19388,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                     </div>
                     <div class="sub">2 items · Sarah C. · D1</div>
                     <div class="ft">
-                      <span class="price" style="margin-left: auto">₫188k</span>
+                      <span class="price" style="margin-left: auto">S$10</span>
                     </div>
                   </div>
                   <div class="kb-card">
@@ -19012,7 +19403,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         style="background: var(--accent-soft); color: #1b4332"
                         >Pickup</span
                       ><span class="price" style="margin-left: auto"
-                        >₫224k</span
+                        >S$12</span
                       >
                     </div>
                   </div>
@@ -19099,9 +19490,9 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                       <span class="ttl">#DLV-1825</span
                       ><span class="tm">just now</span>
                     </div>
-                    <div class="sub">Tip ₫30k · 4.9★ rating</div>
+                    <div class="sub">Tip S$1.67 · 4.9★ rating</div>
                     <div class="ft">
-                      <span class="price" style="margin-left: auto">₫318k</span>
+                      <span class="price" style="margin-left: auto">S$18</span>
                     </div>
                   </div>
                 </div>
@@ -19173,7 +19564,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-pending">● New</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Cash · ₫286k
+                      Cash · S$16
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -19191,7 +19582,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-pending">● Preparing</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Paid · ₫352k
+                      Paid · S$20
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -19209,7 +19600,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-seated">● Out for delivery</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      ₫298k · ETA +3m
+                      S$17 · ETA +3m
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -19227,7 +19618,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-confirmed">● Delivered</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Tip ₫22k · 5★
+                      Tip S$1.22 · 5★
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -19244,7 +19635,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>—</div>
                   <div>
                     <span class="bk-status bk-confirmed">● Picked up</span>
-                    <div class="bk-phone" style="margin-top: 2px">₫164k</div>
+                    <div class="bk-phone" style="margin-top: 2px">S$9.11</div>
                   </div>
                   <div style="text-align: right">⋯</div>
                 </div>
@@ -19261,7 +19652,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-cancelled">● Refunded</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Cold delivery · ₫412k
+                      Cold delivery · S$23
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -19279,7 +19670,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-confirmed">● Delivered</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      ₫118k · 4★
+                      S$6.56 · 4★
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -19628,17 +20019,17 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
               <div class="zone-map">
                 <div class="zone-poly zone-1">
                   D1<br /><span style="font-size: 10px; font-weight: 600"
-                    >₫15k · 20min</span
+                    >S$0.83 · 20min</span
                   >
                 </div>
                 <div class="zone-poly zone-2">
                   D2<br /><span style="font-size: 10px; font-weight: 600"
-                    >₫25k · 30min</span
+                    >S$1.39 · 30min</span
                   >
                 </div>
                 <div class="zone-poly zone-3">
                   D3<br /><span style="font-size: 10px; font-weight: 600"
-                    >₫40k · 45min</span
+                    >S$2.22 · 45min</span
                   >
                 </div>
                 <div class="zone-marker"></div>
@@ -19649,27 +20040,27 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                 <div class="av-rule">
                   <span class="lbl">D1 — inner</span
                   ><span class="v"
-                    >Le Loi · Nguyen Hue · 0–2km · fee ₫15k · min ₫150k</span
+                    >Le Loi · Nguyen Hue · 0–2km · fee S$0.83 · min S$8.33</span
                   ><span class="status-tag status-active">● Active</span
                   ><button class="btn">Edit polygon</button>
                 </div>
                 <div class="av-rule">
                   <span class="lbl">D2 — extended</span
                   ><span class="v"
-                    >D1 outer + D3 inner · 2–4km · fee ₫25k · min ₫200k</span
+                    >D1 outer + D3 inner · 2–4km · fee S$1.39 · min S$11</span
                   ><span class="status-tag status-active">● Active</span
                   ><button class="btn">Edit polygon</button>
                 </div>
                 <div class="av-rule">
                   <span class="lbl">D3 — far</span
-                  ><span class="v">D7 + D4 · 4–7km · fee ₫40k · min ₫300k</span
+                  ><span class="v">D7 + D4 · 4–7km · fee S$2.22 · min S$17</span
                   ><span class="status-tag status-active">● Active</span
                   ><button class="btn">Edit polygon</button>
                 </div>
                 <div class="av-rule">
                   <span class="lbl">Surcharge zone</span
                   ><span class="v"
-                    >Rush hour (18:00–20:00) · +₫10k everywhere</span
+                    >Rush hour (18:00–20:00) · +S$0.56 everywhere</span
                   ><span
                     class="status-tag"
                     style="background: var(--sun-soft); color: #a07517"
@@ -19740,14 +20131,14 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div class="toggle-row">
                     <div class="t">
                       <div class="nm">Grab Express</div>
-                      <div class="h">Connected · ₫35k + ₫6k/km</div>
+                      <div class="h">Connected · S$1.94 + S$0.33/km</div>
                     </div>
                     <div class="switch on"></div>
                   </div>
                   <div class="toggle-row">
                     <div class="t">
                       <div class="nm">Ahamove</div>
-                      <div class="h">Connected · ₫28k + ₫5k/km</div>
+                      <div class="h">Connected · S$1.56 + S$0.28/km</div>
                     </div>
                     <div class="switch on"></div>
                   </div>
@@ -19842,7 +20233,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                 </div>
                 <div class="tn-card">
                   <div class="lbl">Revenue uplift (30d)</div>
-                  <div class="val" style="color: #2e8466">+₫12.4M</div>
+                  <div class="val" style="color: #2e8466">+S$689</div>
                 </div>
                 <div class="tn-card">
                   <div class="lbl">Avg order ↑</div>
@@ -19867,11 +20258,11 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                     <div style="flex: 1">
                       <span class="mkt-type-badge gift">🎁 Gift product</span>
                       <h4 style="margin-top: 8px">
-                        Free gỏi cuốn on orders ₫200k+
+                        Free gỏi cuốn on orders S$11+
                       </h4>
                       <p class="desc">
                         Auto-adds 3pc spring rolls (free) to any delivery order
-                        at or above ₫200,000.
+                        at or above S$11.
                       </p>
                     </div>
                     <span class="status-tag status-active">● Active</span>
@@ -19881,8 +20272,8 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   </div>
                   <div class="meta-row">
                     <div class="meta">Triggered<strong>184×</strong></div>
-                    <div class="meta">Avg basket ↑<strong>+₫84k</strong></div>
-                    <div class="meta">Cost / gift<strong>₫35k</strong></div>
+                    <div class="meta">Avg basket ↑<strong>+S$4.67</strong></div>
+                    <div class="meta">Cost / gift<strong>S$1.94</strong></div>
                     <div class="meta">
                       ROI<strong style="color: #2e8466">2.4×</strong>
                     </div>
@@ -19937,7 +20328,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div class="meta-row">
                     <div class="meta">Used<strong>32 / 50</strong></div>
                     <div class="meta">
-                      Total discount<strong>−₫1.4M</strong>
+                      Total discount<strong>−S$78</strong>
                     </div>
                     <div class="meta">New customers<strong>8</strong></div>
                     <div class="meta">SMS sent<strong>1,142</strong></div>
@@ -19975,8 +20366,8 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         ><strong>×1</strong> Bún chả · <strong>×1</strong> Drink
                         · <strong>×3pc</strong> spring rolls</span
                       >
-                      <span class="price">₫165k</span>
-                      <span class="save">save ₫25k</span>
+                      <span class="price">S$9.17</span>
+                      <span class="save">save S$1.39</span>
                     </div>
                     <div class="combo-level">
                       <span class="lvl">Lv 2</span>
@@ -19985,8 +20376,8 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         <strong>×2</strong> Drinks ·
                         <strong>×6pc</strong> spring rolls</span
                       >
-                      <span class="price">₫315k</span>
-                      <span class="save">save ₫65k</span>
+                      <span class="price">S$18</span>
+                      <span class="save">save S$3.61</span>
                     </div>
                     <div class="combo-level">
                       <span class="lvl">Lv 3</span>
@@ -19995,8 +20386,8 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         <strong>×3</strong> Drinks ·
                         <strong>×9pc</strong> spring rolls</span
                       >
-                      <span class="price">₫450k</span>
-                      <span class="save">save ₫120k</span>
+                      <span class="price">S$25</span>
+                      <span class="save">save S$6.67</span>
                     </div>
                     <div class="combo-level">
                       <span class="lvl">Lv 4</span>
@@ -20005,8 +20396,8 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         <strong>×4</strong> Drinks ·
                         <strong>×12pc</strong> spring rolls</span
                       >
-                      <span class="price">₫580k</span>
-                      <span class="save">save ₫180k</span>
+                      <span class="price">S$32</span>
+                      <span class="save">save S$10</span>
                     </div>
                   </div>
 
@@ -20020,7 +20411,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                     <div class="meta">
                       Avg level upgrade<strong>+0.8 levels</strong>
                     </div>
-                    <div class="meta">Revenue lift<strong>+₫4.2M</strong></div>
+                    <div class="meta">Revenue lift<strong>+S$233</strong></div>
                   </div>
 
                   <div class="pacts">
@@ -20057,8 +20448,8 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                     <div class="meta">
                       Off-peak lift<strong style="color: #2e8466">+34%</strong>
                     </div>
-                    <div class="meta">Avg ticket<strong>₫95k</strong></div>
-                    <div class="meta">Revenue (30d)<strong>+₫3.2M</strong></div>
+                    <div class="meta">Avg ticket<strong>S$5.28</strong></div>
+                    <div class="meta">Revenue (30d)<strong>+S$178</strong></div>
                   </div>
                   <div class="pacts">
                     <button class="btn">Edit hours</button>
@@ -20090,7 +20481,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         >+58pp</strong
                       >
                     </div>
-                    <div class="meta">Cost / claim<strong>₫85k</strong></div>
+                    <div class="meta">Cost / claim<strong>S$4.72</strong></div>
                     <div class="meta">
                       ROI<strong style="color: #2e8466">1.8×</strong>
                     </div>
@@ -20131,7 +20522,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                     </div>
                     <div class="meta">Cap / week<strong>40 orders</strong></div>
                     <div class="meta">Last run<strong>32 / 40</strong></div>
-                    <div class="meta">Avg uplift<strong>+₫800k</strong></div>
+                    <div class="meta">Avg uplift<strong>+S$44</strong></div>
                   </div>
                   <div class="pacts">
                     <button class="btn">Edit</button>
@@ -20161,7 +20552,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   </div>
                   <div class="meta-row">
                     <div class="meta">Total uses<strong>412</strong></div>
-                    <div class="meta">Revenue<strong>+₫8.4M</strong></div>
+                    <div class="meta">Revenue<strong>+S$467</strong></div>
                     <div class="meta">ROI<strong>3.1×</strong></div>
                     <div class="meta">Duration<strong>14 days</strong></div>
                   </div>
@@ -20246,9 +20637,9 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div class="field">
                     <label>Per order surcharge</label
                     ><select>
-                      <option>₫5k flat</option>
+                      <option>S$0.28 flat</option>
                       <option>None</option>
-                      <option>₫10k for hot items</option>
+                      <option>S$0.56 for hot items</option>
                     </select>
                   </div>
                 </div>
@@ -20375,7 +20766,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                           background: var(--surface-2);
                           color: var(--ink-soft);
                         "
-                        >Open ₫168k</span
+                        >Open S$9.33</span
                       >
                     </div>
                   </div>
@@ -20391,7 +20782,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                         style="background: var(--mint-soft); color: #2e8466"
                         >Paid online</span
                       ><span class="price" style="margin-left: auto"
-                        >₫512k</span
+                        >S$28</span
                       >
                     </div>
                   </div>
@@ -20408,7 +20799,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                           background: var(--surface-2);
                           color: var(--ink-soft);
                         "
-                        >Cart ₫286k</span
+                        >Cart S$16</span
                       >
                     </div>
                   </div>
@@ -20493,7 +20884,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                     <div class="h">
                       <span class="ttl">T1</span><span class="tm">38m</span>
                     </div>
-                    <div class="sub">"Bill please" · ₫186k</div>
+                    <div class="sub">"Bill please" · S$10</div>
                     <div class="ft">
                       <span
                         class="kb-tag"
@@ -20585,7 +20976,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-pending">● Fired</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Paid online · ₫512k
+                      Paid online · S$28
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -20603,7 +20994,7 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>
                     <span class="bk-status bk-pending">● Ordering</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Cart ₫168k
+                      Cart S$9.33
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -20617,11 +21008,11 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>8</div>
                   <div>13:45</div>
                   <div>9</div>
-                  <div>₫48k</div>
+                  <div>S$2.67</div>
                   <div>
                     <span class="bk-status bk-seated">● Eating</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      VIP · ₫862k · birthday
+                      VIP · S$48 · birthday
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -20635,10 +21026,10 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>2</div>
                   <div>13:18</div>
                   <div>3</div>
-                  <div>₫22k</div>
+                  <div>S$1.22</div>
                   <div>
                     <span class="bk-status bk-seated">● Bill requested</span>
-                    <div class="bk-phone" style="margin-top: 2px">₫186k</div>
+                    <div class="bk-phone" style="margin-top: 2px">S$10</div>
                   </div>
                   <div style="text-align: right">⋯</div>
                 </div>
@@ -20651,11 +21042,11 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>4</div>
                   <div>12:42</div>
                   <div>6</div>
-                  <div>₫35k</div>
+                  <div>S$1.94</div>
                   <div>
                     <span class="bk-status bk-confirmed">● Closed</span>
                     <div class="bk-phone" style="margin-top: 2px">
-                      Split 2 ways · ₫428k
+                      Split 2 ways · S$24
                     </div>
                   </div>
                   <div style="text-align: right">⋯</div>
@@ -20669,10 +21060,10 @@ Hi {name}! Looking forward to having you tomorrow at {time}. If plans change, re
                   <div>2</div>
                   <div>12:08</div>
                   <div>2</div>
-                  <div>₫10k</div>
+                  <div>S$0.56</div>
                   <div>
                     <span class="bk-status bk-confirmed">● Closed</span>
-                    <div class="bk-phone" style="margin-top: 2px">₫168k</div>
+                    <div class="bk-phone" style="margin-top: 2px">S$9.33</div>
                   </div>
                   <div style="text-align: right">⋯</div>
                 </div>
@@ -22416,7 +22807,7 @@ Slow coffee, Vietnamese soul. District 1's neighborhood spot for brunch and dinn
                   <div class="field">
                     <label>Currency display</label>
                     <select>
-                      <option>₫ Vietnamese đồng</option>
+                      <option>S$ Singaporeese đồng</option>
                       <option>$ USD</option>
                     </select>
                   </div>
@@ -23203,7 +23594,7 @@ Slow coffee, Vietnamese soul. District 1's neighborhood spot for brunch and dinn
                       </div>
                       <div class="kv">
                         <span class="k">Avg spend</span
-                        ><span class="v">₫1.2M</span>
+                        ><span class="v">S$67</span>
                       </div>
                       <div class="kv">
                         <span class="k">Tags</span
@@ -23843,7 +24234,7 @@ Slow coffee, Vietnamese soul. District 1's neighborhood spot for brunch and dinn
                     <div>
                       <div class="nm">Gift cards & loyalty</div>
                       <div class="meta">
-                        Physical + digital · denominations ₫200k–₫2M · loyalty
+                        Physical + digital · denominations S$11–S$111 · loyalty
                         after 5 visits
                       </div>
                     </div>
@@ -24898,7 +25289,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       </div>
                       <div class="kv">
                         <span class="k">PAYG rate</span
-                        ><span class="v">₫1,200 per extra conv</span>
+                        ><span class="v">S$0.07 per extra conv</span>
                       </div>
                     </div>
                     <div>
@@ -25057,10 +25448,10 @@ I want to give you the right answer — let me check with the team. Could I take
                     </div>
                     <span class="lbl">Avg ticket</span>
                   </div>
-                  <div><span class="big">₫214k</span></div>
+                  <div><span class="big">S$12</span></div>
                   <div class="meta-line">
                     <span class="delta-up">▲ 4%</span
-                    ><span class="vs">peer median ₫186k</span>
+                    ><span class="vs">peer median S$10</span>
                   </div>
                 </div>
                 <div class="kpi-card">
@@ -25109,7 +25500,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <strong>9% below</strong> the peer median — your weakest
                     hour, and the easiest to lift.
                   </p>
-                  <span class="imp">🎯 Estimated impact · +₫1.8M / month</span>
+                  <span class="imp">🎯 Estimated impact · +S$100 / month</span>
                   <div class="acts">
                     <button class="btn primary">Apply to Dine-in</button>
                     <button class="btn">Why this?</button>
@@ -25202,7 +25593,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           <span class="e">🧾</span>
                           <div>
                             <div class="lbl">Ticket</div>
-                            <div class="v">₫214k</div>
+                            <div class="v">S$12</div>
                           </div>
                           <span class="d delta-up">▲ 4%</span>
                         </div>
@@ -25303,7 +25694,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     </p>
                     <div class="stats">
                       <div class="stat">
-                        <strong>+₫1.8M / mo</strong>Est. impact
+                        <strong>+S$100 / mo</strong>Est. impact
                       </div>
                       <div class="stat">
                         <strong>2 weeks</strong>Time to effect
@@ -25566,7 +25957,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   Cuisine: <strong>Vietnamese + brunch / coffee</strong> · Area:
                   <strong>District 1, Saigon</strong> · Size:
                   <strong>20–60 covers</strong> · Price band:
-                  <strong>₫₫</strong>
+                  <strong>$$</strong>
                 </div>
                 <div style="margin-top: 8px">
                   <button class="btn">Adjust peer group</button>
@@ -25584,12 +25975,12 @@ I want to give you the right answer — let me check with the team. Could I take
                   <div class="me" style="left: 72%">YOU</div>
                 </div>
                 <div class="bench-labels">
-                  <span>P10 · ₫120k</span>
-                  <span>Median · ₫186k</span>
-                  <span>P90 · ₫260k</span>
+                  <span>P10 · S$6.67</span>
+                  <span>Median · S$10</span>
+                  <span>P90 · S$14</span>
                 </div>
                 <p class="small muted" style="margin-top: 8px">
-                  You're ₫214k — comfortably above median. Top quartile is
+                  You're S$12 — comfortably above median. Top quartile is
                   within reach with a small dinner price lift.
                 </p>
               </div>
@@ -25725,7 +26116,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <p class="small muted">Last 7 days · all channels</p>
                   </div>
                   <div class="kpi">
-                    <span class="v">₫34.2M</span
+                    <span class="v">S$1,900</span
                     ><span class="delta-up">+8%</span>
                   </div>
                 </div>
@@ -25814,7 +26205,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫15.8M</span>
+                      <span class="v">S$878</span>
                     </div>
                     <div class="bar-row">
                       <span>📱 Dine-in QR</span>
@@ -25830,7 +26221,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫11.6M</span>
+                      <span class="v">S$644</span>
                     </div>
                     <div class="bar-row">
                       <span>📅 Bookings → seated</span>
@@ -25846,7 +26237,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫4.8M</span>
+                      <span class="v">S$267</span>
                     </div>
                     <div class="bar-row">
                       <span>🌐 Website direct</span>
@@ -25862,7 +26253,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫2.0M</span>
+                      <span class="v">S$111</span>
                     </div>
                   </div>
                 </div>
@@ -25887,7 +26278,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫4.2M</span>
+                      <span class="v">S$233</span>
                     </div>
                     <div class="bar-row">
                       <span>☕ Cà phê sữa đá</span>
@@ -25903,7 +26294,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫3.6M</span>
+                      <span class="v">S$200</span>
                     </div>
                     <div class="bar-row">
                       <span>🥖 Bánh mì pâté gà</span>
@@ -25919,7 +26310,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫2.9M</span>
+                      <span class="v">S$161</span>
                     </div>
                     <div class="bar-row">
                       <span>🍮 Pandan crème brûlée</span>
@@ -25935,7 +26326,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫1.9M</span>
+                      <span class="v">S$106</span>
                     </div>
                     <div class="bar-row">
                       <span>🥗 Goi cuốn (3pc)</span>
@@ -25951,7 +26342,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫1.6M</span>
+                      <span class="v">S$89</span>
                     </div>
                   </div>
                 </div>
@@ -26182,8 +26573,8 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="field">
                       <label>Price band</label>
                       <select>
-                        <option>₫₫ (recommended · matches you)</option>
-                        <option>₫₫ – ₫₫₫</option>
+                        <option>$$ (recommended · matches you)</option>
+                        <option>$$ – $$$</option>
                         <option>All price bands</option>
                       </select>
                     </div>
@@ -26492,7 +26883,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   >
                     <span class="lbl">+ Add outlet</span>
                     <span class="v"
-                      >Requires Operator tier or higher · ₫1.2M / mo per added
+                      >Requires Operator tier or higher · S$67 / mo per added
                       outlet</span
                     >
                     <span class="status-tag status-locked">Upgrade</span>
@@ -26526,7 +26917,7 @@ I want to give you the right answer — let me check with the team. Could I take
                 <span class="b-ico">⭐</span>
                 <div>
                   <strong>Current plan: Operator tier</strong> · billed monthly
-                  · next renewal Jun 12, 2026 · <strong>₫4.8M / month</strong>
+                  · next renewal Jun 12, 2026 · <strong>S$267 / month</strong>
                 </div>
                 <button class="cta">Change plan</button>
               </div>
@@ -26579,7 +26970,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div>
                     <div class="bk-customer">Booking System</div>
-                    <div class="bk-phone">Add-on · ₫890k / mo</div>
+                    <div class="bk-phone">Add-on · S$49 / mo</div>
                   </div>
                   <div>
                     <span class="bk-status bk-confirmed">● Active</span>
@@ -26590,7 +26981,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       <i style="width: 84%"></i>
                     </div>
                   </div>
-                  <div class="bk-phone">₫800 / extra</div>
+                  <div class="bk-phone">S$0.04 / extra</div>
                   <div style="text-align: right">⋯</div>
                 </div>
 
@@ -26606,7 +26997,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div>
                     <div class="bk-customer">Dine-in CMS</div>
-                    <div class="bk-phone">Add-on · ₫590k / mo</div>
+                    <div class="bk-phone">Add-on · S$33 / mo</div>
                   </div>
                   <div>
                     <span class="bk-status bk-confirmed">● Active</span>
@@ -26668,7 +27059,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       <i style="width: 62%"></i>
                     </div>
                   </div>
-                  <div class="bk-phone">₫1,200 / extra</div>
+                  <div class="bk-phone">S$0.07 / extra</div>
                   <div style="text-align: right">⋯</div>
                 </div>
 
@@ -26741,23 +27132,23 @@ I want to give you the right answer — let me check with the team. Could I take
                   <h3>📅 Next invoice — Jun 12, 2026</h3>
                   <div class="kv">
                     <span class="k">Operator tier</span
-                    ><span class="v">₫4,800,000</span>
+                    ><span class="v">S$267</span>
                   </div>
                   <div class="kv">
                     <span class="k">Table Mgmt add-on</span
-                    ><span class="v">₫890,000</span>
+                    ><span class="v">S$49</span>
                   </div>
                   <div class="kv">
                     <span class="k">Dine-in add-on</span
-                    ><span class="v">₫590,000</span>
+                    ><span class="v">S$33</span>
                   </div>
                   <div class="kv">
                     <span class="k">Projected Table Mgmt overage</span
-                    ><span class="v" style="color: #a07517">~₫74,000</span>
+                    ><span class="v" style="color: #a07517">~S$4.11</span>
                   </div>
                   <div class="kv">
                     <span class="k">Projected Concierge overage</span
-                    ><span class="v">₫0 (within quota)</span>
+                    ><span class="v">S$0 (within quota)</span>
                   </div>
                   <div
                     class="kv"
@@ -26771,7 +27162,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   >
                     <span class="k" style="color: var(--ink)"
                       >Estimated total</span
-                    ><span class="v" style="font-size: 18px">₫6,354,000</span>
+                    ><span class="v" style="font-size: 18px">S$353</span>
                   </div>
                   <button class="btn" style="margin-top: 14px">
                     View invoice preview
@@ -26787,7 +27178,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     >
                       <div>May 12, 2026</div>
                       <div>Invoice #INV-0042 · Operator + add-ons</div>
-                      <div>₫6,280,000</div>
+                      <div>S$349</div>
                       <div>
                         <span class="bk-status bk-confirmed">● Paid</span>
                       </div>
@@ -26799,7 +27190,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     >
                       <div>Apr 12, 2026</div>
                       <div>Invoice #INV-0041 · Operator + add-ons</div>
-                      <div>₫6,196,000</div>
+                      <div>S$344</div>
                       <div>
                         <span class="bk-status bk-confirmed">● Paid</span>
                       </div>
@@ -26811,7 +27202,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     >
                       <div>Mar 12, 2026</div>
                       <div>Invoice #INV-0040 · Operator + add-ons</div>
-                      <div>₫6,224,000</div>
+                      <div>S$346</div>
                       <div>
                         <span class="bk-status bk-confirmed">● Paid</span>
                       </div>
@@ -26823,7 +27214,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     >
                       <div>Feb 12, 2026</div>
                       <div>Invoice #INV-0039 · Operator + add-ons</div>
-                      <div>₫5,890,000</div>
+                      <div>S$327</div>
                       <div>
                         <span class="bk-status bk-confirmed">● Paid</span>
                       </div>
@@ -28274,20 +28665,20 @@ I want to give you the right answer — let me check with the team. Could I take
                     >Whole milk <span class="modp zero">included</span></span
                   >
                   <span class="ag-option"
-                    >Oat milk <span class="modp">+₫15k</span></span
+                    >Oat milk <span class="modp">+S$0.83</span></span
                   >
                   <span class="ag-option"
-                    >Almond milk <span class="modp">+₫15k</span></span
+                    >Almond milk <span class="modp">+S$0.83</span></span
                   >
                   <span class="ag-option"
-                    >Soy milk <span class="modp">+₫10k</span></span
+                    >Soy milk <span class="modp">+S$0.56</span></span
                   >
                   <span class="ag-option"
                     >Condensed milk
                     <span class="modp zero">included</span></span
                   >
                   <span class="ag-option"
-                    >No milk <span class="modp zero">−₫0</span></span
+                    >No milk <span class="modp zero">−S$0</span></span
                   >
                 </div>
                 <div class="ag-linked">
@@ -28327,10 +28718,10 @@ I want to give you the right answer — let me check with the team. Could I take
                     >Regular <span class="modp zero">included</span></span
                   >
                   <span class="ag-option"
-                    >Large <span class="modp">+₫45k</span></span
+                    >Large <span class="modp">+S$2.50</span></span
                   >
                   <span class="ag-option"
-                    >Half portion <span class="modp">−₫40k</span></span
+                    >Half portion <span class="modp">−S$2.22</span></span
                   >
                 </div>
                 <div class="ag-linked">
@@ -28410,22 +28801,22 @@ I want to give you the right answer — let me check with the team. Could I take
                 </div>
                 <div class="ag-options">
                   <span class="ag-option"
-                    >Extra cheese <span class="modp">+₫35k</span></span
+                    >Extra cheese <span class="modp">+S$1.94</span></span
                   >
                   <span class="ag-option"
-                    >Truffle shavings <span class="modp">+₫85k</span></span
+                    >Truffle shavings <span class="modp">+S$4.72</span></span
                   >
                   <span class="ag-option"
-                    >Soft egg yolk <span class="modp">+₫25k</span></span
+                    >Soft egg yolk <span class="modp">+S$1.39</span></span
                   >
                   <span class="ag-option"
-                    >Avocado <span class="modp">+₫45k</span></span
+                    >Avocado <span class="modp">+S$2.50</span></span
                   >
                   <span class="ag-option"
-                    >Sautéed mushroom <span class="modp">+₫35k</span></span
+                    >Sautéed mushroom <span class="modp">+S$1.94</span></span
                   >
                   <span class="ag-option"
-                    >Crispy garlic <span class="modp">+₫15k</span></span
+                    >Crispy garlic <span class="modp">+S$0.83</span></span
                   >
                 </div>
                 <div class="ag-linked">
@@ -28466,13 +28857,13 @@ I want to give you the right answer — let me check with the team. Could I take
                     >Chicken <span class="modp zero">included</span></span
                   >
                   <span class="ag-option"
-                    >Beef <span class="modp">+₫35k</span></span
+                    >Beef <span class="modp">+S$1.94</span></span
                   >
                   <span class="ag-option"
-                    >Tofu (vegan) <span class="modp">−₫20k</span></span
+                    >Tofu (vegan) <span class="modp">−S$1.11</span></span
                   >
                   <span class="ag-option"
-                    >Shrimp <span class="modp">+₫45k</span></span
+                    >Shrimp <span class="modp">+S$2.50</span></span
                   >
                 </div>
                 <div class="ag-linked">
@@ -29106,7 +29497,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   <div class="field">
                     <label>Currency</label
                     ><select>
-                      <option>VND · ₫ (no decimals)</option>
+                      <option>VND · S$ (no decimals)</option>
                       <option>USD · $</option>
                       <option>EUR · €</option>
                     </select>
@@ -29114,8 +29505,8 @@ I want to give you the right answer — let me check with the team. Could I take
                   <div class="field">
                     <label>Price display</label
                     ><select>
-                      <option>₫120k (compact)</option>
-                      <option>120,000 ₫ (full)</option>
+                      <option>S$6.67 (compact)</option>
+                      <option>120,000 S$ (full)</option>
                       <option>$5.00 (decimal)</option>
                     </select>
                   </div>
@@ -29420,7 +29811,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">Zalo · email opt-in</div>
                   </div>
                   <div><strong>5</strong></div>
-                  <div><strong>₫6.2M</strong></div>
+                  <div><strong>S$344</strong></div>
                   <div>
                     <span class="lang-chip">VIP</span
                     ><span class="lang-chip">Vegetarian</span>
@@ -29443,7 +29834,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">WhatsApp · email opt-out</div>
                   </div>
                   <div><strong>2</strong></div>
-                  <div><strong>₫1.4M</strong></div>
+                  <div><strong>S$78</strong></div>
                   <div>
                     <span class="lang-chip">Vegan</span
                     ><span class="lang-chip">Anniversary</span>
@@ -29466,7 +29857,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">All channels opt-in</div>
                   </div>
                   <div><strong>18</strong></div>
-                  <div><strong>₫24.8M</strong></div>
+                  <div><strong>S$1,378</strong></div>
                   <div>
                     <span
                       class="lang-chip"
@@ -29492,7 +29883,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">SMS · Zalo opt-in</div>
                   </div>
                   <div><strong>12</strong></div>
-                  <div><strong>₫9.6M</strong></div>
+                  <div><strong>S$533</strong></div>
                   <div>
                     <span class="lang-chip">Local</span
                     ><span class="lang-chip">Brunch regular</span>
@@ -29515,7 +29906,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">Email opt-in</div>
                   </div>
                   <div><strong>8</strong></div>
-                  <div><strong>₫5.8M</strong></div>
+                  <div><strong>S$322</strong></div>
                   <div>
                     <span class="lang-chip">Halal</span
                     ><span class="lang-chip">Family</span>
@@ -29538,7 +29929,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">Email only</div>
                   </div>
                   <div><strong>3</strong></div>
-                  <div><strong>₫1.8M</strong></div>
+                  <div><strong>S$100</strong></div>
                   <div><span class="lang-chip">Tourist</span></div>
                   <div style="text-align: right">⋯</div>
                 </div>
@@ -29559,7 +29950,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">No contact for 60d</div>
                   </div>
                   <div><strong>4</strong></div>
-                  <div><strong>₫2.4M</strong></div>
+                  <div><strong>S$133</strong></div>
                   <div>
                     <span
                       class="lang-chip"
@@ -29635,7 +30026,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   </p>
                   <div class="stats">
                     <div class="stat">Members<strong>312</strong></div>
-                    <div class="stat">Avg LTV<strong>₫8.4M</strong></div>
+                    <div class="stat">Avg LTV<strong>S$467</strong></div>
                   </div>
                   <div class="acts">
                     <button class="btn">View list</button
@@ -29694,14 +30085,14 @@ I want to give you the right answer — let me check with the team. Could I take
                   >
                     🥂
                   </div>
-                  <h4>Big spenders (₫500k+ avg)</h4>
+                  <h4>Big spenders (S$28+ avg)</h4>
                   <p class="desc">
                     Above-average ticket per visit. Targetable with premium
                     offerings.
                   </p>
                   <div class="stats">
                     <div class="stat">Members<strong>184</strong></div>
-                    <div class="stat">Avg ticket<strong>₫812k</strong></div>
+                    <div class="stat">Avg ticket<strong>S$45</strong></div>
                   </div>
                   <div class="acts">
                     <button class="btn">View list</button
@@ -29799,9 +30190,9 @@ I want to give you the right answer — let me check with the team. Could I take
                     </div>
                     <span class="lbl">Avg LTV</span>
                   </div>
-                  <div><span class="big">₫3.8M</span></div>
+                  <div><span class="big">S$211</span></div>
                   <div class="meta-line">
-                    <span class="delta-up">▲ ₫240k</span
+                    <span class="delta-up">▲ S$13</span
                     ><span class="vs">vs Q1</span>
                   </div>
                 </div>
@@ -30027,7 +30418,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       <div class="who">Vu Hoang Long</div>
                       <div class="when">18 visits</div>
                     </div>
-                    <div class="meta"><strong>₫24.8M</strong></div>
+                    <div class="meta"><strong>S$1,378</strong></div>
                   </div>
                   <div class="list-row">
                     <div class="av" style="background: var(--plum)">HM</div>
@@ -30035,7 +30426,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       <div class="who">Hoang Minh</div>
                       <div class="when">22 visits · events</div>
                     </div>
-                    <div class="meta"><strong>₫18.2M</strong></div>
+                    <div class="meta"><strong>S$1,011</strong></div>
                   </div>
                   <div class="list-row">
                     <div class="av" style="background: #1f8466">LN</div>
@@ -30043,7 +30434,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       <div class="who">Linh Nguyen</div>
                       <div class="when">12 visits</div>
                     </div>
-                    <div class="meta"><strong>₫9.6M</strong></div>
+                    <div class="meta"><strong>S$533</strong></div>
                   </div>
                   <div class="list-row">
                     <div class="av" style="background: var(--mint)">TA</div>
@@ -30051,7 +30442,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       <div class="who">Tran Minh Anh</div>
                       <div class="when">5 visits</div>
                     </div>
-                    <div class="meta"><strong>₫6.2M</strong></div>
+                    <div class="meta"><strong>S$344</strong></div>
                   </div>
                   <div class="list-row">
                     <div class="av" style="background: var(--accent)">PT</div>
@@ -30059,7 +30450,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       <div class="who">Pham Quoc Tuan</div>
                       <div class="when">8 visits</div>
                     </div>
-                    <div class="meta"><strong>₫5.8M</strong></div>
+                    <div class="meta"><strong>S$322</strong></div>
                   </div>
                 </div>
               </div>
@@ -31033,7 +31424,7 @@ I want to give you the right answer — let me check with the team. Could I take
                       Hoang · closed T3 session (split bill)
                     </div>
                   </div>
-                  <div class="bk-phone">#CTS-929 · ₫428k</div>
+                  <div class="bk-phone">#CTS-929 · S$24</div>
                   <div class="bk-phone">Dine-in</div>
                 </div>
                 <div
@@ -31248,7 +31639,7 @@ I want to give you the right answer — let me check with the team. Could I take
                 </div>
                 <div class="tn-card">
                   <div class="lbl">Revenue (this month)</div>
-                  <div class="val">₫8.4M</div>
+                  <div class="val">S$467</div>
                 </div>
               </div>
 
@@ -31275,7 +31666,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div class="pdetails">
                     <div class="pdetail">Used<strong>22 / 142</strong></div>
-                    <div class="pdetail">Revenue<strong>₫4.2M</strong></div>
+                    <div class="pdetail">Revenue<strong>S$233</strong></div>
                     <div class="pdetail">Conv rate<strong>15%</strong></div>
                     <div class="pdetail">Valid<strong>4 days left</strong></div>
                   </div>
@@ -31296,14 +31687,14 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="pcode">MORNINGCOMBO</div>
                     <div style="flex: 1">
                       <div class="ptitle">Morning combo special</div>
-                      <div class="pdesc">₫25k off · breakfast 7–11 AM only</div>
+                      <div class="pdesc">S$1.39 off · breakfast 7–11 AM only</div>
                     </div>
                     <span class="status-tag status-active">● Active</span>
                   </div>
                   <div class="pdetails">
                     <div class="pdetail">Used<strong>184</strong></div>
                     <div class="pdetail">
-                      Revenue impact<strong>+₫1.8M</strong>
+                      Revenue impact<strong>+S$100</strong>
                     </div>
                     <div class="pdetail">
                       Time-locked<strong>07:00–11:00</strong>
@@ -31335,7 +31726,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div class="pdetails">
                     <div class="pdetail">Used<strong>88</strong></div>
-                    <div class="pdetail">Revenue<strong>₫6.4M</strong></div>
+                    <div class="pdetail">Revenue<strong>S$356</strong></div>
                     <div class="pdetail">Conv rate<strong>28%</strong></div>
                     <div class="pdetail">Valid<strong>Ongoing</strong></div>
                   </div>
@@ -31365,7 +31756,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   <div class="pdetails">
                     <div class="pdetail">Used<strong>12</strong></div>
                     <div class="pdetail">
-                      Delivery savings<strong>₫180k</strong>
+                      Delivery savings<strong>S$10</strong>
                     </div>
                     <div class="pdetail">New customers<strong>4</strong></div>
                     <div class="pdetail">
@@ -31443,7 +31834,7 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div class="pdetails">
                     <div class="pdetail">Used<strong>312</strong></div>
-                    <div class="pdetail">Revenue<strong>₫48M</strong></div>
+                    <div class="pdetail">Revenue<strong>S$2,667</strong></div>
                     <div class="pdetail">New customers<strong>68</strong></div>
                     <div class="pdetail">Ended<strong>Feb 14</strong></div>
                   </div>
@@ -31674,8 +32065,8 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div><div>Anonymous · QR T4</div></div>
                   <div class="bk-phone">Dine-in</div>
-                  <div><strong>−₫25k</strong></div>
-                  <div><strong>₫158k</strong></div>
+                  <div><strong>−S$1.39</strong></div>
+                  <div><strong>S$8.78</strong></div>
                   <div style="text-align: right">⋯</div>
                 </div>
                 <div
@@ -31694,8 +32085,8 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">VIP · 18 visits</div>
                   </div>
                   <div class="bk-phone">Tables</div>
-                  <div><strong>−₫78k</strong></div>
-                  <div><strong>₫702k</strong></div>
+                  <div><strong>−S$4.33</strong></div>
+                  <div><strong>S$39</strong></div>
                   <div style="text-align: right">⋯</div>
                 </div>
                 <div
@@ -31714,8 +32105,8 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">Was lapsed 87 days</div>
                   </div>
                   <div class="bk-phone">Website</div>
-                  <div><strong>−₫48k</strong></div>
-                  <div><strong>₫272k</strong></div>
+                  <div><strong>−S$2.67</strong></div>
+                  <div><strong>S$15</strong></div>
                   <div style="text-align: right">⋯</div>
                 </div>
                 <div
@@ -31731,8 +32122,8 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div><div>Sarah Chen</div></div>
                   <div class="bk-phone">Dine-in</div>
-                  <div><strong>−₫25k</strong></div>
-                  <div><strong>₫176k</strong></div>
+                  <div><strong>−S$1.39</strong></div>
+                  <div><strong>S$9.78</strong></div>
                   <div style="text-align: right">⋯</div>
                 </div>
                 <div
@@ -31748,8 +32139,8 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div><div>Hoang Bao</div></div>
                   <div class="bk-phone">Delivery</div>
-                  <div><strong>−₫15k</strong></div>
-                  <div><strong>₫284k</strong></div>
+                  <div><strong>−S$0.83</strong></div>
+                  <div><strong>S$16</strong></div>
                   <div style="text-align: right">⋯</div>
                 </div>
                 <div
@@ -31768,8 +32159,8 @@ I want to give you the right answer — let me check with the team. Could I take
                     <div class="bk-phone">VIP · 12 visits</div>
                   </div>
                   <div class="bk-phone">Tables</div>
-                  <div><strong>−₫92k</strong></div>
-                  <div><strong>₫828k</strong></div>
+                  <div><strong>−S$5.11</strong></div>
+                  <div><strong>S$46</strong></div>
                   <div style="text-align: right">⋯</div>
                 </div>
                 <div
@@ -31785,8 +32176,8 @@ I want to give you the right answer — let me check with the team. Could I take
                   </div>
                   <div><div>Anonymous · QR T7</div></div>
                   <div class="bk-phone">Dine-in</div>
-                  <div><strong>−₫25k</strong></div>
-                  <div><strong>₫184k</strong></div>
+                  <div><strong>−S$1.39</strong></div>
+                  <div><strong>S$10</strong></div>
                   <div style="text-align: right">⋯</div>
                 </div>
               </div>
@@ -31816,7 +32207,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     </div>
                     <span class="lbl">Promo revenue (30d)</span>
                   </div>
-                  <div><span class="big">₫8.4M</span></div>
+                  <div><span class="big">S$467</span></div>
                   <div class="meta-line">
                     <span class="delta-up">▲ 24%</span
                     ><span class="vs">vs last 30d</span>
@@ -31862,7 +32253,7 @@ I want to give you the right answer — let me check with the team. Could I take
                     </div>
                     <span class="lbl">Net discount given</span>
                   </div>
-                  <div><span class="big">₫1.2M</span></div>
+                  <div><span class="big">S$67</span></div>
                   <div class="meta-line">
                     <span class="vs">~15% of promo revenue</span>
                   </div>
@@ -31890,7 +32281,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫6.4M</span>
+                      <span class="v">S$356</span>
                     </div>
                     <div class="bar-row">
                       <span>WEMISSYOU15 · win-back</span>
@@ -31906,7 +32297,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫4.2M</span>
+                      <span class="v">S$233</span>
                     </div>
                     <div class="bar-row">
                       <span>MORNINGCOMBO · daypart</span>
@@ -31922,7 +32313,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫1.8M</span>
+                      <span class="v">S$100</span>
                     </div>
                     <div class="bar-row">
                       <span>FREEDELIVERY · weekend</span>
@@ -31938,7 +32329,7 @@ I want to give you the right answer — let me check with the team. Could I take
                           "
                         ></i>
                       </div>
-                      <span class="v">₫180k</span>
+                      <span class="v">S$10</span>
                     </div>
                   </div>
                 </div>
@@ -32287,7 +32678,7 @@ I want to give you the right answer — let me check with the team. Could I take
             "Auto-dispatch with manual override and 3rd-party logistics fallback.",
             "Refunds, reprints, full order history.",
           ],
-          price: "From ₫590k / mo",
+          price: "From S$33 / mo",
           priceNote: "14-day free trial · cancel anytime.",
           primaryCta: "Start 14-day trial",
         },
@@ -34064,7 +34455,7 @@ I want to give you the right answer — let me check with the team. Could I take
         <p class="small muted" style="margin:-2px 0 8px">Segment from the <strong>Unified CDP</strong> — auto-built from spend + visit history</p>
         <div class="stepline"><span class="ic">👥</span><div class="txt"><strong>142 customers</strong> in segment "Lapsed 60+ days · 2+ past visits"</div></div>
         <div class="stepline"><span class="ic">📊</span><div class="txt">Expected recovery: <strong>~22%</strong> (31 bookings) based on peer data</div></div>
-        <div class="stepline"><span class="ic">💰</span><div class="txt">Expected revenue impact: <strong>+₫6.6M</strong> over 14 days</div></div>
+        <div class="stepline"><span class="ic">💰</span><div class="txt">Expected revenue impact: <strong>+S$367</strong> over 14 days</div></div>
         <h4>Scope</h4>
         <div class="form-row">
           <select>
@@ -34131,7 +34522,7 @@ I want to give you the right answer — let me check with the team. Could I take
           <div class="form-row">
             <select id="pc-type">
               <option value="pct">% off the bill</option>
-              <option value="amt">₫ off the bill (fixed amount)</option>
+              <option value="amt">S$ off the bill (fixed amount)</option>
               <option value="free-item">🎁 Free item</option>
               <option value="free-delivery">🛵 Free delivery</option>
               <option value="bogo">🎟 Buy one, get one (BOGO)</option>
@@ -34150,7 +34541,7 @@ I want to give you the right answer — let me check with the team. Could I take
           </div>
           <h4>Max discount cap <span class="kt-pill">Optional</span></h4>
           <div class="form-row">
-            <input type="text" placeholder="No cap if blank · e.g. ₫200,000">
+            <input type="text" placeholder="No cap if blank · e.g. S$11">
           </div>
           <p class="small muted" style="margin-top:-4px">Recommended for high-value tickets — keeps discount predictable for kitchen + finance.</p>
         </div>
@@ -34158,13 +34549,13 @@ I want to give you the right answer — let me check with the team. Could I take
         <div class="promo-section" data-pc-detail="amt" style="display:none">
           <h4>Discount amount</h4>
           <div class="form-row">
-            <span class="small muted" style="align-self:center;font-size:16px;font-weight:700">₫</span>
+            <span class="small muted" style="align-self:center;font-size:16px;font-weight:700">S$</span>
             <input type="number" value="50000" style="max-width:160px">
             <span class="small muted" style="align-self:center">off the bill</span>
           </div>
           <h4>Minimum order to apply</h4>
           <div class="form-row">
-            <input type="text" value="₫200,000" placeholder="No minimum if blank">
+            <input type="text" value="S$11" placeholder="No minimum if blank">
           </div>
           <p class="small muted" style="margin-top:-4px">Prevents abuse on small orders — ensures the discount doesn't exceed the basket.</p>
         </div>
@@ -34173,16 +34564,16 @@ I want to give you the right answer — let me check with the team. Could I take
           <h4>Which item is free?</h4>
           <div class="form-row">
             <select id="pc-free-item">
-              <option>Pandan crème brûlée (₫95k)</option>
+              <option>Pandan crème brûlée (S$5.28)</option>
               <option>Any dessert (customer chooses)</option>
-              <option>Cà phê sữa đá (₫55k)</option>
-              <option>Bánh mì pâté gà (₫85k)</option>
+              <option>Cà phê sữa đá (S$3.06)</option>
+              <option>Bánh mì pâté gà (S$4.72)</option>
               <option>Custom item…</option>
             </select>
           </div>
           <h4>Minimum order to unlock</h4>
           <div class="form-row">
-            <input type="text" value="₫200,000" placeholder="No minimum if blank">
+            <input type="text" value="S$11" placeholder="No minimum if blank">
           </div>
           <div class="toggle-row" style="margin-top:6px">
             <div class="t">
@@ -34204,13 +34595,13 @@ I want to give you the right answer — let me check with the team. Could I take
           <p class="small muted" style="margin-top:0">Tap a chip to toggle. D3 zones often need cost protection.</p>
           <h4>Minimum order to qualify</h4>
           <div class="form-row">
-            <input type="text" value="₫300,000">
+            <input type="text" value="S$17">
           </div>
           <h4>What's free</h4>
           <div class="form-row">
             <select>
               <option>Full delivery fee waived</option>
-              <option>Up to ₫25k of delivery fee</option>
+              <option>Up to S$1.39 of delivery fee</option>
               <option>50% of delivery fee</option>
             </select>
           </div>
@@ -34255,12 +34646,12 @@ I want to give you the right answer — let me check with the team. Could I take
             <span class="lang-chip">+ Add item</span>
           </div>
           <h4>Sum of regular prices</h4>
-          <p style="font-family:'Outfit';font-weight:700;font-size:18px">₫140,000</p>
+          <p style="font-family:'Outfit';font-weight:700;font-size:18px">S$7.78</p>
           <h4>Bundle price</h4>
           <div class="form-row">
-            <span class="small muted" style="align-self:center;font-size:16px;font-weight:700">₫</span>
+            <span class="small muted" style="align-self:center;font-size:16px;font-weight:700">S$</span>
             <input type="number" value="115000" style="max-width:160px">
-            <span class="small muted" style="align-self:center">→ <strong style="color:#2E8466">saves ₫25k (18%)</strong></span>
+            <span class="small muted" style="align-self:center">→ <strong style="color:#2E8466">saves S$1.39 (18%)</strong></span>
           </div>
         </div>
 
@@ -34418,7 +34809,7 @@ I want to give you the right answer — let me check with the team. Could I take
                 document.querySelector(
                   '[data-pc-detail="amt"] input[type=number]',
                 )?.value || "50000";
-              amountTxt = `₫${Number(v).toLocaleString("en-US")} off the bill`;
+              amountTxt = `S$${(Number(v) / 18000).toFixed(2)} off the bill`;
             } else if (type === "free-item") {
               const it =
                 document.getElementById("pc-free-item")?.value || "a free item";
@@ -34428,7 +34819,7 @@ I want to give you the right answer — let me check with the team. Could I take
             } else if (type === "bogo") {
               amountTxt = "Buy one, get one free";
             } else if (type === "bundle") {
-              amountTxt = "Bundle for ₫115k";
+              amountTxt = "Bundle for S$6.39";
             }
             const aud = audSel?.value || "All customers";
             const activeScopes = scopeBox
@@ -34987,7 +35378,7 @@ I want to give you the right answer — let me check with the team. Could I take
           <div class="detail-kv"><span class="k">Table</span><span class="v">${escapeHtml(tableNum)}</span></div>
           <div class="detail-kv"><span class="k">Source</span><span class="v">${escapeHtml(sourceTxt)}</span></div>
           <div class="detail-kv"><span class="k">Created</span><span class="v">14:08 today</span></div>
-          <div class="detail-kv"><span class="k">Deposit</span><span class="v">${isPending ? "⏳ Awaiting (₫200k)" : "✓ ₫500k held"}</span></div>
+          <div class="detail-kv"><span class="k">Deposit</span><span class="v">${isPending ? "⏳ Awaiting (S$11)" : "✓ S$28 held"}</span></div>
         </div>
 
         <h4>Special requests</h4>
@@ -35013,28 +35404,28 @@ I want to give you the right answer — let me check with the team. Could I take
         <div class="bill-row" data-bill="b1">
           <div class="date">Apr 18, 2026</div>
           <div><div class="vis">#SGC-2614 · Dinner</div><div class="vis-meta">2 guests · pasta · wine</div></div>
-          <div class="total">₫682k</div>
+          <div class="total">S$38</div>
           <div class="actions">View</div>
         </div>
         <div class="bill-row" data-bill="b2">
           <div class="date">Mar 22, 2026</div>
           <div><div class="vis">#SGC-2381 · Brunch</div><div class="vis-meta">4 guests · birthday celebration</div></div>
-          <div class="total">₫1.2M</div>
+          <div class="total">S$67</div>
           <div class="actions">View</div>
         </div>
         <div class="bill-row" data-bill="b3">
           <div class="date">Feb 14, 2026</div>
           <div><div class="vis">#SGC-2102 · Dinner</div><div class="vis-meta">2 guests · valentine's tasting menu</div></div>
-          <div class="total">₫1.8M</div>
+          <div class="total">S$100</div>
           <div class="actions">View</div>
         </div>
         <div class="bill-row" data-bill="b4">
           <div class="date">Jan 7, 2026</div>
           <div><div class="vis">#SGC-1922 · Lunch</div><div class="vis-meta">2 guests · first visit</div></div>
-          <div class="total">₫428k</div>
+          <div class="total">S$24</div>
           <div class="actions">View</div>
         </div>
-        <p class="small muted" style="margin-top:8px;text-align:right">Lifetime value: <strong style="font-family:'Outfit';color:var(--ink)">₫6.2M across 5 visits</strong></p>
+        <p class="small muted" style="margin-top:8px;text-align:right">Lifetime value: <strong style="font-family:'Outfit';color:var(--ink)">S$344 across 5 visits</strong></p>
       `,
           actions: [
             { label: "Close" },
@@ -35133,7 +35524,7 @@ I want to give you the right answer — let me check with the team. Could I take
         const isConfirmed = statusEl?.classList?.contains("bk-confirmed");
         const isCancelled = statusEl?.classList?.contains("bk-cancelled");
         const isDelivery = kind === "delivery";
-        const totalText = (rowEl.textContent.match(/₫[\d.,]+[kM]?/) || [
+        const totalText = (rowEl.textContent.match(/S\$[\d.,]+/) || [
           "—",
         ])[0];
 
@@ -35162,33 +35553,33 @@ I want to give you the right answer — let me check with the team. Could I take
           <div class="order-item">
             <div class="qty">2</div>
             <div><div class="nm">${isDelivery ? "Truffle pasta" : "Bún chả Hà Nội"}</div><div class="mods">${isDelivery ? "Large size · extra cheese · soft egg" : "Spicy · extra noodles"}</div></div>
-            <div class="unit">₫${isDelivery ? "425" : "155"}k</div>
-            <div class="total">₫${isDelivery ? "850" : "310"}k</div>
+            <div class="unit">S${isDelivery ? "24" : "9"}</div>
+            <div class="total">S${isDelivery ? "47" : "17"}</div>
           </div>
           <div class="order-item">
             <div class="qty">1</div>
             <div><div class="nm">Cà phê sữa đá</div><div class="mods">Oat milk · 50% sugar · less ice</div></div>
-            <div class="unit">₫70k</div>
-            <div class="total">₫70k</div>
+            <div class="unit">S$3.89</div>
+            <div class="total">S$3.89</div>
           </div>
           <div class="order-item">
             <div class="qty">1</div>
             <div><div class="nm">Gỏi cuốn (3pc)</div><div class="mods">Tofu protein swap (vegan)</div></div>
-            <div class="unit">₫75k</div>
-            <div class="total">₫75k</div>
+            <div class="unit">S$4.17</div>
+            <div class="total">S$4.17</div>
           </div>
           <div class="order-item">
             <div class="qty">1</div>
             <div><div class="nm">Pandan crème brûlée</div></div>
-            <div class="unit">₫95k</div>
-            <div class="total">₫95k</div>
+            <div class="unit">S$5.28</div>
+            <div class="total">S$5.28</div>
           </div>
           <div class="order-totals">
-            <div class="row"><span>Subtotal</span><span>₫${isDelivery ? "1,090" : "550"}k</span></div>
-            <div class="row"><span>Service charge (10%)</span><span>₫${isDelivery ? "0" : "55"}k</span></div>
-            ${isDelivery ? `<div class="row"><span>Delivery fee (D3 zone)</span><span>₫40k</span></div>` : `<div class="row"><span>Tip</span><span>₫35k</span></div>`}
-            <div class="row" style="color:#2E8466"><span>Promo: ${isDelivery ? "WEMISSYOU15" : "VIP10"}</span><span>−₫${isDelivery ? "163" : "55"}k</span></div>
-            <div class="row grand"><span>Total</span><span>₫${isDelivery ? "967" : "585"}k</span></div>
+            <div class="row"><span>Subtotal</span><span>S${isDelivery ? "61" : "31"}</span></div>
+            <div class="row"><span>Service charge (10%)</span><span>S${isDelivery ? "0" : "3"}</span></div>
+            ${isDelivery ? `<div class="row"><span>Delivery fee (D3 zone)</span><span>S$2.22</span></div>` : `<div class="row"><span>Tip</span><span>S$1.94</span></div>`}
+            <div class="row" style="color:#2E8466"><span>Promo: ${isDelivery ? "WEMISSYOU15" : "VIP10"}</span><span>−S${isDelivery ? "9" : "3"}</span></div>
+            <div class="row grand"><span>Total</span><span>S${isDelivery ? "54" : "32"}</span></div>
           </div>
         </div>
 
@@ -35617,7 +36008,7 @@ I want to give you the right answer — let me check with the team. Could I take
 
         <div data-pt-detail="paid-only" style="display:none">
           <h4>Required deposit per guest</h4>
-          <div class="form-row"><input type="text" value="₫200,000"></div>
+          <div class="form-row"><input type="text" value="S$11"></div>
         </div>
 
         <h4>Time windows this rule applies in</h4>
@@ -36550,11 +36941,11 @@ I want to give you the right answer — let me check with the team. Could I take
         </div>
         <div class="bk-table" style="border:0">
           <div class="bk-row hd" style="grid-template-columns:50px 1fr 100px 100px 80px"><div></div><div>Customer</div><div>Last visit</div><div>LTV</div><div>Visits</div></div>
-          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:#245842">VL</div><div><div class="bk-customer">Vu Hoang Long</div><div class="bk-phone">+84 90 666 4422</div></div><div class="bk-phone">3 days ago</div><div><strong>₫24.8M</strong></div><div><strong>18</strong></div></div>
-          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:var(--plum)">HM</div><div><div class="bk-customer">Hoang Minh</div><div class="bk-phone">Events host</div></div><div class="bk-phone">1 week ago</div><div><strong>₫18.2M</strong></div><div><strong>22</strong></div></div>
-          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:#1F8466">LN</div><div><div class="bk-customer">Linh Nguyen</div><div class="bk-phone">Brunch regular</div></div><div class="bk-phone">Yesterday</div><div><strong>₫9.6M</strong></div><div><strong>12</strong></div></div>
-          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:var(--mint)">TA</div><div><div class="bk-customer">Tran Minh Anh</div><div class="bk-phone">Date night</div></div><div class="bk-phone">2h ago</div><div><strong>₫6.2M</strong></div><div><strong>5</strong></div></div>
-          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:var(--accent)">PT</div><div><div class="bk-customer">Pham Quoc Tuan</div><div class="bk-phone">Halal</div></div><div class="bk-phone">5 days ago</div><div><strong>₫5.8M</strong></div><div><strong>8</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:#245842">VL</div><div><div class="bk-customer">Vu Hoang Long</div><div class="bk-phone">+84 90 666 4422</div></div><div class="bk-phone">3 days ago</div><div><strong>S$1,378</strong></div><div><strong>18</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:var(--plum)">HM</div><div><div class="bk-customer">Hoang Minh</div><div class="bk-phone">Events host</div></div><div class="bk-phone">1 week ago</div><div><strong>S$1,011</strong></div><div><strong>22</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:#1F8466">LN</div><div><div class="bk-customer">Linh Nguyen</div><div class="bk-phone">Brunch regular</div></div><div class="bk-phone">Yesterday</div><div><strong>S$533</strong></div><div><strong>12</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:var(--mint)">TA</div><div><div class="bk-customer">Tran Minh Anh</div><div class="bk-phone">Date night</div></div><div class="bk-phone">2h ago</div><div><strong>S$344</strong></div><div><strong>5</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:50px 1fr 100px 100px 80px"><div class="bk-av" style="background:var(--accent)">PT</div><div><div class="bk-customer">Pham Quoc Tuan</div><div class="bk-phone">Halal</div></div><div class="bk-phone">5 days ago</div><div><strong>S$322</strong></div><div><strong>8</strong></div></div>
         </div>
         <p class="small muted" style="margin-top:10px">Showing 5 of 142 · scroll for more (truncated in wireframe)</p>
       `,
@@ -37030,8 +37421,8 @@ I want to give you the right answer — let me check with the team. Could I take
 
         const fmt = (n) =>
           n >= 1000000
-            ? `₫${(n / 1000000).toFixed(1)}M`
-            : `₫${Math.round(n / 1000)}k`;
+            ? `S$${(n / 18000).toFixed(0)}`
+            : `S$${(n / 18000).toFixed(2)}`;
         const roi = (p.revenue / Math.max(p.discount, 1)).toFixed(1);
 
         // Daily redemption series (mock 7 day data scaled to total uses)
@@ -37133,8 +37524,8 @@ I want to give you the right answer — let me check with the team. Could I take
           <div class="detail-kv"><span class="k">Gross revenue (attributed)</span><span class="v">${fmt(p.revenue)}</span></div>
           <div class="detail-kv"><span class="k">Discount given</span><span class="v" style="color:#A53939">−${fmt(p.discount)}</span></div>
           <div class="detail-kv"><span class="k">Net revenue from campaign</span><span class="v" style="font-family:'Outfit';font-weight:800">${fmt(p.revenue - p.discount)}</span></div>
-          ${p.newCust > 0 ? `<div class="detail-kv"><span class="k">Projected LTV from new customers</span><span class="v" style="color:#2E8466">+₫${(p.newCust * 3800).toLocaleString("en-US")}k</span></div>` : ""}
-          ${p.reactivated > 0 ? `<div class="detail-kv"><span class="k">Projected LTV from reactivations</span><span class="v" style="color:#2E8466">+₫${(p.reactivated * 2400).toLocaleString("en-US")}k</span></div>` : ""}
+          ${p.newCust > 0 ? `<div class="detail-kv"><span class="k">Projected LTV from new customers</span><span class="v" style="color:#2E8466">+S$${(p.newCust * 3800 / 18).toFixed(0)}</span></div>` : ""}
+          ${p.reactivated > 0 ? `<div class="detail-kv"><span class="k">Projected LTV from reactivations</span><span class="v" style="color:#2E8466">+S$${(p.reactivated * 2400 / 18).toFixed(0)}</span></div>` : ""}
         </div>
 
         <h4>AI insight</h4>
@@ -37500,7 +37891,7 @@ I want to give you the right answer — let me check with the team. Could I take
 
         <div class="am-kpi" style="margin-bottom:14px">
           <div class="kpi-card"><div class="kh"><div class="ic" style="background:var(--mint-soft);color:#2E8466">🛵</div><span class="lbl">Today</span></div><div><span class="big">4</span></div><div class="meta-line"><span class="vs">deliveries · 1 active</span></div></div>
-          <div class="kpi-card"><div class="kh"><div class="ic" style="background:var(--sky-soft);color:#3F6FA4">📊</div><span class="lbl">This month</span></div><div><span class="big">142</span></div><div class="meta-line"><span class="vs">deliveries · ₫2.8M tips</span></div></div>
+          <div class="kpi-card"><div class="kh"><div class="ic" style="background:var(--sky-soft);color:#3F6FA4">📊</div><span class="lbl">This month</span></div><div><span class="big">142</span></div><div class="meta-line"><span class="vs">deliveries · S$156 tips</span></div></div>
           <div class="kpi-card"><div class="kh"><div class="ic" style="background:var(--accent-soft);color:#1B4332">⏱</div><span class="lbl">Avg time</span></div><div><span class="big">22m</span></div><div class="meta-line"><span class="vs">pickup → delivered</span></div></div>
           <div class="kpi-card"><div class="kh"><div class="ic" style="background:var(--sun-soft);color:#A07517">⭐</div><span class="lbl">Rating</span></div><div><span class="big">4.8</span></div><div class="meta-line"><span class="vs">/ 5 · 86 reviews</span></div></div>
         </div>
@@ -37516,16 +37907,16 @@ I want to give you the right answer — let me check with the team. Could I take
         </div>
 
         <h4>Today's deliveries</h4>
-        <div class="list-row"><div class="av" style="background:var(--mint)">✓</div><div><div class="who">#DLV-1812 · Sarah C. · D1</div><div class="when">14:42 · 18 min · 5★ · tip ₫22k</div></div><div class="meta">₫298k</div></div>
-        <div class="list-row"><div class="av" style="background:var(--mint)">✓</div><div><div class="who">#DLV-1798 · Hoang B. · D1</div><div class="when">13:38 · 22 min · 5★ · tip ₫15k</div></div><div class="meta">₫168k</div></div>
-        <div class="list-row"><div class="av" style="background:var(--mint)">✓</div><div><div class="who">#DLV-1782 · Linh N. · D2</div><div class="when">12:18 · 26 min · 4★</div></div><div class="meta">₫428k</div></div>
-        <div class="list-row"><div class="av" style="background:var(--accent)">→</div><div><div class="who">#DLV-1828 · Tuan Q. · D3</div><div class="when">In progress · ETA 14:48</div></div><div class="meta">₫298k</div></div>
+        <div class="list-row"><div class="av" style="background:var(--mint)">✓</div><div><div class="who">#DLV-1812 · Sarah C. · D1</div><div class="when">14:42 · 18 min · 5★ · tip S$1.22</div></div><div class="meta">S$17</div></div>
+        <div class="list-row"><div class="av" style="background:var(--mint)">✓</div><div><div class="who">#DLV-1798 · Hoang B. · D1</div><div class="when">13:38 · 22 min · 5★ · tip S$0.83</div></div><div class="meta">S$9.33</div></div>
+        <div class="list-row"><div class="av" style="background:var(--mint)">✓</div><div><div class="who">#DLV-1782 · Linh N. · D2</div><div class="when">12:18 · 26 min · 4★</div></div><div class="meta">S$24</div></div>
+        <div class="list-row"><div class="av" style="background:var(--accent)">→</div><div><div class="who">#DLV-1828 · Tuan Q. · D3</div><div class="when">In progress · ETA 14:48</div></div><div class="meta">S$17</div></div>
 
         <h4>Performance</h4>
         <div class="kv"><span class="k">On-time rate</span><span class="v" style="color:#2E8466">94%</span></div>
         <div class="kv"><span class="k">Customer rating</span><span class="v">4.8 / 5 (86 reviews)</span></div>
         <div class="kv"><span class="k">No-show rate</span><span class="v">0.6%</span></div>
-        <div class="kv"><span class="k">Avg tip per order</span><span class="v">₫19k</span></div>
+        <div class="kv"><span class="k">Avg tip per order</span><span class="v">S$1.06</span></div>
       `,
           actions: [
             { label: "Close" },
@@ -37584,8 +37975,8 @@ I want to give you the right answer — let me check with the team. Could I take
 
         <h4>Fees &amp; rules</h4>
         <div class="bh-grid" style="gap:10px">
-          <div class="field"><label>Delivery fee</label><input type="text" value="${escapeHtml(isNew ? "₫25,000" : detail.match(/₫\d+[k,]?/)?.[0] || "₫25,000")}"></div>
-          <div class="field"><label>Minimum order</label><input type="text" value="₫200,000"></div>
+          <div class="field"><label>Delivery fee</label><input type="text" value="${escapeHtml(isNew ? "S$1.39" : detail.match(/S\$[\d.,]+/)?.[0] || "S$1.39")}"></div>
+          <div class="field"><label>Minimum order</label><input type="text" value="S$11"></div>
         </div>
         <div class="bh-grid" style="gap:10px">
           <div class="field"><label>Estimated ETA</label><input type="text" value="30 min"></div>
@@ -37595,7 +37986,7 @@ I want to give you the right answer — let me check with the team. Could I take
         <h4>Rush hour surcharge</h4>
         <div class="toggle-row" style="margin-bottom:8px"><div class="t"><div class="nm">Add surcharge during peak hours</div></div><div class="switch on"></div></div>
         <div class="form-row">
-          <input type="text" value="+₫10,000" style="max-width:120px">
+          <input type="text" value="+S$0.56" style="max-width:120px">
           <span class="small muted" style="align-self:center">during</span>
           <input type="text" value="18:00 – 20:00" style="flex:1">
         </div>
@@ -37656,8 +38047,8 @@ I want to give you the right answer — let me check with the team. Could I take
           rowEl?.children?.[2]?.textContent?.trim() || "Customer";
         const when = rowEl?.children?.[0]?.textContent?.trim() || "Time";
         const where = rowEl?.children?.[3]?.textContent?.trim() || "Channel";
-        const discount = rowEl?.children?.[4]?.textContent?.trim() || "−₫0";
-        const total = rowEl?.children?.[5]?.textContent?.trim() || "₫0";
+        const discount = rowEl?.children?.[4]?.textContent?.trim() || "−S$0";
+        const total = rowEl?.children?.[5]?.textContent?.trim() || "S$0";
 
         modal({
           title: `🏷 Redemption · ${code}`,
@@ -37674,17 +38065,17 @@ I want to give you the right answer — let me check with the team. Could I take
 
         <h4>Original cart</h4>
         <div class="order-items">
-          <div class="order-item"><div class="qty">2</div><div><div class="nm">Truffle pasta</div><div class="mods">Large · extra cheese</div></div><div class="unit">₫425k</div><div class="total">₫850k</div></div>
-          <div class="order-item"><div class="qty">1</div><div><div class="nm">Cà phê sữa đá</div></div><div class="unit">₫55k</div><div class="total">₫55k</div></div>
+          <div class="order-item"><div class="qty">2</div><div><div class="nm">Truffle pasta</div><div class="mods">Large · extra cheese</div></div><div class="unit">S$24</div><div class="total">S$47</div></div>
+          <div class="order-item"><div class="qty">1</div><div><div class="nm">Cà phê sữa đá</div></div><div class="unit">S$3.06</div><div class="total">S$3.06</div></div>
           <div class="order-totals">
-            <div class="row"><span>Subtotal</span><span>₫905k</span></div>
+            <div class="row"><span>Subtotal</span><span>S$50</span></div>
             <div class="row" style="color:#2E8466"><span>${escapeHtml(code)} (15% off)</span><span>${escapeHtml(discount)}</span></div>
             <div class="row grand"><span>Total paid</span><span>${escapeHtml(total)}</span></div>
           </div>
         </div>
 
         <h4>Campaign context</h4>
-        <p class="small muted">This redemption is part of the <strong>"We miss you" win-back campaign</strong> · 142 customers in the audience · 22 redemptions so far · ₫4.2M revenue attributed.</p>
+        <p class="small muted">This redemption is part of the <strong>"We miss you" win-back campaign</strong> · 142 customers in the audience · 22 redemptions so far · S$233 revenue attributed.</p>
         <button class="btn" style="margin-top:8px">View campaign report</button>
 
         <h4>Customer history</h4>
@@ -37800,7 +38191,7 @@ Active: yes</code>
       function showInvoiceDetailModal(rowEl) {
         const date = rowEl?.children?.[0]?.textContent?.trim() || "Date";
         const desc = rowEl?.children?.[1]?.textContent?.trim() || "Invoice";
-        const amount = rowEl?.children?.[2]?.textContent?.trim() || "₫0";
+        const amount = rowEl?.children?.[2]?.textContent?.trim() || "S$0";
 
         modal({
           title: `🧾 Invoice ${desc.match(/#INV-\d+/)?.[0] || ""}`,
@@ -37823,12 +38214,12 @@ Active: yes</code>
 
         <h4>Line items</h4>
         <div class="bk-table" style="border:0">
-          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Operator tier · monthly subscription</div><div style="font-family:'Outfit';font-weight:700">₫4,800,000</div></div>
-          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Booking System add-on</div><div style="font-family:'Outfit';font-weight:700">₫890,000</div></div>
-          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Dine-in CMS add-on</div><div style="font-family:'Outfit';font-weight:700">₫590,000</div></div>
-          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Table Mgmt overage · 42 reservations × ₫800</div><div style="font-family:'Outfit';font-weight:700">₫33,600</div></div>
-          <div class="bk-row" style="grid-template-columns:1fr auto"><div class="bk-phone">Subtotal</div><div style="font-family:'Outfit';font-weight:700">₫6,313,600</div></div>
-          <div class="bk-row" style="grid-template-columns:1fr auto"><div class="bk-phone">VAT (10%)</div><div style="font-family:'Outfit';font-weight:700">₫631,360</div></div>
+          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Operator tier · monthly subscription</div><div style="font-family:'Outfit';font-weight:700">S$267</div></div>
+          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Booking System add-on</div><div style="font-family:'Outfit';font-weight:700">S$49</div></div>
+          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Dine-in CMS add-on</div><div style="font-family:'Outfit';font-weight:700">S$33</div></div>
+          <div class="bk-row" style="grid-template-columns:1fr auto"><div>Table Mgmt overage · 42 reservations × S$0.04</div><div style="font-family:'Outfit';font-weight:700">S$1.87</div></div>
+          <div class="bk-row" style="grid-template-columns:1fr auto"><div class="bk-phone">Subtotal</div><div style="font-family:'Outfit';font-weight:700">S$351</div></div>
+          <div class="bk-row" style="grid-template-columns:1fr auto"><div class="bk-phone">VAT (10%)</div><div style="font-family:'Outfit';font-weight:700">S$35</div></div>
           <div class="bk-row" style="grid-template-columns:1fr auto;background:var(--accent-soft)">
             <div style="font-family:'Outfit';font-weight:800">Total</div>
             <div style="font-family:'Outfit';font-weight:800;font-size:16px">${escapeHtml(amount)}</div>
@@ -37961,7 +38352,7 @@ Active: yes</code>
             <div style="font-size:24px;opacity:0.5">🌿</div>
             <div style="flex:1">
               <div style="font-family:'Outfit';font-weight:700;font-size:15px">+ Add 2nd location</div>
-              <div class="small muted">Requires Operator tier or higher · ₫1.2M / mo per added location</div>
+              <div class="small muted">Requires Operator tier or higher · S$67 / mo per added location</div>
             </div>
             <button class="btn">Learn more</button>
           </div>
@@ -38009,7 +38400,7 @@ Active: yes</code>
           <div class="meta">W5</div>
         </div>
         <div class="list-row"><div class="av" style="background:var(--sun)">💰</div><div><div class="who">Quota at 84% for Table Mgmt</div><div class="when">Yesterday · auto-resets in 10 days</div></div><div class="meta">View</div></div>
-        <div class="list-row"><div class="av" style="background:var(--sky)">📅</div><div><div class="who">No-show fee charged · Marina Olsen</div><div class="when">Yesterday · ₫200k</div></div><div class="meta">Order</div></div>
+        <div class="list-row"><div class="av" style="background:var(--sky)">📅</div><div><div class="who">No-show fee charged · Marina Olsen</div><div class="when">Yesterday · S$11</div></div><div class="meta">Order</div></div>
         <div class="list-row"><div class="av" style="background:var(--accent)">🏷</div><div><div class="who">WEMISSYOU15 launched · 142 customers</div><div class="when">2 days ago · 22 redemptions so far</div></div><div class="meta">View</div></div>
         <div class="list-row"><div class="av" style="background:var(--mint)">📊</div><div><div class="who">Weekly performance summary ready</div><div class="when">2 days ago · revenue +8% vs last week</div></div><div class="meta">Report</div></div>
         <div class="list-row"><div class="av" style="background:var(--plum)">🤖</div><div><div class="who">AI knowledge gap detected</div><div class="when">3 days ago · "Do you do birthday cakes?" asked 14×</div></div><div class="meta">Knowledge</div></div>
@@ -38255,8 +38646,8 @@ Active: yes</code>
 
         <h4>Pay</h4>
         <div class="bh-grid" style="gap:10px">
-          <div class="field"><label>Rate</label><input type="text" value="₫65,000/hr"></div>
-          <div class="field"><label>Expected pay</label><input type="text" value="₫715,000" disabled></div>
+          <div class="field"><label>Rate</label><input type="text" value="S$3.61/hr"></div>
+          <div class="field"><label>Expected pay</label><input type="text" value="S$40" disabled></div>
         </div>
 
         <h4>Notes <span class="kt-pill">Optional</span></h4>
@@ -38332,8 +38723,8 @@ Active: yes</code>
 
         <div class="am-kpi" style="margin-bottom:14px">
           <div class="kpi-card"><div class="kh"><div class="ic"><i class="fa-solid fa-chair"></i></div><span class="lbl">Visits (12mo)</span></div><div><span class="big">12</span></div></div>
-          <div class="kpi-card"><div class="kh"><div class="ic"><i class="fa-solid fa-coins"></i></div><span class="lbl">LTV</span></div><div><span class="big">₫9.6M</span></div></div>
-          <div class="kpi-card"><div class="kh"><div class="ic"><i class="fa-solid fa-receipt"></i></div><span class="lbl">Avg ticket</span></div><div><span class="big">₫800k</span></div></div>
+          <div class="kpi-card"><div class="kh"><div class="ic"><i class="fa-solid fa-coins"></i></div><span class="lbl">LTV</span></div><div><span class="big">S$533</span></div></div>
+          <div class="kpi-card"><div class="kh"><div class="ic"><i class="fa-solid fa-receipt"></i></div><span class="lbl">Avg ticket</span></div><div><span class="big">S$44</span></div></div>
           <div class="kpi-card"><div class="kh"><div class="ic"><i class="fa-solid fa-clock"></i></div><span class="lbl">Last visit</span></div><div><span class="big" style="font-size:18px">3 days ago</span></div></div>
         </div>
 
@@ -38350,14 +38741,14 @@ Active: yes</code>
         <h4>Recent bookings <span class="kt-pill">5 total</span></h4>
         <div class="bk-table">
           <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Today 7 PM</div><div><div class="bk-customer">#SGC-2841 · 4 guests · W5</div><div class="bk-phone">Window · date night · AI Concierge</div></div><div><span class="bk-status bk-confirmed">Confirmed</span></div><div class="bk-phone" style="text-align:right">—</div></div>
-          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Apr 18</div><div><div class="bk-customer">#SGC-2614 · 2 guests · T3</div><div class="bk-phone">Dinner · pasta + wine</div></div><div><span class="bk-status bk-confirmed">Closed</span></div><div class="bk-phone" style="text-align:right">₫682k</div></div>
-          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Mar 22</div><div><div class="bk-customer">#SGC-2381 · 4 guests · W2</div><div class="bk-phone">Brunch · birthday · Website</div></div><div><span class="bk-status bk-confirmed">Closed</span></div><div class="bk-phone" style="text-align:right">₫1.2M</div></div>
+          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Apr 18</div><div><div class="bk-customer">#SGC-2614 · 2 guests · T3</div><div class="bk-phone">Dinner · pasta + wine</div></div><div><span class="bk-status bk-confirmed">Closed</span></div><div class="bk-phone" style="text-align:right">S$38</div></div>
+          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Mar 22</div><div><div class="bk-customer">#SGC-2381 · 4 guests · W2</div><div class="bk-phone">Brunch · birthday · Website</div></div><div><span class="bk-status bk-confirmed">Closed</span></div><div class="bk-phone" style="text-align:right">S$67</div></div>
         </div>
 
         <h4>Recent orders <span class="kt-pill">3 total</span></h4>
         <div class="bk-table">
-          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Apr 28</div><div><div class="bk-customer">#DLV-1722 · Delivery</div><div class="bk-phone">3 items · D2 zone · driver: Tuan</div></div><div><span class="bk-status bk-confirmed">Delivered</span></div><div class="bk-phone" style="text-align:right">₫286k</div></div>
-          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Apr 18</div><div><div class="bk-customer">#CTS-892 · Table T3 dine-in</div><div class="bk-phone">6 items · split bill</div></div><div><span class="bk-status bk-confirmed">Closed</span></div><div class="bk-phone" style="text-align:right">₫682k</div></div>
+          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Apr 28</div><div><div class="bk-customer">#DLV-1722 · Delivery</div><div class="bk-phone">3 items · D2 zone · driver: Tuan</div></div><div><span class="bk-status bk-confirmed">Delivered</span></div><div class="bk-phone" style="text-align:right">S$16</div></div>
+          <div class="bk-row" style="grid-template-columns:90px 1fr 100px 110px"><div class="bk-phone">Apr 18</div><div><div class="bk-customer">#CTS-892 · Table T3 dine-in</div><div class="bk-phone">6 items · split bill</div></div><div><span class="bk-status bk-confirmed">Closed</span></div><div class="bk-phone" style="text-align:right">S$38</div></div>
         </div>
 
         <h4>AI Concierge conversations <span class="kt-pill">8 total</span></h4>
@@ -38366,7 +38757,7 @@ Active: yes</code>
         <div class="list-row"><div class="av" style="background:var(--plum)"><i class="fa-solid fa-robot"></i></div><div><div class="who">Birthday-cake question</div><div class="when">Mar 18 · escalated to staff (Linh)</div></div><div class="meta">8 msgs</div></div>
 
         <h4>Promotions redeemed <span class="kt-pill">2 total</span></h4>
-        <div class="list-row"><div class="av" style="background:var(--accent)"><i class="fa-solid fa-tag"></i></div><div><div class="who">VIP10 · 10% off</div><div class="when">Apr 18 · saved ₫68k</div></div><div class="meta">on T3 visit</div></div>
+        <div class="list-row"><div class="av" style="background:var(--accent)"><i class="fa-solid fa-tag"></i></div><div><div class="who">VIP10 · 10% off</div><div class="when">Apr 18 · saved S$3.78</div></div><div class="meta">on T3 visit</div></div>
         <div class="list-row"><div class="av" style="background:var(--accent)"><i class="fa-solid fa-tag"></i></div><div><div class="who">BIRTHDAYTREAT · free dessert</div><div class="when">Mar 22 · pandan crème brûlée</div></div><div class="meta">on brunch</div></div>
 
         <h4>Staff notes</h4>
@@ -38945,13 +39336,13 @@ Active: yes</code>
         const tiers = {
           operator: {
             name: "Operator",
-            monthly: "₫4,800k",
+            monthly: "S$272",
             color: "#3F6FA4",
             bg: "var(--sky-soft)",
             reservations: "600 / mo",
-            payg: "₫800 / extra",
+            payg: "S$0.04 / extra",
             aiConvos: "5,000 / mo",
-            aiPayg: "₫1,200 / extra",
+            aiPayg: "S$0.07 / extra",
             locations: "1 included",
             staffSeats: "25",
             features: [
@@ -38965,13 +39356,13 @@ Active: yes</code>
           },
           grower: {
             name: "Grower",
-            monthly: "₫6,800k",
+            monthly: "S$378",
             color: "#245842",
             bg: "var(--accent-soft)",
             reservations: "800 / mo · +33%",
-            payg: "₫600 / extra · -25%",
+            payg: "S$0.03 / extra · -25%",
             aiConvos: "10,000 / mo · +100%",
-            aiPayg: "₫900 / extra · -25%",
+            aiPayg: "S$0.05 / extra · -25%",
             locations: "3 included",
             staffSeats: "50",
             features: [
@@ -39019,21 +39410,21 @@ Active: yes</code>
 
         <h4>What you save at your current volume</h4>
         <div style="background:var(--mint-soft);border:1px solid #BFE9D4;border-radius:12px;padding:14px;color:#2E8466">
-          <div class="kv"><span class="k" style="color:#2E8466">Operator + your overage avg (₫22k/mo)</span><span class="v">₫4,822k / mo</span></div>
-          <div class="kv"><span class="k" style="color:#2E8466">Grower base (no overage at your volume)</span><span class="v">₫6,800k / mo</span></div>
-          <div class="kv" style="padding-top:8px;border-top:2px solid #BFE9D4;margin-top:6px;font-family:'Outfit';font-weight:800"><span class="k" style="color:#2E8466">Wait, that's <em>more</em>?</span><span class="v" style="color:#245842">+₫1,978k</span></div>
-          <p class="small" style="margin-top:10px;color:#2E8466">⚠️ Grower costs more <em>today</em>. The "save ₫45k" math from the billing modal assumed you'd grow to <strong>~700+ reservations / mo</strong>. If your volume stays flat, stay on Operator.</p>
+          <div class="kv"><span class="k" style="color:#2E8466">Operator + your overage avg (S$1.22/mo)</span><span class="v">S$272 / mo</span></div>
+          <div class="kv"><span class="k" style="color:#2E8466">Grower base (no overage at your volume)</span><span class="v">S$378 / mo</span></div>
+          <div class="kv" style="padding-top:8px;border-top:2px solid #BFE9D4;margin-top:6px;font-family:'Outfit';font-weight:800"><span class="k" style="color:#2E8466">Wait, that's <em>more</em>?</span><span class="v" style="color:#245842">+S$110</span></div>
+          <p class="small" style="margin-top:10px;color:#2E8466">⚠️ Grower costs more <em>today</em>. The "save S$2.50" math from the billing modal assumed you'd grow to <strong>~700+ reservations / mo</strong>. If your volume stays flat, stay on Operator.</p>
         </div>
 
         <h4>When Grower wins</h4>
         <div class="stepline"><span class="ic">📈</span><div class="txt">Volume above <strong>700 reservations / mo</strong> consistently</div></div>
-        <div class="stepline"><span class="ic">📍</span><div class="txt">Planning a <strong>2nd or 3rd location</strong> (3 included vs. ₫1.2M / extra location on Operator)</div></div>
+        <div class="stepline"><span class="ic">📍</span><div class="txt">Planning a <strong>2nd or 3rd location</strong> (3 included vs. S$67 / extra location on Operator)</div></div>
         <div class="stepline"><span class="ic">🤖</span><div class="txt">AI Concierge convos consistently over <strong>5,000 / mo</strong></div></div>
         <div class="stepline"><span class="ic">👥</span><div class="txt">Team growing past <strong>25 staff seats</strong></div></div>
 
         <h4>Billing changes</h4>
-        <div class="kv"><span class="k">Pro-rated charge today</span><span class="v">+₫1,317k (16 days remaining in cycle)</span></div>
-        <div class="kv"><span class="k">Next renewal</span><span class="v">Jun 12, 2026 · ₫6,800k</span></div>
+        <div class="kv"><span class="k">Pro-rated charge today</span><span class="v">+S$70 (16 days remaining in cycle)</span></div>
+        <div class="kv"><span class="k">Next renewal</span><span class="v">Jun 12, 2026 · S$378</span></div>
         <div class="kv"><span class="k">Downgrade anytime</span><span class="v">Effective at next renewal · no penalty</span></div>
 
         <p class="small muted" style="margin-top:14px;background:var(--surface-2);padding:10px 12px;border-radius:10px">🔒 Upgrade is instant. New quotas apply immediately. We'll email a confirmation invoice to <strong>chien.nguyen@savyu.com</strong>.</p>
@@ -39166,7 +39557,7 @@ Active: yes</code>
         ];
 
         const fmt = (n) =>
-          "₫" + Math.round(n / 1000).toLocaleString("en-US") + "k";
+          "S$" + (n / 18000).toFixed(2);
         const totalOverage = months.reduce((a, m) => a + m.overage, 0);
         const totalAll = months.reduce((a, m) => a + m.total, 0);
         const maxQuota = Math.max(
@@ -39255,7 +39646,7 @@ Active: yes</code>
                   <div style="height:100%;width:${Math.min(100, (m.used / m.quota) * 100)}%;background:${m.overageQty > 0 ? "var(--accent)" : "var(--mint)"}"></div>
                 </div>
               </div>
-              <div class="bk-phone">${m.overageQty > 0 ? `${fmt(m.overage)} <span class="muted">(${m.overageQty} × ₫800)</span>` : "—"}</div>
+              <div class="bk-phone">${m.overageQty > 0 ? `${fmt(m.overage)} <span class="muted">(${m.overageQty} × S$0.04)</span>` : "—"}</div>
               <div style="font-family:'Outfit';font-weight:700">${fmt(m.total)}</div>
               <div style="text-align:right">${m.isCurrent ? '<span class="bk-status bk-pending">live</span>' : "📥"}</div>
             </div>
@@ -39266,16 +39657,16 @@ Active: yes</code>
 
         <h4>Next renewal · Jun 12, 2026</h4>
         <div style="background:var(--surface-2);border-radius:10px;padding:14px">
-          <div class="kv"><span class="k">Subscription</span><span class="v">₫890,000</span></div>
+          <div class="kv"><span class="k">Subscription</span><span class="v">S$49</span></div>
           <div class="kv"><span class="k">Projected usage</span><span class="v">~692 reservations · 92 over quota</span></div>
-          <div class="kv"><span class="k">Projected overage</span><span class="v" style="color:#A07517">₫73,600 (92 × ₫800)</span></div>
-          <div class="kv" style="font-family:'Outfit';font-weight:800;padding-top:8px;border-top:2px solid var(--line);margin-top:6px"><span class="k" style="color:var(--ink)">Estimated total</span><span class="v" style="font-size:16px">₫963,600</span></div>
+          <div class="kv"><span class="k">Projected overage</span><span class="v" style="color:#A07517">S$4.09 (92 × S$0.04)</span></div>
+          <div class="kv" style="font-family:'Outfit';font-weight:800;padding-top:8px;border-top:2px solid var(--line);margin-top:6px"><span class="k" style="color:var(--ink)">Estimated total</span><span class="v" style="font-size:16px">S$54</span></div>
         </div>
 
         <div style="margin-top:14px;background:linear-gradient(135deg,#FFF6DF,#FCEBC1);border:1px solid #F5E2A8;padding:14px 16px;border-radius:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
           <div style="font-size:28px">💡</div>
           <div style="flex:1;min-width:200px">
-            <div style="font-family:'Outfit';font-weight:700;font-size:14px;color:#245842">Save ~₫45k / month by upgrading to Grower tier</div>
+            <div style="font-family:'Outfit';font-weight:700;font-size:14px;color:#245842">Save ~S$2.50 / month by upgrading to Grower tier</div>
             <div class="small" style="color:#A07517;margin-top:2px">You've gone over quota in <strong>2 of the last 8 months</strong>. Grower includes 800 reservations + better PAYG rate.</div>
           </div>
           <button class="btn primary" id="btn-upgrade-grower" style="white-space:nowrap">⬆ Upgrade to Grower</button>
@@ -39379,7 +39770,7 @@ Active: yes</code>
         </div>
 
         <h4>Loyalty integration</h4>
-        <div class="toggle-row" style="margin-bottom:8px"><div class="t"><div class="nm">App customers earn points on bookings</div><div class="h">1 point per ₫10k spent · redeemable in-app.</div></div><div class="switch on"></div></div>
+        <div class="toggle-row" style="margin-bottom:8px"><div class="t"><div class="nm">App customers earn points on bookings</div><div class="h">1 point per S$0.56 spent · redeemable in-app.</div></div><div class="switch on"></div></div>
         <div class="toggle-row"><div class="t"><div class="nm">Show repeat-customer perks in app</div><div class="h">"You've visited 5× · enjoy a free dessert this visit"</div></div><div class="switch on"></div></div>
 
         <h4>Featured slots</h4>
@@ -39416,7 +39807,7 @@ Active: yes</code>
           <div style="font-size:24px">✓</div>
           <div style="flex:1">
             <div style="font-family:'Outfit';font-weight:700;font-size:14px;color:#2E8466">Active &amp; accepting bookings</div>
-            <div class="small" style="color:#1F8466">Last 30 days: 34 bookings · ₫5.2M revenue · ₫364k commission paid</div>
+            <div class="small" style="color:#1F8466">Last 30 days: 34 bookings · S$289 revenue · S$20 commission paid</div>
           </div>
           <button class="btn">Pause listing</button>
         </div>
@@ -39442,7 +39833,7 @@ Active: yes</code>
         <h4>Commission &amp; payout</h4>
         <div class="kv"><span class="k">Commission rate</span><span class="v">7% per completed booking</span></div>
         <div class="kv"><span class="k">No-show fee passed through</span><span class="v">100% to you</span></div>
-        <div class="kv"><span class="k">Next payout</span><span class="v">Fri May 17 · ₫1.2M</span></div>
+        <div class="kv"><span class="k">Next payout</span><span class="v">Fri May 17 · S$67</span></div>
         <div class="kv"><span class="k">Payout method</span><span class="v">VietQR · Vietcombank ending 4242</span></div>
 
         <h4>Promotions on Giaodoan</h4>
@@ -39985,7 +40376,7 @@ Active: yes</code>
             ${
               isInstalled
                 ? `<span class="lang-installed-tag">✓ Installed</span>`
-                : `<span class="lang-lock">🔒</span><span>₫${(LANG_PRICE_PER / 1000).toFixed(0)}k<span class="lang-per">/mo</span></span>`
+                : `<span class="lang-lock">🔒</span><span>S$${(LANG_PRICE_PER / 18000).toFixed(0)}<span class="lang-per">/mo</span></span>`
             }
           </div>
           <div class="lang-check">${isInstalled ? "" : ""}</div>
@@ -40006,7 +40397,7 @@ Active: yes</code>
             <div class="small" style="color:#7C3320">KR + JA + ZH + TH · save <strong>23%</strong> vs individual</div>
           </div>
           <div style="text-align:right">
-            <div style="font-family:'Outfit';font-weight:700;font-size:16px">₫1,200k<span style="font-size:11px;font-weight:500;color:var(--ink-soft)">/mo</span></div>
+            <div style="font-family:'Outfit';font-weight:700;font-size:16px">S$70<span style="font-size:11px;font-weight:500;color:var(--ink-soft)">/mo</span></div>
             <button class="btn primary" style="margin-top:4px;padding:5px 10px;font-size:11.5px" id="lang-bundle">Add bundle</button>
           </div>
         </div>
@@ -40032,7 +40423,7 @@ Active: yes</code>
             <div class="small muted" id="lang-summary-sub">Tap any locked language to select it</div>
           </div>
           <div style="text-align:right">
-            <div style="font-family:'Outfit';font-weight:800;font-size:18px" id="lang-total">₫0</div>
+            <div style="font-family:'Outfit';font-weight:800;font-size:18px" id="lang-total">S$0</div>
             <div class="small muted">per month</div>
           </div>
         </div>
@@ -40042,7 +40433,7 @@ Active: yes</code>
           actions: [
             { label: "Cancel" },
             {
-              label: "🔒 Unlock for ₫0 / mo",
+              label: "🔒 Unlock for S$0 / mo",
               style: "primary",
               id: "lang-confirm",
               onClick: () => {
@@ -40056,7 +40447,7 @@ Active: yes</code>
                 }
                 const total = selected.length * LANG_PRICE_PER;
                 toast(
-                  `Processing payment · ₫${(total / 1000).toFixed(0)}k / mo`,
+                  `Processing payment · S$${(total / 18000).toFixed(0)} / mo`,
                   "info",
                 );
                 setTimeout(() => {
@@ -40114,13 +40505,13 @@ Active: yes</code>
               summarySub.textContent =
                 count === 0
                   ? "Tap any locked language to select it"
-                  : `${count} language${count === 1 ? "" : "s"} · ₫${(LANG_PRICE_PER / 1000).toFixed(0)}k each / month`;
-            if (totalEl) totalEl.textContent = `₫${(total / 1000).toFixed(0)}k`;
+                  : `${count} language${count === 1 ? "" : "s"} · S$${(LANG_PRICE_PER / 18000).toFixed(0)} each / month`;
+            if (totalEl) totalEl.textContent = `S$${(total / 18000).toFixed(0)}`;
             if (confirmBtn) {
               confirmBtn.textContent =
                 count === 0
                   ? "🔒 Unlock"
-                  : `🔒 Unlock ${count} language${count === 1 ? "" : "s"} · ₫${(total / 1000).toFixed(0)}k/mo`;
+                  : `🔒 Unlock ${count} language${count === 1 ? "" : "s"} · S$${(total / 18000).toFixed(0)}/mo`;
               confirmBtn.style.opacity = count === 0 ? "0.55" : "1";
             }
           }
@@ -40200,7 +40591,7 @@ Active: yes</code>
           <div class="seg-rule" style="display:grid;grid-template-columns:1.2fr 1fr 1fr 30px;gap:8px;align-items:center;padding:8px;background:var(--surface-2);border-radius:8px">
             <select><option>Total spend (12mo)</option><option>Visit count</option><option>Avg ticket</option></select>
             <select><option>≥</option></select>
-            <input type="text" value="₫3,000,000">
+            <input type="text" value="S$167">
             <button class="btn" data-remove-rule type="button" style="padding:4px 8px;font-size:14px">✕</button>
           </div>
           <div class="seg-rule" style="display:grid;grid-template-columns:1.2fr 1fr 1fr 30px;gap:8px;align-items:center;padding:8px;background:var(--surface-2);border-radius:8px">
@@ -40431,112 +40822,112 @@ Active: yes</code>
           key: "truffle-pasta",
           name: "Truffle pasta",
           cat: "Mains · Pasta",
-          price: "₫385k",
+          price: "S$21",
           em: "🍝",
         },
         {
           key: "mush-risotto",
           name: "Mushroom risotto",
           cat: "Mains · Pasta",
-          price: "₫285k",
+          price: "S$16",
           em: "🍚",
         },
         {
           key: "pho-bo",
           name: "Phở bò tái",
           cat: "Mains · Phở",
-          price: "₫135k",
+          price: "S$7.50",
           em: "🍲",
         },
         {
           key: "vegan-pho",
           name: "Vegan phở",
           cat: "Mains · Phở",
-          price: "₫135k",
+          price: "S$7.50",
           em: "🌱",
         },
         {
           key: "bun-cha",
           name: "Bún chả Hà Nội",
           cat: "Mains · Grills",
-          price: "₫135k",
+          price: "S$7.50",
           em: "🍖",
         },
         {
           key: "bm-pate-ga",
           name: "Bánh mì pâté gà",
           cat: "Mains · Bánh mì",
-          price: "₫85k",
+          price: "S$4.72",
           em: "🥖",
         },
         {
           key: "eggs-benedict",
           name: "Eggs Benedict",
           cat: "Mains · Brunch",
-          price: "₫165k",
+          price: "S$9.17",
           em: "🍳",
         },
         {
           key: "goi-cuon",
           name: "Gỏi cuốn (3pc)",
           cat: "Starters",
-          price: "₫95k",
+          price: "S$5.28",
           em: "🥗",
         },
         {
           key: "ca-phe",
           name: "Cà phê sữa đá",
           cat: "Drinks · Coffee",
-          price: "₫55k",
+          price: "S$3.06",
           em: "☕",
         },
         {
           key: "cold-brew",
           name: "Cold brew",
           cat: "Drinks · Coffee",
-          price: "₫65k",
+          price: "S$3.61",
           em: "🧊",
         },
         {
           key: "latte",
           name: "Vietnamese latte",
           cat: "Drinks · Coffee",
-          price: "₫75k",
+          price: "S$4.17",
           em: "☕",
         },
         {
           key: "aperol",
           name: "Aperol Spritz",
           cat: "Drinks · Cocktails",
-          price: "₫195k",
+          price: "S$11",
           em: "🍸",
         },
         {
           key: "riesling",
           name: "House Riesling",
           cat: "Drinks · Wine",
-          price: "₫220k",
+          price: "S$12",
           em: "🍷",
         },
         {
           key: "pandan",
           name: "Pandan crème brûlée",
           cat: "Desserts",
-          price: "₫95k",
+          price: "S$5.28",
           em: "🍮",
         },
         {
           key: "mango-sticky",
           name: "Mango sticky rice",
           cat: "Desserts",
-          price: "₫85k",
+          price: "S$4.72",
           em: "🥭",
         },
         {
           key: "sides-rice",
           name: "Jasmine rice",
           cat: "Sides",
-          price: "₫25k",
+          price: "S$1.39",
           em: "🍚",
         },
       ];
@@ -40762,7 +41153,7 @@ Active: yes</code>
           sub: "Free item attached to qualifying orders",
           body: `
         <h4>Campaign name</h4>
-        <div class="form-row"><input type="text" value="Free gỏi cuốn on orders ₫200k+"></div>
+        <div class="form-row"><input type="text" value="Free gỏi cuốn on orders S$11+"></div>
 
         <h4>Trigger</h4>
         <div class="form-row">
@@ -40774,14 +41165,14 @@ Active: yes</code>
             <option>First order from this customer</option>
           </select>
         </div>
-        <div class="form-row"><input type="text" value="₫200,000" placeholder="e.g. ₫200,000"></div>
+        <div class="form-row"><input type="text" value="S$11" placeholder="e.g. S$11"></div>
 
         <h4>Free gift item</h4>
         <div class="form-row">
           <select>
-            <option>Gỏi cuốn 3pc (₫95k)</option>
-            <option>Cà phê sữa đá (₫55k)</option>
-            <option>Pandan crème brûlée (₫95k)</option>
+            <option>Gỏi cuốn 3pc (S$5.28)</option>
+            <option>Cà phê sữa đá (S$3.06)</option>
+            <option>Pandan crème brûlée (S$5.28)</option>
             <option>Customer chooses from a list…</option>
           </select>
         </div>
@@ -40819,7 +41210,7 @@ Active: yes</code>
 
         <h4>Discount</h4>
         <div class="form-row">
-          <select><option>% off</option><option>₫ off (fixed)</option><option>Flat sale price</option></select>
+          <select><option>% off</option><option>S$ off (fixed)</option><option>Flat sale price</option></select>
           <input type="number" value="30" style="max-width:90px">
           <span class="small muted" style="align-self:center">%</span>
         </div>
@@ -40848,7 +41239,7 @@ Active: yes</code>
         <div class="form-row"><input type="number" value="50" style="max-width:120px"><span class="small muted" style="align-self:center">orders, then auto-end</span></div>
 
         <h4>Notify customers</h4>
-        <div class="toggle-row" style="margin-bottom:8px"><div class="t"><div class="nm">📲 SMS opted-in subscribers</div><div class="h">1,328 customers · ~₫130k SMS cost</div></div><div class="switch on"></div></div>
+        <div class="toggle-row" style="margin-bottom:8px"><div class="t"><div class="nm">📲 SMS opted-in subscribers</div><div class="h">1,328 customers · ~S$7.22 SMS cost</div></div><div class="switch on"></div></div>
         <div class="toggle-row"><div class="t"><div class="nm">✉️ Email broadcast</div><div class="h">1,684 subscribers · free</div></div><div class="switch on"></div></div>
 
         <p class="small muted" style="margin-top:14px;background:var(--sun-soft);color:#A07517;padding:10px 12px;border-radius:10px">⏰ <strong>Flash sales</strong> create urgency. Best practice: window between 1–4 hours, cap to protect kitchen capacity.</p>
@@ -40894,22 +41285,22 @@ Active: yes</code>
           <div class="combo-builder-row">
             <span class="lvl" style="font-family:'Outfit';font-weight:800;font-size:11px;background:var(--sun-soft);color:#A07517;padding:3px 8px;border-radius:6px;text-align:center">Lv 1</span>
             <span class="qty"><strong>×1</strong> of each item</span>
-            <input type="text" value="₫165k">
-            <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save ₫25k</span>
+            <input type="text" value="S$9.17">
+            <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save S$1.39</span>
             <button class="btn" data-remove-level style="padding:4px 8px;font-size:14px">✕</button>
           </div>
           <div class="combo-builder-row">
             <span class="lvl" style="font-family:'Outfit';font-weight:800;font-size:11px;background:var(--sun-soft);color:#A07517;padding:3px 8px;border-radius:6px;text-align:center">Lv 2</span>
             <span class="qty"><strong>×2</strong> of each item</span>
-            <input type="text" value="₫315k">
-            <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save ₫65k</span>
+            <input type="text" value="S$18">
+            <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save S$3.61</span>
             <button class="btn" data-remove-level style="padding:4px 8px;font-size:14px">✕</button>
           </div>
           <div class="combo-builder-row">
             <span class="lvl" style="font-family:'Outfit';font-weight:800;font-size:11px;background:var(--sun-soft);color:#A07517;padding:3px 8px;border-radius:6px;text-align:center">Lv 3</span>
             <span class="qty"><strong>×3</strong> of each item</span>
-            <input type="text" value="₫450k">
-            <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save ₫120k</span>
+            <input type="text" value="S$25">
+            <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save S$6.67</span>
             <button class="btn" data-remove-level style="padding:4px 8px;font-size:14px">✕</button>
           </div>
         </div>
@@ -40954,8 +41345,8 @@ Active: yes</code>
               row.innerHTML = `
           <span class="lvl" style="font-family:'Outfit';font-weight:800;font-size:11px;background:var(--sun-soft);color:#A07517;padding:3px 8px;border-radius:6px;text-align:center">Lv ${lvNum}</span>
           <span class="qty"><strong>×${lvNum}</strong> of each item</span>
-          <input type="text" value="₫${Math.round(guessPrice / 5) * 5}k">
-          <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save ₫${30 * lvNum}k</span>
+          <input type="text" value="S$${(Math.round(guessPrice / 5) * 5 / 18).toFixed(0)}">
+          <span class="save" style="font-size:11px;color:#2E8466;font-weight:700">save S$${(30 * lvNum / 18).toFixed(0)}</span>
           <button class="btn" data-remove-level style="padding:4px 8px;font-size:14px">✕</button>
         `;
               list.appendChild(row);
@@ -41041,7 +41432,7 @@ Active: yes</code>
 
         <h4>Discount</h4>
         <div class="form-row">
-          <select><option>% off</option><option>₫ off</option><option>Flat sale price</option></select>
+          <select><option>% off</option><option>S$ off</option><option>Flat sale price</option></select>
           <input type="number" value="20" style="max-width:90px">
           <span class="small muted" style="align-self:center">%</span>
         </div>
@@ -41109,7 +41500,7 @@ Active: yes</code>
             <select id="bogo-a-type">
               <option value="category">Any item from category</option>
               <option value="specific">A specific item</option>
-              <option value="over">Any item over ₫X</option>
+              <option value="over">Any item over S$X</option>
             </select>
           </div>
           <div class="field" data-bogo-detail="a"><label>Selection</label>
@@ -41118,7 +41509,7 @@ Active: yes</code>
               <button class="btn" type="button" id="bogo-a-pick" style="width:100%;text-align:left">🍽️ Click to pick a specific item…</button>
             </div>
             <div data-bogo-a-over style="display:none;margin-top:6px">
-              <input type="text" placeholder="₫ amount · e.g. ₫150,000">
+              <input type="text" placeholder="S$ amount · e.g. S$8.33">
             </div>
           </div>
           <div class="field"><label>Quantity needed</label>
@@ -41906,10 +42297,10 @@ Active: yes</code>
           </div>
           <div class="field"><label>Price band</label>
             <select>
-              <option>₫ — budget</option>
-              <option selected>₫₫ — mid-range</option>
-              <option>₫₫₫ — premium</option>
-              <option>₫₫₫₫ — fine dining</option>
+              <option>S$ — budget</option>
+              <option selected>$$ — mid-range</option>
+              <option>$$$ — premium</option>
+              <option>$$$$ — fine dining</option>
             </select>
           </div>
         </div>
@@ -42037,10 +42428,10 @@ Active: yes</code>
         <h4>By channel</h4>
         <div class="bk-table" style="border:0;box-shadow:none;margin-bottom:14px">
           <div class="bk-row hd" style="grid-template-columns:1fr 80px 80px 80px"><div>Channel</div><div>Available</div><div>Out</div><div>Sales today</div></div>
-          <div class="bk-row" style="grid-template-columns:1fr 80px 80px 80px"><div>📱 Dine-in QR</div><div>128</div><div>9</div><div><strong>₫11.6M</strong></div></div>
-          <div class="bk-row" style="grid-template-columns:1fr 80px 80px 80px"><div>🌐 Website / direct</div><div>128</div><div>9</div><div><strong>₫2.0M</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:1fr 80px 80px 80px"><div>📱 Dine-in QR</div><div>128</div><div>9</div><div><strong>S$644</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:1fr 80px 80px 80px"><div>🌐 Website / direct</div><div>128</div><div>9</div><div><strong>S$111</strong></div></div>
           <div class="bk-row" style="grid-template-columns:1fr 80px 80px 80px"><div>🛵 Delivery</div><div>114</div><div>14</div><div><strong>—</strong> <span class="bk-phone">(not in plan)</span></div></div>
-          <div class="bk-row" style="grid-template-columns:1fr 80px 80px 80px"><div>🪑 Dine-in floor</div><div>128</div><div>9</div><div><strong>₫15.8M</strong></div></div>
+          <div class="bk-row" style="grid-template-columns:1fr 80px 80px 80px"><div>🪑 Dine-in floor</div><div>128</div><div>9</div><div><strong>S$878</strong></div></div>
         </div>
 
         <h4>By menu schedule</h4>
@@ -42136,7 +42527,7 @@ Active: yes</code>
             ? initial.opts
             : [
                 { name: "Regular", price: "included" },
-                { name: "Large", price: "+₫45k" },
+                { name: "Large", price: "+S$2.50" },
               ];
         const dLinked = isEdit ? initial.linked || [] : [];
         const editingCard = initial && initial.card;
@@ -42180,7 +42571,7 @@ Active: yes</code>
         </div>
 
         <h4>Options</h4>
-        <p class="small muted" style="margin-top:-4px;margin-bottom:6px">Each option needs a name. Price modifier examples: <code style="font-family:ui-monospace,monospace">+₫15k</code> · <code style="font-family:ui-monospace,monospace">−₫10k</code> · <code style="font-family:ui-monospace,monospace">included</code>.</p>
+        <p class="small muted" style="margin-top:-4px;margin-bottom:6px">Each option needs a name. Price modifier examples: <code style="font-family:ui-monospace,monospace">+S$0.83</code> · <code style="font-family:ui-monospace,monospace">−S$0.56</code> · <code style="font-family:ui-monospace,monospace">included</code>.</p>
         <div id="ag-options-list">
           ${dOpts
             .map(
@@ -42459,7 +42850,7 @@ Active: yes</code>
           optionsEl.innerHTML = opts
             .map((o, i) => {
               const isZero =
-                !o.price || /^(included|0|₫?0)$/i.test(o.price.trim());
+                !o.price || /^(included|0|S\$?0)$/i.test(o.price.trim());
               return `<span class="ag-option${i === 0 ? " default" : ""}">${escapeHtml(o.name)} <span class="modp ${isZero ? "zero" : ""}">${escapeHtml(o.price || "included")}</span></span>`;
             })
             .join("");
@@ -42504,7 +42895,7 @@ Active: yes</code>
         const optsHtml = opts
           .map((o, i) => {
             const isZero =
-              !o.price || /^(included|0|₫?0)$/i.test(o.price.trim());
+              !o.price || /^(included|0|S\$?0)$/i.test(o.price.trim());
             return `<span class="ag-option${i === 0 ? " default" : ""}">${escapeHtml(o.name)} <span class="modp ${isZero ? "zero" : ""}">${escapeHtml(o.price || "included")}</span></span>`;
           })
           .join("");
@@ -42837,7 +43228,7 @@ Active: yes</code>
           <div style="background:var(--danger-soft);border-radius:10px;padding:12px 14px;text-align:center"><div class="kpi"><span class="v" style="color:#A53939">0</span></div><div class="small" style="color:#A53939;font-weight:700">Errors</div></div>
         </div>
         <h4>Changes</h4>
-        <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>Truffle pasta</strong> · price ₫385k → <strong>₫395k</strong></div></div>
+        <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>Truffle pasta</strong> · price S$21 → <strong>S$22</strong></div></div>
         <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>Cà phê sữa đá</strong> · description updated</div></div>
         <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>+5 new items</strong> · summer-special-1, summer-special-2, …</div></div>
         <h4>Warnings</h4>
@@ -42922,8 +43313,8 @@ Active: yes</code>
         <div class="stepline"><span class="ic">📂</span><div class="txt"><strong>Wine list</strong> · 12 items (new category)</div></div>
         <div class="stepline"><span class="ic">📂</span><div class="txt"><strong>Cocktails</strong> · 6 items</div></div>
         <h4>Sample high-confidence items</h4>
-        <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>Eggs Benedict (₫165k)</strong><div class="h">Brunch specials · contains: egg, dairy, gluten</div></div></div>
-        <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>Aperol Spritz (₫195k)</strong><div class="h">Cocktails · 175ml · vegan</div></div></div>
+        <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>Eggs Benedict (S$9.17)</strong><div class="h">Brunch specials · contains: egg, dairy, gluten</div></div></div>
+        <div class="stepline"><span class="ic">✓</span><div class="txt"><strong>Aperol Spritz (S$11)</strong><div class="h">Cocktails · 175ml · vegan</div></div></div>
         <h4>Need review</h4>
         <div class="stepline"><span class="ic" style="background:var(--sun-soft);color:#A07517">?</span><div class="txt"><strong>"Chefs special"</strong> — no price detected in PDF<div class="h">Suggested: ask kitchen for the price, or set "Market price"</div></div></div>
         <div class="stepline"><span class="ic" style="background:var(--sun-soft);color:#A07517">?</span><div class="txt"><strong>Photo only — no item name</strong> — page 4, top-right<div class="h">AI saw a dish photo but no text label nearby</div></div></div>
@@ -43134,12 +43525,12 @@ Active: yes</code>
         },
         {
           match: /popular|signature|most[\s-]?loved/i,
-          txt: `Our most-loved dish this month is the <strong>truffle pasta</strong> (₫385k) — 47 reviews on Google, mostly 5★. The <strong>cà phê sữa đá</strong> is the classic order if you want something traditional ☕.`,
+          txt: `Our most-loved dish this month is the <strong>truffle pasta</strong> (S$21) — 47 reviews on Google, mostly 5★. The <strong>cà phê sữa đá</strong> is the classic order if you want something traditional ☕.`,
           sources: `<strong>Reviews</strong> (Google + Foody), <strong>Menu</strong>`,
         },
         {
           match: /book.*\b(1[5-9]|2\d|3\d|group|private|event)\b/i,
-          txt: `For groups of <strong>15+</strong>, we use our <strong>back room</strong> (seats 24) or a full buyout (60). Both require <strong>3-day notice + ₫500k deposit</strong>. Let me connect you with our events team to confirm — they'll be right with you 🤝`,
+          txt: `For groups of <strong>15+</strong>, we use our <strong>back room</strong> (seats 24) or a full buyout (60). Both require <strong>3-day notice + S$28 deposit</strong>. Let me connect you with our events team to confirm — they'll be right with you 🤝`,
           sources: `<strong>Private events</strong> source · escalates to events team`,
         },
         {
@@ -43149,7 +43540,7 @@ Active: yes</code>
         },
         {
           match: /parking|park|valet/i,
-          txt: `We have <strong>valet at the front</strong> (₫50k flat, 6 PM–11 PM). There's also a paid lot 80m up Le Loi street, and metered street parking on the side road. Grab/Be drop-off zone is right outside 🚗`,
+          txt: `We have <strong>valet at the front</strong> (S$2.78 flat, 6 PM–11 PM). There's also a paid lot 80m up Le Loi street, and metered street parking on the side road. Grab/Be drop-off zone is right outside 🚗`,
           sources: `<strong>Parking &amp; transportation</strong> source`,
         },
         {
@@ -43159,7 +43550,7 @@ Active: yes</code>
         },
         {
           match: /kid|child|baby|stroller/i,
-          txt: `Yes! We have a <strong>kids menu</strong> (₫85k mains), <strong>high chairs</strong>, are <strong>stroller-friendly</strong>, and offer a <strong>baby change</strong> in the ground-floor restroom. On weekends there's also a colouring activity for ages 4+ 🖍️`,
+          txt: `Yes! We have a <strong>kids menu</strong> (S$4.72 mains), <strong>high chairs</strong>, are <strong>stroller-friendly</strong>, and offer a <strong>baby change</strong> in the ground-floor restroom. On weekends there's also a colouring activity for ages 4+ 🖍️`,
           sources: `<strong>Kids &amp; families</strong> source`,
         },
       ];
@@ -43234,7 +43625,7 @@ Active: yes</code>
         <h4>Expected impact</h4>
         <div class="bh-grid" style="gap:10px">
           <div style="background:var(--mint-soft);border-radius:10px;padding:12px 14px;text-align:center">
-            <div style="font-family:'Outfit';font-weight:800;font-size:22px;color:#2E8466">+₫4–7M</div>
+            <div style="font-family:'Outfit';font-weight:800;font-size:22px;color:#2E8466">+S$0.00–7M</div>
             <div class="small" style="color:#2E8466;font-weight:700">Monthly revenue</div>
           </div>
           <div style="background:var(--sky-soft);border-radius:10px;padding:12px 14px;text-align:center">
@@ -43248,7 +43639,7 @@ Active: yes</code>
         </div>
 
         <h4>What it would cost</h4>
-        <div class="stepline"><span class="ic">$</span><div class="txt"><strong>Delivery CMS subscription</strong> · ₫590k / month</div></div>
+        <div class="stepline"><span class="ic">$</span><div class="txt"><strong>Delivery CMS subscription</strong> · S$33 / month</div></div>
         <div class="stepline"><span class="ic">⏱</span><div class="txt"><strong>Setup time</strong> · ~30 min · drivers + zones + dispatch rules</div></div>
         <div class="stepline"><span class="ic">🎁</span><div class="txt"><strong>14-day free trial</strong> · no charge until day 15 · cancel anytime</div></div>
 
@@ -44411,8 +44802,8 @@ Active: yes</code>
             newRow.innerHTML = `
           <span class="lvl">Lv ${lvNum}</span>
           <span class="qty"><strong>×${lvNum}</strong> Bún chả · <strong>×${lvNum}</strong> Drinks · <strong>×${lvNum * 3}pc</strong> spring rolls</span>
-          <span class="price">₫${(165 * lvNum * 0.93).toFixed(0).slice(0, -1)}0k</span>
-          <span class="save">save ₫${30 * lvNum}k</span>
+          <span class="price">S$${(165 * lvNum * 0.93 / 18).toFixed(0)}</span>
+          <span class="save">save S$${(30 * lvNum / 18).toFixed(0)}</span>
         `;
             ladder.appendChild(newRow);
             // Update level count in badge
@@ -45121,12 +45512,12 @@ Active: yes</code>
             <h4>Tsui Wah Restaurants Holdings Ltd</h4>
             <p class="small muted">VAT 0312456789 · 12 Le Loi, District 1, HCMC</p>
             <h4 style="margin-top:14px">Line items</h4>
-            <div class="kv"><span class="k">Operator tier · monthly subscription</span><span class="v">₫4,800,000</span></div>
-            <div class="kv"><span class="k">Booking System add-on</span><span class="v">₫890,000</span></div>
-            <div class="kv"><span class="k">Dine-in add-on</span><span class="v">₫590,000</span></div>
-            <div class="kv"><span class="k">Table Mgmt overage (projected ~92 reservations × ₫800)</span><span class="v">₫73,600</span></div>
-            <div class="kv"><span class="k">VAT (10%)</span><span class="v">₫635,360</span></div>
-            <div class="kv" style="font-weight:800;font-family:'Outfit';padding-top:10px;border-top:2px solid var(--line);margin-top:6px"><span class="k">Estimated total</span><span class="v" style="font-size:18px">₫6,988,960</span></div>
+            <div class="kv"><span class="k">Operator tier · monthly subscription</span><span class="v">S$267</span></div>
+            <div class="kv"><span class="k">Booking System add-on</span><span class="v">S$49</span></div>
+            <div class="kv"><span class="k">Dine-in add-on</span><span class="v">S$33</span></div>
+            <div class="kv"><span class="k">Table Mgmt overage (projected ~92 reservations × S$0.04)</span><span class="v">S$4.09</span></div>
+            <div class="kv"><span class="k">VAT (10%)</span><span class="v">S$35</span></div>
+            <div class="kv" style="font-weight:800;font-family:'Outfit';padding-top:10px;border-top:2px solid var(--line);margin-top:6px"><span class="k">Estimated total</span><span class="v" style="font-size:18px">S$388</span></div>
           `,
               actions: [
                 { label: "Close" },

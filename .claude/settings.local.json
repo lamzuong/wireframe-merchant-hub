@@ -9,7 +9,21 @@
       "PowerShell($lines = Get-Content -Path 'C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html' -Encoding UTF8; $start = 13145; $end = 14769; $section = $lines[$start..$end] -join \"`n\"; $emojis = [regex]::Matches\\($section, '[\\\\p{So}\\\\p{Cs}\\\\p{Sk}]'\\) | ForEach-Object { $_.Value }; $emojis | Group-Object | Sort-Object Count -Descending | Format-Table Count, Name -AutoSize)",
       "PowerShell($lines = Get-Content -Path 'C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html' -Encoding UTF8; $start = 13145; $end = 14770; for \\($i = $start; $i -le $end -and $i -lt $lines.Length; $i++\\) { $line = $lines[$i]; if \\([regex]::IsMatch\\($line, '[\\\\p{So}\\\\p{Sk}]'\\) -or [regex]::IsMatch\\($line, '[\\\\uD800-\\\\uDBFF][\\\\uDC00-\\\\uDFFF]'\\)\\) { $emojiOnly = [regex]::Replace\\($line, '[\\\\x00-\\\\x7F]', ''\\); if \\($emojiOnly.Trim\\(\\).Length -gt 0\\) { Write-Output \\(\"{0}: {1}\" -f \\($i+1\\), $line.Trim\\(\\)\\) } } })",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(grep -nE '₫\\\\$\\\\{|₫\\\\\\\\d|/₫|\"₫\"' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(python convert_currency.py)",
+      "Bash(grep -oE 'S\\\\$[\\\\d.,]+[kM]?' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -oE 'S\\\\$[0-9][0-9.,]*' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -n 'S\\\\$11\\\\.[^0-9]' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -n 'S\\\\$11\\\\.' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -n 'S\\\\$0\\\\.0[345]' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -nE 'S\\\\$\\\\$\\\\{|S\\\\$\\\\\\\\\\\\$' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -nE 'S\\\\$\\\\$\\\\{.*\\\\}k' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -nE 'S\\\\$\\\\$\\\\{.*/\\\\s*1000' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -nE 'S\\\\$[0-9]+\\\\.[0-9]+M|S\\\\$[0-9]+M|S\\\\$[0-9.]+k' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(grep -nE 'S\\\\$[0-9.,]+k' \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "Bash(del *)",
+      "Bash(awk *)"
     ]
   }
 }
