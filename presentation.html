@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Merchant Hub — Platform Walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF6F0;
+    --ink:#23201C;
+    --ink-soft:#6B645B;
+    --muted:#A29A8E;
+    --line:#ECE5D8;
+    --surface:#FFFFFF;
+    --surface-2:#F4EFE7;
+    --accent:#FF8A5C;
+    --accent-soft:#FFE6D7;
+    --mint:#5CC7A3;
+    --mint-soft:#DDF4EB;
+    --plum:#9C7BD8;
+    --plum-soft:#EBE2FB;
+    --sun:#F5C24A;
+    --sun-soft:#FCEBC1;
+    --sky:#6BA8E5;
+    --sky-soft:#DAEBFB;
+    --danger:#E26464;
+    --danger-soft:#FBE1DF;
+    --shadow:0 1px 0 rgba(0,0,0,0.02),0 18px 50px -22px rgba(40,30,15,0.18);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  h1,h2,h3,h4,.display{font-family:'Outfit',system-ui,sans-serif;font-weight:700;letter-spacing:-0.015em;margin:0}
+  h1{font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1.05}
+  h2{font-size:clamp(28px,3.4vw,44px);line-height:1.15}
+  h3{font-size:clamp(20px,2vw,26px)}
+  h4{font-size:16px;font-weight:700}
+  p{margin:0;line-height:1.6}
+  a{color:inherit}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  ul{margin:0;padding-left:20px}
+  li{margin-bottom:6px}
+
+  /* Progress bar */
+  .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),#FFB28A);z-index:100;width:0;transition:width .08s linear}
+
+  /* Top nav */
+  .topnav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(250,246,240,0.85);backdrop-filter:blur(12px) saturate(140%);
+    border-bottom:1px solid var(--line);padding:10px 24px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .topnav .brand{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:800;font-size:15px}
+  .topnav .brand-mark{
+    width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),#FFB28A);color:#fff;
+    display:grid;place-items:center;font-weight:800;
+    box-shadow:0 4px 10px -4px rgba(255,138,92,0.6);
+  }
+  .topnav .links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+  .topnav a.nav-link{
+    color:var(--ink-soft);font-weight:700;font-size:12.5px;padding:6px 10px;border-radius:8px;text-decoration:none;
+  }
+  .topnav a.nav-link:hover{background:var(--surface-2);color:var(--ink)}
+  .topnav .wf-btn{
+    background:var(--ink);color:#fff;padding:8px 14px;border-radius:10px;font-size:13px;font-weight:700;
+    text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+  }
+  .topnav .wf-btn:hover{background:#000}
+
+  /* Section base */
+  section.slide{
+    padding:84px 32px 60px;max-width:1100px;margin:0 auto;
+    min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:center;
+  }
+  @media(max-width:700px){
+    section.slide{padding:84px 18px 40px;min-height:auto}
+  }
+
+  /* Chip / kicker */
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent-soft);color:#B5572D;
+    font-size:11.5px;font-weight:800;padding:6px 14px;border-radius:999px;
+    letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;
+  }
+  .kicker.k-plum{background:var(--plum-soft);color:#5E469C}
+  .kicker.k-mint{background:var(--mint-soft);color:#2E8466}
+  .kicker.k-sun{background:var(--sun-soft);color:#A07517}
+  .kicker.k-sky{background:var(--sky-soft);color:#3F6FA4}
+  .kicker.k-coral{background:var(--accent-soft);color:#B5572D}
+  .kicker.k-danger{background:var(--danger-soft);color:#A53939}
+
+  .lede{font-size:clamp(17px,1.6vw,21px);color:var(--ink-soft);max-width:760px;margin-top:18px;line-height:1.55}
+
+  /* Title slide */
+  .title-slide{padding-top:120px;text-align:center;align-items:center}
+  .title-slide h1{max-width:900px;margin:0 auto}
+  .title-slide .sub{font-size:clamp(18px,2vw,22px);color:var(--ink-soft);margin-top:18px;max-width:680px}
+  .title-slide .who{margin-top:32px;display:inline-flex;align-items:center;gap:14px;padding:14px 22px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);font-size:14px;color:var(--ink-soft)}
+  .title-slide .who strong{color:var(--ink);font-family:'Outfit';font-weight:700}
+  .title-decor{
+    margin-top:60px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  }
+  .title-decor .pill{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;
+    display:flex;align-items:center;gap:10px;font-weight:700;font-size:13px;box-shadow:var(--shadow);
+  }
+  .title-decor .pill .em{font-size:22px}
+
+  /* Two-col layout */
+  .two-col{display:grid;grid-template-columns:1.1fr 1fr;gap:42px;margin-top:24px;align-items:start}
+  @media(max-width:900px){.two-col{grid-template-columns:1fr;gap:28px}}
+
+  /* Cards & visuals */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+  .card.tinted-coral{background:linear-gradient(135deg,#FFF7EE,#FFE6D7);border-color:#F5DCC1}
+  .card.tinted-mint{background:linear-gradient(135deg,#EAF9F1,#DDF4EB);border-color:#BFE9D4}
+  .card.tinted-plum{background:linear-gradient(135deg,#F4ECFB,#EBE2FB);border-color:#E0CFF5}
+  .card.tinted-sun{background:linear-gradient(135deg,#FFF6DF,#FCEBC1);border-color:#F5E2A8}
+  .card.tinted-sky{background:linear-gradient(135deg,#E9F2FC,#DAEBFB);border-color:#C9DDF2}
+  .card.tinted-danger{background:linear-gradient(135deg,#FCEAE9,#FBE1DF);border-color:#F5C4C0}
+
+  /* Service catalog grid */
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+  @media(max-width:900px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.cat-grid{grid-template-columns:1fr}}
+  .cat-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+  .cat-card .em{font-size:28px}
+  .cat-card .nm{font-family:'Outfit';font-weight:700;font-size:16px}
+  .cat-card .desc{font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .cat-card .tag{font-size:10.5px;font-weight:800;color:var(--ink-soft);letter-spacing:0.06em;text-transform:uppercase;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+
+  /* Architecture diagram */
+  .arch{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow);
+    margin-top:18px;
+  }
+  .arch .row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .arch .shell{
+    background:linear-gradient(135deg,var(--accent),#FFB28A);color:#fff;
+    border-radius:12px;padding:14px 18px;width:100%;text-align:center;font-family:'Outfit';font-weight:700;
+  }
+  .arch .svc{
+    flex:1;min-width:140px;background:var(--surface-2);border-radius:10px;padding:12px;text-align:center;
+    font-family:'Outfit';font-weight:700;font-size:13px;border:1px solid var(--line);
+  }
+  .arch .svc .em{font-size:22px;display:block;margin-bottom:4px}
+  .arch .core{
+    background:linear-gradient(135deg,#FFFDF9,#F4EFE7);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:14px;
+  }
+  .arch .core .ctitle{font-family:'Outfit';font-weight:800;font-size:11.5px;color:var(--ink-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
+  .arch .core .modules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  @media(max-width:700px){.arch .core .modules{grid-template-columns:repeat(2,1fr)}}
+  .arch .core .mod{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:12px;font-weight:700}
+  .arch .core .mod .em{font-size:16px;display:block;margin-bottom:2px}
+
+  /* Pricing visual */
+  .pricing-shape{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);
+  }
+  .pricing-shape h4{margin-bottom:6px}
+  .pricing-shape .meta{font-size:12.5px;color:var(--ink-soft);margin-bottom:10px}
+  .pricing-shape .services{display:flex;gap:6px;flex-wrap:wrap}
+  .pricing-shape .svc-pill{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--surface-2)}
+
+  /* Lifecycle diagram */
+  .lifecycle{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);
+    margin-top:14px;
+  }
+  .lifecycle .states{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+  .lf-state{
+    padding:12px 18px;border-radius:14px;font-family:'Outfit';font-weight:700;display:flex;flex-direction:column;align-items:center;min-width:120px;
+  }
+  .lf-state .lbl{font-size:14px}
+  .lf-state .sub{font-size:11px;font-weight:600;opacity:0.85;margin-top:2px}
+  .lf-state.active{background:var(--mint-soft);color:#2E8466}
+  .lf-state.past{background:var(--sun-soft);color:#A07517}
+  .lf-state.locked{background:var(--danger-soft);color:#A53939}
+  .lf-arrow{font-family:'Outfit';font-weight:800;color:var(--muted);font-size:13px;text-align:center;line-height:1.2}
+
+  /* Service deep-dive */
+  .service-slide{
+    padding-top:84px;padding-bottom:60px;
+  }
+  .service-head{display:flex;align-items:center;gap:22px;margin-bottom:18px;flex-wrap:wrap}
+  .service-head .em-big{
+    width:74px;height:74px;border-radius:20px;display:grid;place-items:center;font-size:36px;flex-shrink:0;
+  }
+  .service-head h1{font-size:clamp(30px,4vw,52px)}
+  .service-head .tag{font-size:clamp(15px,1.6vw,19px);font-style:italic;color:var(--ink-soft);margin-top:6px}
+
+  .service-blocks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  @media(max-width:700px){.service-blocks{grid-template-columns:1fr}}
+  .block{
+    background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:14px;padding:18px 20px;
+  }
+  .block.kw{background:linear-gradient(135deg,#FFF7EE,#FFE6D7);border-color:#F5DCC1;border-left:4px solid var(--accent)}
+  .block h4{
+    font-family:'Outfit';font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#B5572D;margin-bottom:10px;
+  }
+  .block.kw h4{color:#B5572D}
+  .block p{font-size:14.5px;line-height:1.65;color:var(--ink)}
+  .block p + p{margin-top:8px}
+  .block ul{font-size:14px;line-height:1.7}
+
+  .talk{
+    margin-top:30px;background:var(--surface-2);border-radius:14px;padding:18px 22px;border-left:4px solid var(--ink);
+  }
+  .talk .ttitle{font-family:'Outfit';font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+  .talk ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink);line-height:1.65}
+  .talk ul li{margin-bottom:4px}
+  .talk ul li::marker{color:var(--accent)}
+
+  /* Wireframe link */
+  .wf-link{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--ink);color:#fff;
+    border-radius:12px;font-weight:700;font-size:13px;text-decoration:none;margin-top:20px;
+    box-shadow:0 8px 20px -10px rgba(0,0,0,0.4);
+  }
+  .wf-link:hover{background:#000}
+  .wf-link .em{font-size:14px}
+
+  /* Side-by-side highlights */
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  @media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:500px){.grid-4{grid-template-columns:1fr}}
+  .hl{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;
+  }
+  .hl .big{font-family:'Outfit';font-weight:800;font-size:34px;line-height:1}
+  .hl .lbl{font-size:12px;color:var(--ink-soft);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-top:8px}
+
+  /* Section divider */
+  .divider{height:1px;background:var(--line);margin:0}
+
+  /* Footer */
+  footer{padding:60px 24px 80px;text-align:center;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px}
+
+  /* Print styles */
+  @media print{
+    .topnav, .progress-bar{display:none}
+    section.slide{page-break-after:always;min-height:auto;padding:30px 20px}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav class="topnav">
+  <div class="brand"><div class="brand-mark">M</div> Merchant Hub</div>
+  <div class="links">
+    <a class="nav-link" href="#why">Why</a>
+    <a class="nav-link" href="#platform">Platform</a>
+    <a class="nav-link" href="#pricing">Pricing</a>
+    <a class="nav-link" href="#ux">UX</a>
+    <a class="nav-link" href="#website">Website</a>
+    <a class="nav-link" href="#concierge">Concierge</a>
+    <a class="nav-link" href="#aimgmt">AI Mgmt</a>
+    <a class="nav-link" href="#tables">Tables</a>
+    <a class="nav-link" href="#contactless">Contactless</a>
+    <a class="nav-link" href="#delivery">Delivery</a>
+    <a class="nav-link" href="#shared">Shared</a>
+    <a class="nav-link" href="#next">Next</a>
+  </div>
+  <a class="wf-btn" href="wireframe.html" target="_blank">🖥 Open wireframe</a>
+</nav>
+
+
+<!-- ============ TITLE ============ -->
+<section class="slide title-slide" id="top">
+  <div class="kicker">Platform walkthrough · v1 · 2026-05-13</div>
+  <h1>Merchant Hub — one platform for the whole restaurant.</h1>
+  <p class="sub">Six services on a shared core. Merchants start with what they need, grow into the rest, and never re-learn the platform.</p>
+  <div class="who">
+    Presented by <strong>Chien Nguyen</strong> · Product · Savyu
+  </div>
+  <div class="title-decor">
+    <div class="pill"><span class="em">🌐</span> Website Builder</div>
+    <div class="pill"><span class="em">💬</span> AI Concierge</div>
+    <div class="pill"><span class="em">📊</span> AI Management</div>
+    <div class="pill"><span class="em">🪑</span> Table Management</div>
+    <div class="pill"><span class="em">📱</span> Contactless</div>
+    <div class="pill"><span class="em">🛵</span> Delivery</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ WHY ============ -->
+<section class="slide" id="why">
+  <div class="kicker k-coral">01 · Why this matters</div>
+  <h2>Restaurants today buy 5 disconnected tools and stitch them together.</h2>
+  <p class="lede">A merchant's POS doesn't know their reservation system, the delivery app doesn't know the menu, the AI chatbot doesn't know the floor. Every tool re-asks the same data. Every staff member re-learns a different UI.</p>
+
+  <div class="grid-4">
+    <div class="hl">
+      <div class="big">5+</div>
+      <div class="lbl">Disconnected tools per merchant</div>
+    </div>
+    <div class="hl">
+      <div class="big">3×</div>
+      <div class="lbl">Menu entered three times</div>
+    </div>
+    <div class="hl">
+      <div class="big">0</div>
+      <div class="lbl">Shared customer view</div>
+    </div>
+    <div class="hl">
+      <div class="big">~₫4M</div>
+      <div class="lbl">Lost per month to ops gaps (avg)</div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:32px">
+    <div class="card tinted-mint">
+      <h3 style="margin-bottom:8px">✅ What Merchant Hub does differently</h3>
+      <ul style="font-size:14.5px;line-height:1.7;color:var(--ink)">
+        <li>Six services on <strong>one shared core</strong> (menu, customers, staff, promotion codes).</li>
+        <li>Pay only for what you use — buy more later, no migration.</li>
+        <li>Every AI surface speaks the same data: menu changes once, propagates everywhere.</li>
+        <li>Staff learn one UI instead of five.</li>
+      </ul>
+    </div>
+    <div class="card tinted-coral">
+      <h3 style="margin-bottom:8px">🎯 The opportunity</h3>
+      <ul style="font-size:14.5px;line-height:1.7;color:var(--ink)">
+        <li>Land merchants with a low-friction Starter — Website + Core data.</li>
+        <li>Grow account value as we add Table Mgmt → Contactless → Delivery → AI.</li>
+        <li>Two services are <strong>hybrid-priced</strong> (AI Concierge, Table Mgmt) — revenue scales with the merchant's success.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>This is a <em>platform</em> play, not a tool play — bundling becomes our moat.</li>
+      <li>The shared core is the technical wedge: every service reads the same menu, the same CDP, the same booking engine.</li>
+      <li>Two pricing shapes (flat + hybrid) means we capture upside without scaring the small merchant.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ PLATFORM ============ -->
+<section class="slide" id="platform">
+  <div class="kicker k-plum">02 · Platform overview</div>
+  <h2>Six services. One shared core. Add what you need, when you need it.</h2>
+
+  <div class="arch">
+    <div class="shell">🏠 Merchant Hub Shell · auth · navigation · entitlements · dashboard</div>
+    <div class="row" style="margin-top:14px">
+      <div class="svc" style="background:var(--sky-soft)"><span class="em">🌐</span> Website Builder</div>
+      <div class="svc" style="background:var(--plum-soft)"><span class="em">💬</span> AI Concierge</div>
+      <div class="svc" style="background:var(--sun-soft)"><span class="em">📊</span> AI Management</div>
+      <div class="svc" style="background:var(--mint-soft)"><span class="em">🪑</span> Table Mgmt</div>
+      <div class="svc" style="background:var(--accent-soft)"><span class="em">📱</span> Contactless</div>
+      <div class="svc" style="background:var(--accent-soft)"><span class="em">🛵</span> Delivery</div>
+    </div>
+    <div class="core">
+      <div class="ctitle">⚡ Shared Platform Services — one record, used by every service</div>
+      <div class="modules">
+        <div class="mod"><span class="em">🍽️</span> Content Engine<br><span style="font-weight:500;color:var(--ink-soft)">Menu, hours, policies</span></div>
+        <div class="mod"><span class="em">👥</span> Unified CDP<br><span style="font-weight:500;color:var(--ink-soft)">Customers + history</span></div>
+        <div class="mod"><span class="em">📅</span> Booking Engine<br><span style="font-weight:500;color:var(--ink-soft)">Owned by Table Mgmt</span></div>
+        <div class="mod"><span class="em">🧑‍🍳</span> Staff & Roles<br><span style="font-weight:500;color:var(--ink-soft)">RBAC per service</span></div>
+        <div class="mod"><span class="em">🏷️</span> Promotion Code<br><span style="font-weight:500;color:var(--ink-soft)">Scoped to services</span></div>
+        <div class="mod"><span class="em">🏢</span> Merchant + Locations<br><span style="font-weight:500;color:var(--ink-soft)">Account, branding</span></div>
+        <div class="mod"><span class="em">💳</span> Billing + Entitlements<br><span style="font-weight:500;color:var(--ink-soft)">Tier + add-ons</span></div>
+        <div class="mod"><span class="em">📡</span> Event bus<br><span style="font-weight:500;color:var(--ink-soft)">Loose coupling</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px;margin-bottom:10px">Service catalog</h3>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <span class="em">🌐</span>
+      <div class="nm">Restaurant Website Builder</div>
+      <div class="desc">Public-facing site. Pre-fills from Foody / Google so merchants start at 80% not zero.</div>
+      <div class="tag">Subscription · in every tier</div>
+    </div>
+    <div class="cat-card">
+      <span class="em">💬</span>
+      <div class="nm">AI Concierge</div>
+      <div class="desc">Customer-facing AI on web, Zalo, WhatsApp, Messenger. Books reservations, knows the menu cold.</div>
+      <div class="tag">Hybrid · sub + PAYG per AI inference</div>
+    </div>
+    <div class="cat-card">
+      <span class="em">📊</span>
+      <div class="nm">AI Management System</div>
+      <div class="desc">Owner-operator daily check-in. KPIs, peer benchmarks, daily recommendations, anomaly detection.</div>
+      <div class="tag">Subscription · Operator tier and above</div>
+    </div>
+    <div class="cat-card">
+      <span class="em">🪑</span>
+      <div class="nm">Table Management System</div>
+      <div class="desc">Visual floor plan, reservation queue, turnover tracking. Owns the Booking Engine.</div>
+      <div class="tag">Hybrid · sub + PAYG per reservation</div>
+    </div>
+    <div class="cat-card">
+      <span class="em">📱</span>
+      <div class="nm">Merchant CMS — Contactless</div>
+      <div class="desc">QR ordering at the table. Kitchen routing, runner workflow, bill splitting.</div>
+      <div class="tag">Subscription · add-on</div>
+    </div>
+    <div class="cat-card">
+      <span class="em">🛵</span>
+      <div class="nm">Merchant CMS — Delivery</div>
+      <div class="desc">Off-premise orders, drivers, zones, dispatch + 3rd-party logistics fallback.</div>
+      <div class="tag">Subscription · add-on</div>
+    </div>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#dashboard" target="_blank"><span class="em">🖥</span> See it live → wireframe dashboard</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>The hub shell is always the same regardless of which services are active — that's the brand consistency.</li>
+      <li>Booking Engine being a <em>platform service</em> (not a Table-Mgmt-only feature) is the key insight — AI Concierge writes to it, Website embeds it, Public booking page is just another front-end.</li>
+      <li>Adding a 7th service later requires: a ServiceKey, a DashboardWidget, a sidebar entry, tabs. Nothing else changes.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ PRICING ============ -->
+<section class="slide" id="pricing">
+  <div class="kicker k-sun">03 · How merchants buy</div>
+  <h2>One tier + zero-or-more add-ons. Two pricing shapes.</h2>
+  <p class="lede">Tiers are <strong>dynamic</strong> — defined at runtime in billing config, not hardcoded. Business can add a new tier, rename one, or move a service between bundle and add-on without code changes.</p>
+
+  <div class="two-col">
+    <div class="pricing-shape">
+      <div class="kicker k-mint" style="margin-bottom:8px">Shape 1</div>
+      <h4>Subscription (flat fee)</h4>
+      <p class="meta">Constant month-over-month. Value scales with usage but the price doesn't.</p>
+      <div class="services">
+        <span class="svc-pill" style="background:var(--sky-soft)">🌐 Website Builder</span>
+        <span class="svc-pill" style="background:var(--sun-soft)">📊 AI Management</span>
+        <span class="svc-pill" style="background:var(--accent-soft)">📱 Contactless</span>
+        <span class="svc-pill" style="background:var(--accent-soft)">🛵 Delivery</span>
+      </div>
+    </div>
+    <div class="pricing-shape">
+      <div class="kicker k-coral" style="margin-bottom:8px">Shape 2</div>
+      <h4>Hybrid (subscription + PAYG overage)</h4>
+      <p class="meta">Subscription unlocks the service + a monthly quota. Going over the quota bills as PAYG at a defined rate.</p>
+      <div class="services">
+        <span class="svc-pill" style="background:var(--plum-soft)">💬 AI Concierge · per AI conversation</span>
+        <span class="svc-pill" style="background:var(--mint-soft)">🪑 Table Mgmt · per reservation</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px;margin-bottom:10px">Adding a service later — frictionless</h3>
+  <div class="card">
+    <ol style="font-size:14.5px;line-height:1.8;margin:0;padding-left:20px">
+      <li>Merchant clicks a locked entry in the sidebar OR opens <strong>Browse services</strong>.</li>
+      <li>Sees the service value prop, price, what's included.</li>
+      <li>Confirms purchase → billing webhook updates entitlements.</li>
+      <li>Sidebar and dashboard reflect the new service <strong>immediately</strong>. No re-login.</li>
+      <li>First-run wizard for that service runs on first open.</li>
+    </ol>
+  </div>
+
+  <h3 style="margin-top:32px;margin-bottom:10px">Non-payment lifecycle (the only path that removes a service)</h3>
+  <div class="lifecycle">
+    <div class="states">
+      <div class="lf-state active"><span class="lbl">ACTIVE</span><span class="sub">Full access</span></div>
+      <div class="lf-arrow">payment fails →</div>
+      <div class="lf-state past"><span class="lbl">PAST DUE</span><span class="sub">Banner · still usable</span></div>
+      <div class="lf-arrow">7-day grace →</div>
+      <div class="lf-state locked"><span class="lbl">LOCKED</span><span class="sub">UI hidden · data kept</span></div>
+    </div>
+    <p style="text-align:center;margin-top:14px;font-size:13.5px;color:var(--ink-soft)">A successful payment at any point returns the account to <strong>Active</strong> immediately. Locked-state public surfaces degrade to read-only — menu visible, ordering/booking disabled.</p>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#browse" target="_blank"><span class="em">🖥</span> See it live → Browse services + lock/unlock demo</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>Tiers stay dynamic so the commercial team can iterate without engineering.</li>
+      <li>Hybrid pricing is where our long-term margin lives — AI inference scales with diner population, reservations scale with restaurant success.</li>
+      <li>The wireframe has a "🔒 Demo: lock" + "🔓 Demo: open" pair so you can show the locked-state UX live.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ UX MODEL ============ -->
+<section class="slide" id="ux">
+  <div class="kicker k-sky">04 · Hub UX model</div>
+  <h2>Persistent sidebar + per-service top tabs. One pattern across every service.</h2>
+  <p class="lede">Staff switch services constantly through a shift. The sidebar never disappears — switching is always one click. Inside a service, the IA lives in top tabs (max ~6, with Settings always last).</p>
+
+  <div class="two-col">
+    <div>
+      <h3 style="margin-bottom:10px">📐 Layout principles</h3>
+      <ul style="font-size:14px;line-height:1.7">
+        <li><strong>Top bar</strong> — location switcher, search, notifications, avatar. Same on every screen.</li>
+        <li><strong>Hub sidebar</strong> — Dashboard, Services (active + locked), Shared data (Menu/Customers/Staff/Promo), Browse, Settings.</li>
+        <li><strong>Service area</strong> — per-service top tabs, content swap below.</li>
+        <li><strong>Last tab = Settings</strong> always, in every service.</li>
+        <li><strong>Locked services</strong> stay in the sidebar dimmed with 🔒 — click routes to value-prop, not 404.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-bottom:10px">🏠 Default landing — unified dashboard</h3>
+      <ul style="font-size:14px;line-height:1.7">
+        <li>Per-service widgets pull KPIs + quick actions from each active service.</li>
+        <li>An <em>"You don't have…"</em> card recommends a missing service based on signals (e.g. "Add Delivery — diners search your menu but can't order in").</li>
+        <li>Widgets follow a fixed contract — hub doesn't know what each one renders.</li>
+        <li>Empty hub → guided onboarding (choose tier → add-ons → first-run wizards).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-4">
+    <div class="hl"><div class="big">1</div><div class="lbl">UI pattern across all services</div></div>
+    <div class="hl"><div class="big">~6</div><div class="lbl">Tabs max per service</div></div>
+    <div class="hl"><div class="big">0</div><div class="lbl">Re-logins when adding services</div></div>
+    <div class="hl"><div class="big">∞</div><div class="lbl">Future services we can add</div></div>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#dashboard" target="_blank"><span class="em">🖥</span> See it live → hub dashboard</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>Discipline: if a service grows past ~8 features, regroup features — don't change the nav.</li>
+      <li>The widget contract is a small but important architectural choice — it's what lets every service ship independently.</li>
+      <li>Mobile collapses sidebar to a bottom-nav with the four most-used services.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ WEBSITE BUILDER ============ -->
+<section class="slide service-slide" id="website">
+  <div class="service-head">
+    <div class="em-big" style="background:var(--sky-soft);color:#3F6FA4">🌐</div>
+    <div>
+      <div class="kicker k-sky">Service 1 of 6</div>
+      <h1>Restaurant Website Builder</h1>
+      <div class="tag">Drag-and-drop website builder tuned for the restaurant use case.</div>
+    </div>
+  </div>
+
+  <div class="service-blocks">
+    <div class="block kw">
+      <h4>Who it's for</h4>
+      <p>Restaurants without an existing website, or with a generic template that doesn't convert.</p>
+      <p>Starter and Operator tiers especially.</p>
+    </div>
+    <div class="block kw">
+      <h4>Pricing model</h4>
+      <p>Subscription — included with every Hub tier.</p>
+      <p>No PAYG component; the value is constant month-over-month.</p>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">What it does</h4>
+    <p>Lets the merchant build and maintain their own restaurant website without a developer. Pre-fills menu, hours, photos, and reviews from existing online presence (<strong>Foody / Google</strong>) so the merchant starts at <strong>80% rather than zero</strong>. Hosts on Savyu infrastructure with SSL, mobile-responsive design, and basic SEO.</p>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">Key features</h4>
+    <ul>
+      <li>Templates designed for the restaurant use case (menu, gallery, location, reservations).</li>
+      <li>Auto-fills from existing presence (Foody, Google Business Profile).</li>
+      <li>Embedded reservation and order CTAs that route to Savyu products.</li>
+      <li>SEO basics: structured data, sitemap, mobile responsive.</li>
+      <li>Content updates flow from the Merchant CMS — update once, propagates here.</li>
+    </ul>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#website/site" target="_blank"><span class="em">🖥</span> Demo: Website Builder · Site tab (pre-fill callout + live preview)</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li><strong>The "80% to start" is the wedge</strong> — pre-filling from Foody and Google removes the cold-start problem that kills every other website builder.</li>
+      <li>Bundled with every tier means it's the always-present surface — drives stickiness even when other services lapse.</li>
+      <li>Demo flow: open Site → show pre-fill callout → toggle device frame (desktop/tablet/mobile) → click Publish → show pipeline modal.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ AI CONCIERGE ============ -->
+<section class="slide service-slide" id="concierge">
+  <div class="service-head">
+    <div class="em-big" style="background:var(--plum-soft);color:#5E469C">💬</div>
+    <div>
+      <div class="kicker k-plum">Service 2 of 6</div>
+      <h1>AI Concierge</h1>
+      <div class="tag">Customer-facing AI assistant that takes bookings, answers questions, and handles inquiries.</div>
+    </div>
+  </div>
+
+  <div class="service-blocks">
+    <div class="block kw">
+      <h4>Who it's for</h4>
+      <p>Restaurants with high inquiry volume — popular spots, hotel restaurants, places with extensive menus or dietary complexity.</p>
+      <p>Operator and Grower tiers.</p>
+    </div>
+    <div class="block kw">
+      <h4>Pricing model</h4>
+      <p>Hybrid: subscription for the Concierge product + PAYG for AI inference beyond included monthly quota.</p>
+      <p>Included quota scales with Hub tier.</p>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">What it does</h4>
+    <p>Sits on the merchant's website, Zalo OA, WhatsApp, or other channels. Answers questions about menu, dietary options, hours, location, parking, kid-friendliness. Books reservations directly into the Booking Engine. Knows the menu cold (powered by the Content Engine). Hands off to humans for complex requests.</p>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">Key features</h4>
+    <ul>
+      <li>Multi-channel: web widget, Zalo, WhatsApp, Facebook Messenger.</li>
+      <li>Books reservations end-to-end (writes to the Booking Engine).</li>
+      <li>Knows menu, allergens, hours, policies (reads from the Content Engine).</li>
+      <li>Conversation transcripts feed the Unified CDP for end-customer profiles.</li>
+      <li>Escalation rules per merchant (e.g. "private events → always to a human").</li>
+    </ul>
+  </div>
+
+  <h3 style="margin-top:24px;margin-bottom:10px">Inside the service — 6 tabs</h3>
+  <div class="cat-grid">
+    <div class="cat-card"><div class="nm">💬 Conversations</div><div class="desc">Live inbox across all channels with take-over, escalate, resolve.</div></div>
+    <div class="cat-card"><div class="nm">📲 Channels</div><div class="desc">Web widget · Zalo · WhatsApp · Messenger — connect/disconnect.</div></div>
+    <div class="cat-card"><div class="nm">📚 Knowledge</div><div class="desc">8 auto sources + 12 manual + coverage gaps panel.</div></div>
+    <div class="cat-card"><div class="nm">🎭 Behavior</div><div class="desc">Persona · messages · escalation rules · allowed actions.</div></div>
+    <div class="cat-card"><div class="nm">📈 Insights</div><div class="desc">Volume · top intents · channel mix · booking funnel.</div></div>
+    <div class="cat-card"><div class="nm">⚙️ Settings</div><div class="desc">Hours · languages · handoff routing · quota + PAYG.</div></div>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#concierge/conversations" target="_blank"><span class="em">🖥</span> Demo: Concierge · Conversations inbox</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>The <strong>Knowledge tab</strong> is the most underrated surface — show the Coverage Gaps panel (real customer questions the AI couldn't answer → one-click "Add to FAQ" or "Update source").</li>
+      <li>Demo Conversations → click <em>Take over</em> on a chat → toggle AI off → reply as staff.</li>
+      <li>Settings → Quota panel surfaces the hybrid pricing transparently: <em>"5,000 included, 3,109 used (62%), PAYG ₫1,200/extra"</em>.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ AI MANAGEMENT ============ -->
+<section class="slide service-slide" id="aimgmt">
+  <div class="service-head">
+    <div class="em-big" style="background:var(--sun-soft);color:#A07517">📊</div>
+    <div>
+      <div class="kicker k-sun">Service 3 of 6</div>
+      <h1>AI Management System</h1>
+      <div class="tag">Operations dashboard with intelligence layered on top — not just metrics, but recommendations.</div>
+    </div>
+  </div>
+
+  <div class="service-blocks">
+    <div class="block kw">
+      <h4>Who it's for</h4>
+      <p>Owner-operators and managers who run the day-to-day. Operator tier and above.</p>
+      <p>The "how is my business doing" daily check-in.</p>
+    </div>
+    <div class="block kw">
+      <h4>Pricing model</h4>
+      <p>Subscription — included with Operator tier and above.</p>
+      <p>No PAYG; value scales with how often the merchant logs in, not with usage volume.</p>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">What it does</h4>
+    <p>The default dashboard view inside the Hub. Shows yesterday's performance, today's outlook, and recommended actions. Uses <strong>Aggregated Data Intelligence</strong> to compare merchant performance against peers in their cuisine type and area. Surfaces <strong>"the next best action this week"</strong> rather than dumping raw metrics.</p>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">Key features</h4>
+    <ul>
+      <li>KPIs: covers, average ticket, online vs walk-in mix, repeat customer rate.</li>
+      <li>Peer benchmarks: "how do I compare to similar restaurants nearby?"</li>
+      <li>Daily recommendations: surfaced by the rule engine.</li>
+      <li>Anomaly detection: flag drops or spikes the merchant should know about.</li>
+      <li>Mobile-first — designed for the owner checking on their phone.</li>
+    </ul>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#aimgmt/today" target="_blank"><span class="em">🖥</span> Demo: AI Management · Today (with mobile preview)</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>The product is positioned as the <strong>operator's daily ritual</strong> — that's why it's mobile-first.</li>
+      <li>"Aggregated Data Intelligence" is our peer-benchmarking moat — gets stronger with every merchant we add.</li>
+      <li>Demo flow: Today tab → highlight the "Next best action this week" card (₫1.8M estimated impact) → click "Why this?" → show peer signals + confidence.</li>
+      <li>Connect to other services: anomaly says repeat-rate down → linked recommendation is to tighten Table Mgmt slots → one click jumps to Table Mgmt.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ TABLE MANAGEMENT ============ -->
+<section class="slide service-slide" id="tables">
+  <div class="service-head">
+    <div class="em-big" style="background:var(--mint-soft);color:#2E8466">🪑</div>
+    <div>
+      <div class="kicker k-mint">Service 4 of 6</div>
+      <h1>Table Management System</h1>
+      <div class="tag">Floor plan, reservation management, and table turnover tracking.</div>
+    </div>
+  </div>
+
+  <div class="service-blocks">
+    <div class="block kw">
+      <h4>Who it's for</h4>
+      <p>Restaurants with reservations and managed seating — sit-down restaurants, fine dining, popular casual spots.</p>
+      <p>Grower tier and above.</p>
+    </div>
+    <div class="block kw">
+      <h4>Pricing model</h4>
+      <p>Hybrid: subscription for the product + PAYG fee per reservation processed beyond included monthly quota.</p>
+      <p>Included quota scales with Hub tier.</p>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">What it does</h4>
+    <p>Visual floor plan that staff use during service to seat parties, track turnover, and coordinate with the kitchen. Reservations from any source (AI Concierge, website, Booking app, Giaodoan, walk-in) flow into one view. Staff see the night's plan and current state in one screen.</p>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">Key features</h4>
+    <ul>
+      <li>Drag-and-drop floor plan editor; multiple floor plans per merchant (lunch vs dinner, indoor vs patio).</li>
+      <li>Real-time table status: occupied, paying, turning, available.</li>
+      <li>Reservation queue from all sources unified (writes to and reads from the <strong>Booking Engine</strong>).</li>
+      <li>Turnover analytics: average seating duration by table size, day, time.</li>
+      <li>Mobile-friendly for hosts working off a tablet at the door.</li>
+    </ul>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#tables/floorplan" target="_blank"><span class="em">🖥</span> Demo: Table Mgmt · Floor plan (live status visualization)</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li><strong>Owns the Booking Engine</strong> — that's the architectural keystone. AI Concierge writes to it, Website widget writes to it, Public booking page writes to it. One source of truth for what's bookable.</li>
+      <li>Demo: Floor plan tab → show real-time table status (occupied/paying/turning/available) with live timers → side panel waitlist with one-click seating.</li>
+      <li>Sources tab shows the unified queue from 6 sources including <em>Giaodoan</em> (Vietnamese marketplace) + Savyu's own Booking app.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ CONTACTLESS ============ -->
+<section class="slide service-slide" id="contactless">
+  <div class="service-head">
+    <div class="em-big" style="background:var(--accent-soft);color:#B5572D">📱</div>
+    <div>
+      <div class="kicker k-coral">Service 5 of 6</div>
+      <h1>Merchant CMS — Contactless</h1>
+      <div class="tag">QR ordering at the table — kitchen routing, runner workflow, bill splitting.</div>
+    </div>
+  </div>
+
+  <div class="service-blocks">
+    <div class="block kw">
+      <h4>Who it's for</h4>
+      <p>Restaurants accepting dine-in orders via QR at the table — high-throughput casual, brunch, coffee, fast-casual.</p>
+    </div>
+    <div class="block kw">
+      <h4>Pricing model</h4>
+      <p>Subscription. Add-on, or included in higher Hub tiers — defined dynamically in billing config.</p>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">What it does</h4>
+    <p>Diners scan a QR at their table and order without flagging a waiter. Orders fire straight to the kitchen tagged with the table; runners deliver; the bill closes against the table session. Reduces wait, raises ticket size on add-ons.</p>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">Key features</h4>
+    <ul>
+      <li>Live orders kanban by table session — "Bill requested", "Runner needed", "Called waiter" surfaced inline.</li>
+      <li>QR generation and printing per table; table grouping into sections.</li>
+      <li>Configurable diner actions: call waiter, request bill, modify items, split bill, tip.</li>
+      <li>Kitchen routing rules per station (hot kitchen, cold, bar, coffee).</li>
+      <li>Service charge, tipping policy, table-session timeout.</li>
+    </ul>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#contactless/cl-live" target="_blank"><span class="em">🖥</span> Demo: Contactless · Live orders (kanban by table)</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>Where it shines: high-throughput casual, brunch, coffee — places where waiting for service is the bottleneck.</li>
+      <li>The kanban-<em>by-table</em> framing is the difference from Delivery's kanban-<em>by-order</em> — Contactless thinks in sessions, not transactions.</li>
+      <li>Demo: Live orders → show "Bill requested" tag on a table → switch to Tables & QR tab → show QR cards with section colors.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ DELIVERY ============ -->
+<section class="slide service-slide" id="delivery">
+  <div class="service-head">
+    <div class="em-big" style="background:var(--accent-soft);color:#B5572D">🛵</div>
+    <div>
+      <div class="kicker k-coral">Service 6 of 6</div>
+      <h1>Merchant CMS — Delivery</h1>
+      <div class="tag">Off-premise orders, drivers, zones, ETAs, dispatch.</div>
+    </div>
+  </div>
+
+  <div class="service-blocks">
+    <div class="block kw">
+      <h4>Who it's for</h4>
+      <p>Restaurants running off-premise orders — own delivery, pickup, or 3rd-party logistics fallback.</p>
+    </div>
+    <div class="block kw">
+      <h4>Pricing model</h4>
+      <p>Subscription. Add-on, or included in higher Hub tiers — defined dynamically in billing config.</p>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">What it does</h4>
+    <p>Manages every off-premise order from intake through delivery: live order kanban, driver dispatch, delivery zones, ETAs. Wired into the shared menu, customer, and promotion-code services — a delivery order is just another channel.</p>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left-color:var(--ink-soft);background:var(--surface-2)">
+    <h4 style="color:var(--ink-soft)">Key features</h4>
+    <ul>
+      <li>Live order kanban: new → preparing → ready → out for delivery → delivered.</li>
+      <li>Driver roster, live status and location on a map, assignment rules.</li>
+      <li>Delivery zones (polygon), per-zone fees, minimum order, ETA rules.</li>
+      <li>Auto-dispatch with manual override and <strong>3rd-party logistics fallback</strong> (Grab Express, Ahamove, Lalamove).</li>
+      <li>Order channels including direct, GrabFood, ShopeeFood, Beamin — with per-channel commission tracking.</li>
+    </ul>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#delivery/live" target="_blank"><span class="em">🖥</span> Demo: Delivery · Live orders + Drivers map</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>Delivery is the highest-volume add-on potential — and the most ops-heavy. The kanban + driver map answer "what's happening right now" in one screen.</li>
+      <li>3rd-party fallback is the unlock for merchants who don't want to hire drivers — Grab Express / Ahamove fill the gap.</li>
+      <li>Demo: Live orders kanban → ETA breach flag → Drivers tab → map with color-coded pins → Dispatch tab → auto-assign rules.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ SHARED DATA & CROSS-CUTTING ============ -->
+<section class="slide" id="shared">
+  <div class="kicker k-mint">05 · Shared data + cross-cutting</div>
+  <h2>The wedge isn't a service — it's the shared core.</h2>
+  <p class="lede">Menu, customers, staff, and promotion codes are <strong>platform services</strong>, not features of one app. Every service reads from and writes to the same records. Change the menu once → AI Concierge knows new prices · Website rebuilds · Contactless QR landing updates · Delivery shows new items.</p>
+
+  <div class="cat-grid">
+    <div class="cat-card">
+      <div class="em">🍽️</div>
+      <div class="nm">Menu (Content Engine)</div>
+      <div class="desc">Items · categories · modifiers · per-channel pricing · allergens · availability schedules.</div>
+      <div class="tag">Read by all 6 services</div>
+    </div>
+    <div class="cat-card">
+      <div class="em">👥</div>
+      <div class="nm">Customers (Unified CDP)</div>
+      <div class="desc">One profile per diner — orders, bookings, conversations, allergens, tags, spend.</div>
+      <div class="tag">Written to by Delivery, Contactless, Tables, Concierge</div>
+    </div>
+    <div class="cat-card">
+      <div class="em">🧑‍🍳</div>
+      <div class="nm">Staff & Roles</div>
+      <div class="desc">Per-service RBAC — "Cashier" might get Contactless orders only. Audit log of every write.</div>
+      <div class="tag">Permissions enforced at the API, not just UI</div>
+    </div>
+    <div class="cat-card">
+      <div class="em">🏷️</div>
+      <div class="nm">Promotion Code</div>
+      <div class="desc">Codes scoped to specific services (Delivery-only, Contactless-only, or any). Redemptions tracked.</div>
+      <div class="tag">Records redemptions per service</div>
+    </div>
+    <div class="cat-card">
+      <div class="em">📅</div>
+      <div class="nm">Booking Engine</div>
+      <div class="desc">Owned by Table Mgmt. Driven by AI Concierge, Website widget, Public booking page, manual host stand.</div>
+      <div class="tag">Cross-UI writes · single source of truth</div>
+    </div>
+    <div class="cat-card">
+      <div class="em">📡</div>
+      <div class="nm">Event bus</div>
+      <div class="desc">order.completed · booking.created · conversation.escalated. AI Management subscribes broadly for telemetry.</div>
+      <div class="tag">Loose coupling between services</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px;margin-bottom:10px">Why this matters technically</h3>
+  <div class="card">
+    <ul style="font-size:14.5px;line-height:1.7">
+      <li><strong>One menu, six surfaces</strong> — Website, AI Concierge, Contactless QR, Delivery, Table Mgmt floor plan, and the public booking widget all consume the same Content Engine.</li>
+      <li><strong>Customer recognition</strong> — when an AI Concierge chat is identified as a returning customer, the AI knows their allergies, past bookings, and average spend from the CDP automatically.</li>
+      <li><strong>Loose coupling</strong> — services don't call each other directly. They emit events; subscribers react. Adding a 7th service later is additive, not a re-wire.</li>
+      <li><strong>Audit by default</strong> — every write produces a Staff → Activity log entry with actor, action, before/after.</li>
+    </ul>
+  </div>
+
+  <a class="wf-link" href="wireframe.html#concierge/knowledge" target="_blank"><span class="em">🖥</span> Demo: see the shared core in action → Concierge Knowledge tab</a>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Talking points</div>
+    <ul>
+      <li>The Concierge Knowledge tab is the best place to <em>visualize</em> the shared core — show how 8 sources auto-sync from platform services (menu, allergens, hours, CDP, bookings) vs 12 manual sources.</li>
+      <li>This is the moat — competitors can copy any single service, but rebuilding the shared-core architecture takes years.</li>
+      <li>It's also our pricing leverage — the more services a merchant has, the more value the shared core delivers, the more locked-in the relationship becomes.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ============ WHAT'S NEXT ============ -->
+<section class="slide" id="next">
+  <div class="kicker k-coral">06 · What's next</div>
+  <h2>What's decided, what's deferred, what we need from you.</h2>
+
+  <div class="two-col">
+    <div class="card tinted-mint">
+      <h3 style="margin-bottom:10px">✅ Decided in this spec</h3>
+      <ul style="font-size:14px;line-height:1.7">
+        <li>Platform architecture, shared core, contracts.</li>
+        <li>Six service catalog with canonical positioning for all.</li>
+        <li>Tier-and-add-on entitlement model + two pricing shapes.</li>
+        <li>Hub navigation pattern (sidebar + top tabs).</li>
+        <li>Locked-state lifecycle (active → past_due → locked → recovery).</li>
+        <li>Per-service tab IA for all 6 services.</li>
+      </ul>
+    </div>
+    <div class="card tinted-sun">
+      <h3 style="margin-bottom:10px">⏳ Deferred (per-service specs)</h3>
+      <ul style="font-size:14px;line-height:1.7">
+        <li>Detailed feature specs per service (one doc each).</li>
+        <li>Specific tier names, contents, and pricing — owned by business.</li>
+        <li>Message-bus vendor, AI provider mix, warehouse vendor.</li>
+        <li>Detailed RBAC permission catalog per service.</li>
+        <li>Mobile native app strategy beyond responsive web for AI Management.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card tinted-coral" style="margin-top:18px">
+    <h3 style="margin-bottom:10px">🙏 What we need from you (the boss)</h3>
+    <ul style="font-size:14.5px;line-height:1.7">
+      <li>Sign-off on the canonical positioning for all 6 services.</li>
+      <li>Owner for tier definition + pricing (commercial team).</li>
+      <li>Green light on the modular monolith starting architecture (one repo, contract boundaries to enable later split).</li>
+      <li>Priority order for building the per-service specs — which service do we deep-dive next?</li>
+    </ul>
+  </div>
+
+  <h3 style="margin-top:32px;margin-bottom:10px">📂 Artifacts</h3>
+  <div class="cat-grid">
+    <a class="cat-card" href="docs/superpowers/specs/2026-05-12-merchant-hub-platform-design.md" target="_blank" style="text-decoration:none">
+      <div class="em">📄</div>
+      <div class="nm">Platform spec</div>
+      <div class="desc">Full architectural specification · ~1,800 lines · canonical for all 6 services.</div>
+      <div class="tag">Open the markdown spec →</div>
+    </a>
+    <a class="cat-card" href="wireframe.html" target="_blank" style="text-decoration:none">
+      <div class="em">🖥</div>
+      <div class="nm">Interactive wireframe</div>
+      <div class="desc">All 6 services with full tab UI, demo lock/unlock, toasts &amp; modals.</div>
+      <div class="tag">Open in browser →</div>
+    </a>
+    <a class="cat-card" href="#top" style="text-decoration:none">
+      <div class="em">📑</div>
+      <div class="nm">This deck</div>
+      <div class="desc">Walkthrough deck for stakeholder presentations · keyboard nav (← →) · printable.</div>
+      <div class="tag">Back to top →</div>
+    </a>
+  </div>
+
+  <div class="talk">
+    <div class="ttitle">🎤 Closing talking points</div>
+    <ul>
+      <li><strong>Today's ask</strong> — sign-off on canonical positioning + name the priority service for the first deep-dive spec.</li>
+      <li><strong>Next 2 weeks</strong> — write the first per-service spec for the priority service. Brainstorm + design doc + plan, same flow as the platform spec.</li>
+      <li><strong>This quarter</strong> — modular-monolith skeleton with Hub shell + Website Builder + shared core. End-to-end vertical slice merchant can sign into.</li>
+    </ul>
+  </div>
+</section>
+
+
+<footer>
+  Merchant Hub · Platform walkthrough · Generated 2026-05-13<br>
+  Use ← → arrow keys to navigate sections · F11 for fullscreen · Cmd/Ctrl-P to print
+</footer>
+
+<script>
+  // Progress bar
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  // Keyboard navigation between sections
+  const sections = Array.from(document.querySelectorAll('section.slide'));
+  function currentIdx(){
+    const y = window.scrollY + 120;
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.offsetTop <= y) idx = i; });
+    return idx;
+  }
+  function goTo(i){
+    if (i < 0 || i >= sections.length) return;
+    sections[i].scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      goTo(currentIdx() + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      goTo(currentIdx() - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
+    }
+  });
+
+  // Active nav link
+  const navLinks = document.querySelectorAll('.topnav .nav-link');
+  function syncNav(){
+    const cur = sections[currentIdx()];
+    if (!cur) return;
+    const id = cur.id;
+    navLinks.forEach(a => {
+      const active = a.getAttribute('href') === '#' + id;
+      a.style.background = active ? 'var(--surface-2)' : '';
+      a.style.color = active ? 'var(--ink)' : '';
+    });
+  }
+  window.addEventListener('scroll', syncNav, {passive:true});
+  syncNav();
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<h2>How should "today's orders + bookings + quick actions" be organized?</h2>
+<p class="subtitle">Three interpretations of an operational dashboard. Click the one that matches how a merchant owner would want to work.</p>
+
+<div class="cards" data-multiselect>
+
+  <!-- OPTION A: Unified Today feed (inbox) -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:14px;background:#FAFAF7">
+      <div style="font-size:11px;color:#777;margin-bottom:6px">📅 Today — Thu 12 May</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="background:#fff;padding:8px;border-radius:6px;font-size:11px;border-left:3px solid #E07A5F">
+          <strong>11:42</strong> · ⚠️ No-show · Tran, 4p · T2
+          <div style="margin-top:4px;display:flex;gap:4px">
+            <span style="background:#1B4332;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px">SMS</span>
+            <span style="background:#eee;padding:2px 6px;border-radius:4px;font-size:10px">Release</span>
+          </div>
+        </div>
+        <div style="background:#fff;padding:8px;border-radius:6px;font-size:11px;border-left:3px solid #6B7A5C">
+          <strong>11:38</strong> · 🪑 New booking · Le, 4p · 19:00
+          <div style="margin-top:4px;display:flex;gap:4px">
+            <span style="background:#1B4332;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px">Confirm</span>
+            <span style="background:#eee;padding:2px 6px;border-radius:4px;font-size:10px">Message</span>
+          </div>
+        </div>
+        <div style="background:#fff;padding:8px;border-radius:6px;font-size:11px;border-left:3px solid #B59B7E">
+          <strong>11:36</strong> · 📱 Order #142 fired · T4 · ₫186k
+          <div style="margin-top:4px;display:flex;gap:4px">
+            <span style="background:#1B4332;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px">Mark ready</span>
+            <span style="background:#eee;padding:2px 6px;border-radius:4px;font-size:10px">Comp</span>
+          </div>
+        </div>
+        <div style="background:#fff;padding:8px;border-radius:6px;font-size:11px;border-left:3px solid #8B6B9E">
+          <strong>11:34</strong> · 💬 AI escalated · "private event for 30?"
+          <div style="margin-top:4px;display:flex;gap:4px">
+            <span style="background:#1B4332;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px">Take over</span>
+            <span style="background:#eee;padding:2px 6px;border-radius:4px;font-size:10px">Snooze</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · Unified "Today" feed</h3>
+      <p>One chronological stream. Every event — booking, order, message, alert — drops in with quick actions. Like an inbox you work top-down.</p>
+      <p style="font-size:12px;color:#777;margin-top:6px"><strong>Best for:</strong> small teams who want one place to glance and act. <strong>Risk:</strong> chatty during busy service.</p>
+    </div>
+  </div>
+
+  <!-- OPTION B: Channel columns (kanban) -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:14px;background:#FAFAF7">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <div style="background:#fff;border-radius:6px;padding:6px">
+          <div style="font-size:10px;color:#6B7A5C;font-weight:700;margin-bottom:4px">🪑 BOOKINGS · 86</div>
+          <div style="background:#F2F5EE;padding:4px;border-radius:4px;font-size:9px;margin-bottom:3px">Le · 4p · 19:00</div>
+          <div style="background:#F2F5EE;padding:4px;border-radius:4px;font-size:9px;margin-bottom:3px">VIP · 4p · 20:00 ⭐</div>
+          <div style="background:#FAE9E4;padding:4px;border-radius:4px;font-size:9px">⚠️ Tran · no-show</div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:6px">
+          <div style="font-size:10px;color:#B59B7E;font-weight:700;margin-bottom:4px">📱 ORDERS · 9 live</div>
+          <div style="background:#FAF1E8;padding:4px;border-radius:4px;font-size:9px;margin-bottom:3px">#142 · T4 · firing</div>
+          <div style="background:#FAF1E8;padding:4px;border-radius:4px;font-size:9px;margin-bottom:3px">#141 · T7 · ready ✓</div>
+          <div style="background:#FAE9E4;padding:4px;border-radius:4px;font-size:9px">⚠️ #138 · 14m late</div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:6px">
+          <div style="font-size:10px;color:#8B6B9E;font-weight:700;margin-bottom:4px">💬 CHATS · 2 need you</div>
+          <div style="background:#F0EAF5;padding:4px;border-radius:4px;font-size:9px;margin-bottom:3px">"private event for 30"</div>
+          <div style="background:#F0EAF5;padding:4px;border-radius:4px;font-size:9px;margin-bottom:3px">"allergy question"</div>
+          <div style="background:#eee;padding:4px;border-radius:4px;font-size:9px;color:#888">140 handled by AI</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;background:#1B4332;color:#fff;padding:6px;border-radius:6px;font-size:10px;text-align:center">
+        Revenue today ₫4.2M · forecast ₫6.8M · 62% to plan
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · Channel columns (Kanban)</h3>
+      <p>Three columns: Bookings · Orders · Conversations. Each shows live items with status colours and quick actions. Revenue strip pinned at the bottom.</p>
+      <p style="font-size:12px;color:#777;margin-top:6px"><strong>Best for:</strong> managers who own a channel. <strong>Risk:</strong> harder to see priorities across channels.</p>
+    </div>
+  </div>
+
+  <!-- OPTION C: Priority stack (triage) -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:14px;background:#FAFAF7">
+      <div style="background:#1B4332;color:#fff;padding:8px;border-radius:6px;font-size:10px;margin-bottom:8px">
+        <strong>Revenue ₫4.2M today</strong> · 62% to plan · 86 covers
+      </div>
+      <div style="background:#FAE9E4;border:1px solid #E07A5F;border-radius:6px;padding:8px;margin-bottom:6px">
+        <div style="font-size:10px;font-weight:700;color:#A33C1F">⚠️ 3 THINGS NEED YOU NOW</div>
+        <div style="font-size:10px;margin-top:4px">• Tran · no-show, 4p table sitting empty</div>
+        <div style="font-size:10px">• "Private event for 30?" — AI escalated</div>
+        <div style="font-size:10px">• Order #138 — 14min over target</div>
+      </div>
+      <div style="background:#fff;border-radius:6px;padding:8px;font-size:10px">
+        <div style="font-weight:700;margin-bottom:4px">📅 Tonight</div>
+        <div>• 38 bookings · 4 VIPs · staffing OK</div>
+        <div>• Large party 19:30 (8p) — confirm prep</div>
+        <div style="color:#777;margin-top:4px">Weather: clear · sunset 18:14</div>
+      </div>
+      <div style="background:#fff;border-radius:6px;padding:8px;font-size:10px;margin-top:6px">
+        <div style="font-weight:700;margin-bottom:4px">📊 This week</div>
+        <div>Repeat rate −9% (wait times) · 2 ideas worth ₫4M</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · Priority stack (Triage)</h3>
+      <p>Sorted by urgency: revenue + alerts at top, tonight's plan in the middle, weekly decisions at the bottom. Volume work lives in the service pages.</p>
+      <p style="font-size:12px;color:#777;margin-top:6px"><strong>Best for:</strong> owners who want to act on signal, not browse volume. <strong>Risk:</strong> hides the rhythm of the day if you're a hands-on manager.</p>
+    </div>
+  </div>
+
+</div>
+
+<p style="margin-top:16px;color:#666;font-size:13px;text-align:center">
+  Click one (or multiple) to react. Or describe a hybrid in the terminal.
+</p>

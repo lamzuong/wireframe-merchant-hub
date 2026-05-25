@@ -1,0 +1,115 @@
+<h2>Which panels live alongside the feed?</h2>
+<p class="subtitle">Pick the ones a merchant owner would actually use. The feed handles "right now" — these handle "ahead", "across", "around".</p>
+
+<div class="options" data-multiselect>
+
+  <div class="option" data-choice="tonight" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>🌙 Tonight</h3>
+      <p>Forecast for the next service: bookings on the books, expected walk-ins, expected revenue, staffing gap warnings, weather, sunset, large parties / VIPs incoming.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        38 bookings · ~12 walk-ins expected<br>
+        Forecast ₫6.8M · 4 VIPs arriving<br>
+        ⚠️ Short 1 runner from 19:00<br>
+        Weather clear · sunset 18:14
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="week" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>📈 This week — ideas worth money</h3>
+      <p>2–3 recommendations with a ₫ value attached. "Test croissant combo → est ₫4M/mo." Each has Apply / Snooze / Dismiss. Sourced by AI Management.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        🥐 Push croissant combo · est <strong>+₫4.2M/mo</strong><br>
+        💌 Win back 47 dormant guests · est <strong>+₫1.8M</strong><br>
+        ⏰ Move happy hour earlier · est <strong>+₫900k</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="peers" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>🏘️ How I compare (peer benchmarks)</h3>
+      <p>vs. similar coffee shops in District 3. Where you lead, where you trail. The platform's killer differentiator — promised in the spec but missing today.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        Avg ticket   ₫186k  <span style="color:#1B4332">▲ 12% above peers</span><br>
+        Repeat rate    34%  <span style="color:#A33C1F">▼ 8% below peers</span><br>
+        Wait time     22m   <span style="color:#A33C1F">▼ slower than peers</span><br>
+        Covers/day     86   <span style="color:#888">≈ median</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="customers" onclick="toggleSelect(this)">
+    <div class="letter">4</div>
+    <div class="content">
+      <h3>👥 People in your house</h3>
+      <p>Who's arriving / arrived today: VIPs, repeat customers, large parties. Plus dormant customers worth winning back. Read from the CDP.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        ⭐ Mr. Pham · 12th visit · 19:00 · likes corner T3<br>
+        ⭐ Hoang & guests · 8p · 20:00 · birthday<br>
+        47 dormant guests (no visit 60+d) · win back?
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="staff" onclick="toggleSelect(this)">
+    <div class="letter">5</div>
+    <div class="content">
+      <h3>👤 Team today</h3>
+      <p>Who's on, who's late, today's tip leader, who needs coaching. Shift swap requests waiting on you.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        On shift: 4 servers · 2 cooks · 1 runner<br>
+        ⚠️ Linh late 14m · Minh tip leader (₫340k)<br>
+        2 shift swap requests waiting
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="inventory" onclick="toggleSelect(this)">
+    <div class="letter">6</div>
+    <div class="content">
+      <h3>🥩 At risk tonight (inventory)</h3>
+      <p>Stock that might not last service. Pulled from POS depletion + tonight's booking forecast.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        ⚠️ Beef pho · 12 portions left · 18 forecast<br>
+        ⚠️ Croissants · sold out by 14:00 (forecast)<br>
+        OK Vietnamese coffee · plenty
+      </div>
+      <p style="font-size:11px;color:#888;margin-top:4px">Needs POS integration — flag if not in scope yet.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="reviews" onclick="toggleSelect(this)">
+    <div class="letter">7</div>
+    <div class="content">
+      <h3>⭐ Reviews & sentiment (24h)</h3>
+      <p>New reviews across Google / Foody / Zalo. Sentiment trend. Bad reviews already appear in the feed; this panel shows the trend.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        4.6 ★ · 8 new reviews · 1 needs reply<br>
+        Theme: "slow service" mentioned 3× this week
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="upsell" onclick="toggleSelect(this)">
+    <div class="letter">8</div>
+    <div class="content">
+      <h3>🛵 Service you don't have yet</h3>
+      <p>Existing "Delivery CMS upsell" card stays — but only one at a time, and dismissable. Current dashboard puts it as a giant 12-column block; should be smaller.</p>
+      <div style="background:#FAFAF7;padding:8px;border-radius:6px;font-size:11px;margin-top:6px;font-family:monospace">
+        Delivery CMS · est +₫4–7M/mo · 14-day trial
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="margin-top:20px;color:#666;font-size:13px;text-align:center">
+  Multi-select. My pick for v1: <strong>1, 2, 3, 4</strong> (Tonight, This week, Peers, People) + <strong>8</strong> at the bottom small.<br>
+  Skip Staff and Inventory if those data sources aren't ready yet.
+</p>

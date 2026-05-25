@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -c \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html\")",
+      "PowerShell(Set-Content *)",
+      "Bash(node *)",
+      "Bash(/c/Users/ADMIN/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/brainstorming/scripts/start-server.sh *)",
+      "PowerShell($content = Get-Content -Path 'C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html' -Raw -Encoding UTF8; $emojis = [regex]::Matches\\($content, '[\\\\p{So}\\\\p{Cs}]'\\) | ForEach-Object { $_.Value }; $emojis | Group-Object | Sort-Object Count -Descending | Select-Object -First 80 | Format-Table Count, Name -AutoSize)",
+      "PowerShell($lines = Get-Content -Path 'C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html' -Encoding UTF8; $start = 13145; $end = 14769; $section = $lines[$start..$end] -join \"`n\"; $emojis = [regex]::Matches\\($section, '[\\\\p{So}\\\\p{Cs}\\\\p{Sk}]'\\) | ForEach-Object { $_.Value }; $emojis | Group-Object | Sort-Object Count -Descending | Format-Table Count, Name -AutoSize)",
+      "PowerShell($lines = Get-Content -Path 'C:\\\\Users\\\\ADMIN\\\\Desktop\\\\HTML\\\\MerchantHub\\\\wireframe.html' -Encoding UTF8; $start = 13145; $end = 14770; for \\($i = $start; $i -le $end -and $i -lt $lines.Length; $i++\\) { $line = $lines[$i]; if \\([regex]::IsMatch\\($line, '[\\\\p{So}\\\\p{Sk}]'\\) -or [regex]::IsMatch\\($line, '[\\\\uD800-\\\\uDBFF][\\\\uDC00-\\\\uDFFF]'\\)\\) { $emojiOnly = [regex]::Replace\\($line, '[\\\\x00-\\\\x7F]', ''\\); if \\($emojiOnly.Trim\\(\\).Length -gt 0\\) { Write-Output \\(\"{0}: {1}\" -f \\($i+1\\), $line.Trim\\(\\)\\) } } })",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

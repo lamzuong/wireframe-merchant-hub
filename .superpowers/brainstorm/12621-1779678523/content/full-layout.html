@@ -1,0 +1,172 @@
+<h2>Full dashboard — proposed layout</h2>
+<p class="subtitle">Money line on top, feed left, look-ahead rail right, upsell tucked under. React in terminal.</p>
+
+<div class="mockup">
+  <div class="mockup-header">Dashboard · Saigon Coffee · Thu 12 May, 11:42</div>
+  <div class="mockup-body" style="padding:14px;background:#F4F5F0">
+
+    <!-- GREETING + MONEY LINE -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <div>
+        <div style="font-family:Outfit,sans-serif;font-size:18px;font-weight:700">Good afternoon, Chien 👋</div>
+        <div style="font-size:12px;color:#777">Lunch service · 86 of 138 covers booked</div>
+      </div>
+      <div style="font-size:11px;color:#1B4332;background:#E6F0EA;padding:4px 10px;border-radius:99px">● All services healthy</div>
+    </div>
+
+    <!-- MONEY STRIP -->
+    <div style="background:#1B4332;color:#fff;padding:14px 18px;border-radius:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:12px">
+      <div>
+        <div style="font-size:10px;text-transform:uppercase;opacity:.7">Revenue today</div>
+        <div style="font-size:20px;font-weight:700">₫4.2M</div>
+        <div style="font-size:11px;opacity:.85">62% of ₫6.8M forecast · <span style="color:#A8E6B0">▲ 8% vs last Thu</span></div>
+      </div>
+      <div>
+        <div style="font-size:10px;text-transform:uppercase;opacity:.7">Covers</div>
+        <div style="font-size:20px;font-weight:700">86</div>
+        <div style="font-size:11px;opacity:.85">14 seated · 22 free seats</div>
+      </div>
+      <div>
+        <div style="font-size:10px;text-transform:uppercase;opacity:.7">Avg ticket</div>
+        <div style="font-size:20px;font-weight:700">₫186k</div>
+        <div style="font-size:11px;opacity:.85"><span style="color:#A8E6B0">▲ ₫12k vs 4-wk avg</span></div>
+      </div>
+      <div>
+        <div style="font-size:10px;text-transform:uppercase;opacity:.7">Channel mix</div>
+        <div style="font-size:13px;font-weight:700;margin-top:4px">Dine-in 71% · Contactless 22% · Concierge 7%</div>
+        <div style="font-size:11px;opacity:.85">Most contactless on record</div>
+      </div>
+    </div>
+
+    <!-- TWO COLUMN: FEED + RIGHT RAIL -->
+    <div style="display:grid;grid-template-columns:1.7fr 1fr;gap:12px">
+
+      <!-- LEFT — FEED -->
+      <div>
+
+        <!-- Pinned Needs you -->
+        <div style="background:#FCEEEA;border:1px solid #E07A5F;border-radius:10px;padding:12px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div style="font-size:11px;font-weight:700;color:#A33C1F;text-transform:uppercase">📌 Needs you · 4</div>
+            <a style="font-size:11px;color:#A33C1F;text-decoration:underline;cursor:pointer">Open all</a>
+          </div>
+          <div style="background:#fff;padding:8px 10px;border-radius:6px;font-size:11px;margin-bottom:4px;display:flex;justify-content:space-between">
+            <span>⚠️ <strong>11:42</strong> · No-show · Tran 4p · T2 empty</span>
+            <span><span style="background:#1B4332;color:#fff;padding:2px 8px;border-radius:4px">SMS</span> <span style="background:#eee;padding:2px 8px;border-radius:4px">Release</span></span>
+          </div>
+          <div style="background:#fff;padding:8px 10px;border-radius:6px;font-size:11px;margin-bottom:4px;display:flex;justify-content:space-between">
+            <span>💬 <strong>11:38</strong> · AI escalated · "private event for 30?"</span>
+            <span><span style="background:#1B4332;color:#fff;padding:2px 8px;border-radius:4px">Take over</span></span>
+          </div>
+          <div style="background:#fff;padding:8px 10px;border-radius:6px;font-size:11px;margin-bottom:4px;display:flex;justify-content:space-between">
+            <span>📱 <strong>11:36</strong> · Order #138 · 14m over · T7</span>
+            <span><span style="background:#1B4332;color:#fff;padding:2px 8px;border-radius:4px">Check</span> <span style="background:#eee;padding:2px 8px;border-radius:4px">Comp</span></span>
+          </div>
+          <div style="background:#fff;padding:8px 10px;border-radius:6px;font-size:11px;display:flex;justify-content:space-between">
+            <span>⭐ <strong>11:20</strong> · 1★ Google review · "slow service"</span>
+            <span><span style="background:#1B4332;color:#fff;padding:2px 8px;border-radius:4px">Respond</span></span>
+          </div>
+        </div>
+
+        <!-- Activity stream -->
+        <div style="background:#fff;border-radius:10px;padding:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#666">Activity · today</div>
+            <div style="display:flex;gap:6px;font-size:10px">
+              <span style="background:#1B4332;color:#fff;padding:2px 8px;border-radius:99px">All</span>
+              <span style="background:#eee;padding:2px 8px;border-radius:99px">🪑 Bookings</span>
+              <span style="background:#eee;padding:2px 8px;border-radius:99px">📱 Orders</span>
+              <span style="background:#eee;padding:2px 8px;border-radius:99px">💬 Chats</span>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#666;line-height:1.9">
+            <div><strong>11:40</strong> · 🪑 Walk-in seated · 2p · T1</div>
+            <div><strong>11:37</strong> · 🪑 Booking confirmed · Le 4p · 19:00</div>
+            <div><strong>11:35</strong> · 📱 Order #142 fired · T4 · ₫186k</div>
+            <div><strong>11:33</strong> · 📱 Order #141 ready · T7</div>
+            <div><strong>11:31</strong> · 🪑 Booking via website · Pham 3p · 13:00</div>
+            <div><strong>11:30</strong> · 💬 AI booked · Tran 4p · 12:00 (auto)</div>
+            <div><strong>11:28</strong> · 📱 Order #140 paid · ₫212k</div>
+            <div><strong>11:25</strong> · 🪑 Modify · Hoang 8p moved to 20:00</div>
+            <div style="color:#999;font-size:10px;margin-top:8px">Showing 8 of 47 today · <a style="cursor:pointer">load more</a></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT RAIL -->
+      <div>
+
+        <!-- Tonight -->
+        <div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:10px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#666;margin-bottom:6px">🌙 Tonight</div>
+          <div style="font-size:13px;font-weight:700">38 bookings · ~12 walk-ins</div>
+          <div style="font-size:11px;color:#1B4332;margin-bottom:6px">Forecast ₫6.8M · 4 VIPs incoming</div>
+          <div style="background:#FCEEEA;border-left:3px solid #E07A5F;padding:6px 8px;border-radius:4px;font-size:11px;margin-bottom:4px">⚠️ Short 1 runner from 19:00</div>
+          <div style="font-size:11px;color:#666">Weather clear · sunset 18:14</div>
+        </div>
+
+        <!-- This week -->
+        <div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:10px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#666;margin-bottom:6px">📈 This week · ideas worth money</div>
+          <div style="font-size:11px;margin-bottom:6px;padding:6px;background:#F4F5F0;border-radius:6px">
+            🥐 Push croissant combo<br>
+            <span style="color:#1B4332;font-weight:700">+₫4.2M/mo est</span> · <a style="cursor:pointer">Apply</a> · <a style="cursor:pointer;color:#888">Snooze</a>
+          </div>
+          <div style="font-size:11px;margin-bottom:6px;padding:6px;background:#F4F5F0;border-radius:6px">
+            💌 Win back 47 dormant<br>
+            <span style="color:#1B4332;font-weight:700">+₫1.8M est</span> · <a style="cursor:pointer">Apply</a>
+          </div>
+          <div style="font-size:11px;padding:6px;background:#F4F5F0;border-radius:6px">
+            ⏰ Move happy hour earlier<br>
+            <span style="color:#1B4332;font-weight:700">+₫900k est</span> · <a style="cursor:pointer">Apply</a>
+          </div>
+        </div>
+
+        <!-- Peers -->
+        <div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:10px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#666;margin-bottom:6px">🏘️ vs. peers in D3</div>
+          <div style="font-size:11px;line-height:1.8">
+            Avg ticket <span style="color:#1B4332;float:right">▲ 12%</span><br>
+            Repeat rate <span style="color:#A33C1F;float:right">▼ 8%</span><br>
+            Wait time <span style="color:#A33C1F;float:right">▼ slower</span><br>
+            Covers/day <span style="color:#888;float:right">≈ median</span>
+          </div>
+        </div>
+
+        <!-- People -->
+        <div style="background:#fff;border-radius:10px;padding:12px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#666;margin-bottom:6px">👥 In your house</div>
+          <div style="font-size:11px;line-height:1.6">
+            ⭐ Pham · 12th visit · 19:00<br>
+            ⭐ Hoang & 7 · 20:00 · 🎂 birthday<br>
+            ⭐ Le · 1st return after 90d<br>
+            <a style="font-size:11px;color:#1B4332;cursor:pointer">3 more · open CDP</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- UPSELL (small) -->
+    <div style="margin-top:12px;background:#EEF5F1;border:1px solid #BDD4C8;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;font-size:12px">
+      <span style="font-size:18px">🛵</span>
+      <div style="flex:1">
+        <strong>Delivery CMS</strong> · est +₫4–7M/mo for shops like yours · 14-day trial
+      </div>
+      <span style="background:#1B4332;color:#fff;padding:4px 10px;border-radius:6px;cursor:pointer">Try</span>
+      <span style="color:#888;cursor:pointer;font-size:11px">Dismiss</span>
+    </div>
+
+  </div>
+</div>
+
+<div style="margin-top:16px;background:#FAFAF7;padding:14px;border-radius:8px;font-size:13px;line-height:1.6">
+  <strong>Things to react to:</strong><br>
+  · The <strong>money strip</strong> at the top — too dense? right metrics? want forecast bar?<br>
+  · The <strong>"Needs you" block</strong> — pink/coral OK or too alarming?<br>
+  · The <strong>activity stream filters</strong> (All / Bookings / Orders / Chats) — useful?<br>
+  · The <strong>right rail</strong> — order good? Anything missing or oversized?<br>
+  · The <strong>upsell strip</strong> at bottom — small enough now?<br>
+  · Anything missing that you'd want on the merchant's first screen?
+</div>

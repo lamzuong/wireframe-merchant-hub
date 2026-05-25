@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MerchantHub · Tsui Wah Daily</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:#1b4332;
+    --leaf:#245842;
+    --sage:#dce7d6;
+    --sage-deep:#b8cdb2;
+    --cream:#fdf9ef;
+    --paper:#f7f1e3;
+    --clay:#9a4530;
+    --clay-soft:#f4e1d6;
+    --honey:#c8901a;
+    --honey-soft:#f9e8c2;
+    --rule:#e8dfca;
+    --ink:#1f2a24;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; }
+  body {
+    font-family:'Quicksand', system-ui, sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(200,144,26,.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 100%, rgba(27,67,50,.10), transparent 55%),
+      var(--cream);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    padding:32px 24px;
+  }
+  .frame {
+    max-width:980px;
+    margin:auto;
+    width:100%;
+    border:1px solid var(--rule);
+    background:#fff;
+    border-radius:22px;
+    padding:48px 56px 40px;
+    box-shadow:0 30px 60px -30px rgba(31,42,36,.18);
+    position:relative;
+    overflow:hidden;
+  }
+  .frame::before {
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0;
+    height:6px;
+    background:linear-gradient(90deg, var(--forest), var(--leaf) 40%, var(--honey) 70%, var(--clay));
+  }
+  .eyebrow {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--leaf);
+    margin-bottom:18px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content:'';
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+  h1 {
+    font-family:'Outfit', sans-serif;
+    font-weight:800;
+    font-size:clamp(40px, 6vw, 68px);
+    line-height:1.02;
+    letter-spacing:-.02em;
+    color:var(--forest);
+    text-align:center;
+  }
+  h1 em {
+    font-style:italic;
+    font-weight:500;
+    color:var(--clay);
+    font-family:'Quicksand', sans-serif;
+  }
+  .lede {
+    text-align:center;
+    margin:18px auto 0;
+    max-width:560px;
+    color:#4a5450;
+    font-size:16px;
+    line-height:1.55;
+  }
+  .rule {
+    height:1px;
+    background:var(--rule);
+    margin:36px 0;
+    position:relative;
+  }
+  .rule::after {
+    content:'§';
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    padding:0 14px;
+    color:var(--honey);
+    font-family:'Outfit', serif;
+    font-size:18px;
+  }
+  .grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  @media (max-width:680px) {
+    .grid { grid-template-columns:1fr; }
+    .frame { padding:36px 24px 28px; }
+  }
+  .card {
+    border:1px solid var(--rule);
+    border-radius:16px;
+    padding:26px 24px 22px;
+    background:var(--cream);
+    text-decoration:none;
+    color:inherit;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover {
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px -22px rgba(27,67,50,.4);
+    border-color:var(--sage-deep);
+  }
+  .card .num {
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    color:var(--clay);
+    text-transform:uppercase;
+  }
+  .card h2 {
+    font-family:'Outfit', sans-serif;
+    font-size:24px;
+    font-weight:700;
+    color:var(--forest);
+    letter-spacing:-.01em;
+  }
+  .card p {
+    font-size:14px;
+    color:#5a635e;
+    line-height:1.5;
+  }
+  .card .go {
+    margin-top:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--leaf);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .card .go::after {
+    content:'→';
+    font-family:'Outfit', sans-serif;
+    font-size:14px;
+    transition:transform .25s ease;
+  }
+  .card:hover .go::after {
+    transform:translateX(4px);
+  }
+  .colophon {
+    margin-top:32px;
+    text-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:#8a948f;
+  }
+  .colophon span { color:var(--honey); }
+</style>
+</head>
+<body>
+  <main class="frame">
+    <div class="eyebrow">Vol. I · No. 01 · Singapore Edition</div>
+    <h1>Tsui Wah <em>Daily</em><br/>MerchantHub</h1>
+    <p class="lede">An editorial wireframe and pitch deck for the restaurant operations platform. Choose your reading below.</p>
+
+    <div class="rule"></div>
+
+    <div class="grid">
+      <a class="card" href="wireframe.html">
+        <span class="num">Nº 01 · The Floor Plan</span>
+        <h2>Product Wireframe</h2>
+        <p>The full operator surface — bookings, menu, delivery, AI concierge, the works. Long form.</p>
+        <span class="go">Open wireframe</span>
+      </a>
+      <a class="card" href="presentation.html">
+        <span class="num">Nº 02 · The Brief</span>
+        <h2>Pitch Presentation</h2>
+        <p>A condensed walk-through of the platform's story, scope and design language.</p>
+        <span class="go">Open presentation</span>
+      </a>
+    </div>
+
+    <div class="colophon">Printed on the web · <span>est. 2026</span> · all stories filed from the kitchen pass</div>
+  </main>
+</body>
+</html>
